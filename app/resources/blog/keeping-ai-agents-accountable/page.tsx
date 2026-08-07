@@ -41,8 +41,8 @@ export default function Post() {
 
       <h2>Autonomy should be a dial, not a switch</h2>
       <p>
-        Not every domain deserves the same level of independence. A useful model has
-        three tiers you can set per domain:
+        Not every task deserves the same level of independence. A useful way to reason
+        about how much authority to extend to an agent is to think in three tiers:
       </p>
       <ul>
         <li>
@@ -58,8 +58,10 @@ export default function Post() {
         </li>
       </ul>
       <p>
-        Low-risk catalog hygiene can run autonomously while export-controlled data
-        stays strictly advisory — in the same program.
+        Low-risk catalog hygiene sits toward the autonomous end while export-controlled
+        data stays strictly advisory. Procela&apos;s agents today are AI-assisted,
+        scheduled, and review-gated — a human confirms their work before it takes
+        effect — which keeps them on the accountable side of that dial.
       </p>
 
       <h2>Accountability is what makes autonomy safe</h2>

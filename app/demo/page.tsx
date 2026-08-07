@@ -6,7 +6,7 @@ import DemoForm from "@/components/DemoForm";
 export const metadata: Metadata = {
   title: "Request a demo — Procela",
   description:
-    "See Procela against your environment. Request a walkthrough of the data governance orchestration platform.",
+    "See Procela against your environment. Request a walkthrough of the business-process-first data governance platform.",
 };
 
 export default function DemoPage() {

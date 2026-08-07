@@ -8,7 +8,7 @@ import BrowserFrame from "@/components/BrowserFrame";
 export const metadata: Metadata = {
   title: "Security — Procela",
   description:
-    "Procela is built for regulated environments: no data egress, edge agents with mTLS, tamper-evident audit logs, and support for ITAR, CMMC, CUI, HIPAA, and SOC 2.",
+    "Procela is built for regulated environments: no data egress, an edge connector over outbound HTTPS, tamper-evident audit logs, and designed to support programs operating under frameworks like ITAR, CMMC, CUI, HIPAA, and SOC 2.",
 };
 
 const PRINCIPLES: { icon: IconName; kicker: string; title: string; body: string }[] = [
@@ -16,25 +16,25 @@ const PRINCIPLES: { icon: IconName; kicker: string; title: string; body: string 
     icon: "shield",
     kicker: "No data egress",
     title: "Your data never leaves your perimeter",
-    body: "Procela Edge Agents run inside your environment and send only metadata to the platform. Source data stays put — making Procela suitable for the most restricted environments.",
+    body: "The Procela edge connector runs inside your environment and sends only metadata to the platform. Source data stays put — making Procela suitable for the most restricted environments.",
   },
   {
     icon: "edge",
-    kicker: "Edge agents",
-    title: "Push-down profiling, in your infrastructure",
-    body: "Agents deploy via Kubernetes or Helm and profile data where it lives. They authenticate with mTLS and carry a tamper-evident audit log of everything they do.",
+    kicker: "Edge connector",
+    title: "Metadata scanning, in your infrastructure",
+    body: "The connector deploys via Kubernetes or Helm and reads schema, table, and column metadata where the data lives — never row values. It authenticates with a bearer token over outbound HTTPS and carries a tamper-evident audit log of everything it does.",
   },
   {
     icon: "audit",
     kicker: "Auditability",
     title: "Every action is logged and attributable",
-    body: "Classifications, assignments, policy changes, and access events are captured in an append-only trail tied to a named principal — human or AI — so audits become a query.",
+    body: "Classifications, assignments, and policy changes are captured in an append-only trail tied to a named principal — human or AI — so audits become a query.",
   },
   {
     icon: "lock",
     kicker: "Least privilege",
     title: "Explicit authority for every principal",
-    body: "The principal model scopes exactly what each steward, owner, and agent may do. AI agents operate under three-tier autonomy controls you configure per domain.",
+    body: "The principal model scopes exactly what each steward, owner, and agent may do. AI agents operate under review-gated controls, so proposed changes are approved before they take effect.",
   },
 ];
 
@@ -94,8 +94,9 @@ export default function SecurityPage() {
           <span className="eyebrow">Compliance</span>
           <h2 className="section-title">Aligned to the frameworks you answer to</h2>
           <p className="section-body">
-            Procela&apos;s architecture — no data egress, mTLS identity, and complete audit
-            trails — is built to support governance programs operating under:
+            Procela&apos;s architecture — no data egress, an edge connector over outbound
+            HTTPS, and tamper-evident audit trails — is designed to support governance
+            programs operating under frameworks like:
           </p>
           <div className="pill-row">
             {COMPLIANCE.map((c) => (

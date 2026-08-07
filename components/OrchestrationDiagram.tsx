@@ -35,7 +35,7 @@ const OUTPUTS: Box[] = [
   { y: 124, delay: ".64s", title: "Data health", sub: "Quality across the estate" },
   { y: 208, delay: ".70s", title: "Ownership &", title2: "accountability" },
   { y: 292, delay: ".76s", title: "Audit readiness", sub: "Compliant on demand" },
-  { y: 376, delay: ".82s", title: "Reduced risk", sub: "Policy enforced automatically" },
+  { y: 376, delay: ".82s", title: "Reduced risk", sub: "Policies & controls tracked" },
 ];
 
 const ROI: Roi[] = [
@@ -139,7 +139,7 @@ export default function OrchestrationDiagram() {
   return (
     <div className="orchestration-diagram">
       <svg width="100%" viewBox="0 0 680 610" xmlns="http://www.w3.org/2000/svg">
-        <title>Procela orchestration diagram</title>
+        <title>Procela governance diagram</title>
         <defs>
           <marker id="arr-in" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M2 1L8 5L2 9" fill="none" stroke="#4A8C6A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -185,7 +185,7 @@ export default function OrchestrationDiagram() {
           <rect x="278" y="170" width="124" height="114" rx="14" fill="#E8F3EC" stroke="#4A8C6A" strokeWidth="1.5" />
           <image href="/procela_avatar.jpg" x="322" y="200" width="36" height="36" clipPath="url(#avatar-clip)" preserveAspectRatio="xMidYMid slice" />
           <circle cx="340" cy="220" r="18" fill="none" stroke="#4A8C6A" strokeWidth="1.5" />
-          <text x="340" y="262" textAnchor="middle" style={{ fontSize: "11px", letterSpacing: ".09em", fill: "#3D7558" }}>ORCHESTRATION</text>
+          <text x="340" y="262" textAnchor="middle" style={{ fontSize: "11px", letterSpacing: ".09em", fill: "#3D7558" }}>GOVERNANCE</text>
         </g>
 
         {/* Outputs */}
@@ -195,7 +195,7 @@ export default function OrchestrationDiagram() {
 
         {/* ROI strip */}
         <line x1="20" y1="462" x2="660" y2="462" stroke="#d3d1c7" strokeWidth="0.5" />
-        <text x="340" y="484" textAnchor="middle" style={labelStyle}>ROI</text>
+        <text x="340" y="484" textAnchor="middle" style={labelStyle}>ILLUSTRATIVE TARGETS</text>
         {ROI.map((r) => (
           <g className="ri nh" style={{ animationDelay: r.delay }} key={`roi-${r.x}`}>
             <rect x={r.x} y="494" width={r.w} height="104" rx="10" fill="#f1efe8" stroke="#d3d1c7" strokeWidth="0.5" />

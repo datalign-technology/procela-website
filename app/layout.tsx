@@ -29,14 +29,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Procela — Enterprise Data Governance Platform",
   description:
-    "Procela is the orchestration layer that connects your stewards, policies, tools, and data assets into a single, auditable governance program.",
+    "Procela is a business-process-first governance platform that aligns people, process, systems, and data into a single, auditable governance program.",
   keywords: [
     "data governance",
-    "governance orchestration",
+    "business process governance",
+    "governance catalog",
     "data stewardship",
     "policy management",
-    "BigID",
-    "Immuta",
+    "data lineage",
+    "audit trail",
     "regulated enterprise",
     "CMMC",
     "ITAR",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Procela — Enterprise Data Governance Platform",
     description:
-      "The orchestration layer that aligns people, process, systems, and data into a single, auditable governance program.",
+      "Business-process-first governance that aligns people, process, systems, and data into a single, auditable governance program.",
     siteName: "Procela",
     images: [
       {
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Procela — Enterprise Data Governance Platform",
     description:
-      "The orchestration layer that aligns people, process, systems, and data into a single, auditable governance program.",
+      "Business-process-first governance that aligns people, process, systems, and data into a single, auditable governance program.",
     images: ["/og.png"],
   },
 };
@@ -86,7 +87,7 @@ export default function RootLayout({
     url: siteUrl,
     logo: `${siteUrl}/procela-icon.svg`,
     description:
-      "Procela is the orchestration layer that connects stewards, policies, tools, and data assets into a single, auditable data governance program.",
+      "Procela is a business-process-first governance platform that aligns people, process, systems, and data into a single, auditable data governance program.",
     sameAs: [] as string[],
   };
 

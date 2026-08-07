@@ -41,19 +41,19 @@ export default function Post() {
 
       <h2>The missing layer</h2>
       <p>
-        What&apos;s missing is orchestration — a layer that turns scattered tools,
-        people, and policies into one coordinated system. Assignments route
-        automatically. Policies propagate to enforcement. Every action lands in an
-        audit trail. That&apos;s the difference between a framework and a running
-        program.
+        What&apos;s missing is a connective governance layer — one that ties scattered
+        tools, people, and policies to the business processes they serve. Owners and
+        stewards are explicit. Policies and controls are recorded against the assets
+        they govern. Every action lands in an audit trail. That&apos;s the difference
+        between a framework and a running program.
       </p>
 
       <h2>Start narrow, then let it compound</h2>
       <p>
         The programs that succeed don&apos;t try to govern everything on day one. They
         pick their highest-priority domains, close the loop there, and prove it holds
-        under audit. Once the orchestration, stewardship, and audit trail exist,
-        expanding is mostly a matter of adding domains — the hard part is already done.
+        under audit. Once the catalog, stewardship, and audit trail exist, expanding is
+        mostly a matter of adding domains — the hard part is already done.
       </p>
 
       <h2>The takeaway</h2>

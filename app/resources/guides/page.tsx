@@ -7,7 +7,7 @@ import CtaBand from "@/components/CtaBand";
 export const metadata: Metadata = {
   title: "Guides & whitepapers — Procela",
   description:
-    "In-depth guides and whitepapers on data governance orchestration, the principal model, edge-agent architecture, and standing up a governance program.",
+    "In-depth guides and whitepapers on business-process-first data governance, the principal model, the edge connector, and standing up a governance program.",
 };
 
 const GUIDES = [
@@ -25,8 +25,8 @@ const GUIDES = [
   },
   {
     kicker: "Architecture",
-    title: "Edge Agents and the no-egress deployment model",
-    body: "How push-down profiling and mTLS identity keep source data inside your perimeter.",
+    title: "The edge connector and the no-egress deployment model",
+    body: "How metadata-only scanning over outbound HTTPS keeps source data inside your perimeter.",
     href: "/resources/edge-agents",
   },
 ];

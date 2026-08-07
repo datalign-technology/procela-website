@@ -14,27 +14,27 @@ const STEPS = [
   {
     n: "01",
     title: "Connect",
-    body: "Deploy Procela Edge Agents inside your environment and connect your existing discovery, catalog, and access-control tools. No data leaves your perimeter — only metadata flows to the platform.",
+    body: "Deploy the Procela edge connector inside your environment and point it at your databases, warehouses, and dbt — PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Snowflake, BigQuery, Redshift, Databricks. It reads schema, table, and column metadata where the data lives. No data leaves your perimeter — only metadata flows to the platform.",
   },
   {
     n: "02",
     title: "Classify",
-    body: "Pull in classified assets from tools like BigID, reconcile them against your domains, and let Procela's agents propose classifications for anything unlabeled — routed for review at the autonomy tier you choose.",
+    body: "Reconcile discovered assets against your domains, and let Procela's AI agents propose classifications for anything unlabeled — routed for review before anything is applied.",
   },
   {
     n: "03",
     title: "Assign",
-    body: "Map assets to data domains and assign owners, stewards, and agents. Procela distributes stewardship automatically based on your org structure, so accountability is explicit from day one.",
+    body: "Map assets to data domains and assign owners, stewards, and agents. Procela suggests stewardship based on your org structure, so accountability is explicit from day one.",
   },
   {
     n: "04",
     title: "Govern",
-    body: "Define policies in plain language. Procela translates them into enforceable rules and propagates them to your enforcement tools — access, retention, export controls — keeping everything in sync.",
+    body: "Define policies in plain language. Procela records them as policies and controls against the assets they govern — access, retention, export controls — and tracks them in one place.",
   },
   {
     n: "05",
     title: "Audit",
-    body: "Every classification, assignment, policy change, and access event is captured in a tamper-evident log. Audit prep becomes a query, not a fire drill.",
+    body: "Every classification, assignment, and policy change is captured in a tamper-evident log. Audit prep becomes a query, not a fire drill.",
   },
 ];
 
@@ -77,12 +77,13 @@ export default function HowItWorksPage() {
       <section className="section">
         <div className="section-inner">
           <span className="eyebrow">The closed loop</span>
-          <h2 className="section-title">Governance that maintains itself</h2>
+          <h2 className="section-title">Governance that keeps pace</h2>
           <p className="section-body">
-            Once the baseline is live, Procela keeps the loop running: new assets are
-            discovered and classified, stewardship is assigned, policies propagate, and
-            the audit trail updates — continuously, without manual intervention. Your
-            team supervises exceptions instead of doing the busywork.
+            Once the baseline is live, Procela keeps the loop moving: new assets are
+            discovered and proposed for classification, stewardship is assigned, policies
+            and controls are recorded, and the audit trail updates. Scheduled, AI-assisted
+            agents surface the work; your team reviews and approves it instead of doing
+            the busywork.
           </p>
         </div>
       </section>

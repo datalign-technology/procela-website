@@ -7,7 +7,7 @@ export default function SiteHeader() {
     <>
       <div className="announcement">
         <span className="ann-badge">New</span>
-        Introducing Procela — governance orchestration for regulated enterprises.{" "}
+        Introducing Procela — business-process-first governance for regulated enterprises.{" "}
         <Link className="ann-link" href="/demo">
           Request a demo →
         </Link>

@@ -8,19 +8,20 @@ import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
 
 const INTEGRATIONS = [
-  "BigID",
-  "Immuta",
-  "Databricks",
   "Snowflake",
-  "AWS",
-  "Microsoft Purview",
-  "Collibra",
+  "Databricks",
+  "BigQuery",
+  "Redshift",
+  "PostgreSQL",
+  "SQL Server",
+  "Oracle",
+  "dbt",
 ];
 
 const STATS = [
   { num: "4", label: "Governance pillars in one platform" },
   { num: "5", label: "Steps in the DG Foundation track" },
-  { num: "3", label: "Autonomy tiers for human & AI actors" },
+  { num: "3", label: "Bronze, Silver & Gold governance tiers" },
   { num: "0", label: "Data moved outside your environment" },
 ];
 
@@ -31,29 +32,29 @@ const VERTICALS = [
   },
   {
     vertical: "Financial Services",
-    body: "Connect discovery and access-control tools into one orchestrated program, with continuous, audit-ready lineage that shrinks audit prep from weeks to days.",
+    body: "Map the processes behind your data and record the policies and controls that govern them, with audit-ready lineage that helps shrink audit prep from weeks to days.",
   },
   {
     vertical: "Healthcare & Life Sciences",
-    body: "Enforce HIPAA, SOC 2, and internal policy through a single policy layer your stewards actually use — backed by a complete, tamper-evident audit trail.",
+    body: "Track HIPAA, SOC 2, and internal policy in one place your stewards actually use — backed by a complete, tamper-evident audit trail.",
   },
 ];
 
 const STACK = [
   {
-    role: "Discovery & classification",
-    name: "BigID",
-    desc: "Scans and classifies sensitive data across hybrid environments.",
+    role: "Your data sources",
+    name: "Snowflake · Postgres · Oracle",
+    desc: "Databases and warehouses where your data lives — Procela connects to read metadata only.",
   },
   {
-    role: "Access policy enforcement",
-    name: "Immuta",
-    desc: "Attribute-based access control at the data platform layer.",
+    role: "Your transformation layer",
+    name: "dbt · Databricks",
+    desc: "Models and pipelines that shape your data, mapped to the processes they serve.",
   },
   {
-    role: "Governance orchestration",
+    role: "Business-process governance",
     name: "Procela",
-    desc: "The connective layer — people, process, systems, and data aligned in one program.",
+    desc: "The layer that ties people, process, systems, and data into one auditable program.",
     featured: true,
   },
 ];
@@ -75,8 +76,9 @@ export default function Home() {
             and data
           </h1>
           <p className="hero-sub">
-            Procela is the orchestration layer that connects your stewards,
-            policies, tools, and data assets into a single, auditable governance
+            Procela is a business-process-first governance platform. It maps how
+            your business works to the data and systems behind it — aligning
+            people, process, tools, and data into a single, auditable governance
             program.
           </p>
           <div className="hero-actions">
@@ -99,7 +101,7 @@ export default function Home() {
 
       {/* LOGO STRIP */}
       <div className="logo-strip">
-        <span className="logo-strip-label">Designed to integrate with</span>
+        <span className="logo-strip-label">Connects to your data sources</span>
         {INTEGRATIONS.map((name) => (
           <span key={name} className="logo-pill">
             {name}
@@ -124,11 +126,12 @@ export default function Home() {
         <div className="section-inner">
           <span className="eyebrow">The problem</span>
           <h2 className="section-title">
-            Governance without orchestration is just documentation
+            Governance without process context is just documentation
           </h2>
           <p className="section-body">
-            Most programs have the tools. What they&apos;re missing is the connective
-            layer that turns scattered policies into a running program.
+            Most programs have the tools. What they&apos;re missing is the
+            business-process context that ties scattered policies to the data and
+            owners behind them.
           </p>
           <div className="contrast-grid">
             <div className="contrast-side">
@@ -156,13 +159,13 @@ export default function Home() {
                 With Procela
               </div>
               <div className="contrast-heading">
-                One orchestration layer. Connected tools. A governance program that
-                runs itself.
+                One governance program. Process context. People, systems, and data
+                aligned.
               </div>
               <p className="contrast-body">
-                Stewards receive assignments automatically. Policies propagate from
-                business rules. Discovery, classification, access, and audit close the
-                loop — continuously, without manual intervention.
+                Owners and RACI roles are assigned to every process. Policies and
+                controls are recorded against the assets they govern. Gaps, lineage,
+                and a tamper-evident audit trail close the loop.
               </p>
             </div>
           </div>
@@ -207,11 +210,12 @@ export default function Home() {
         <div className="section-inner">
           <span className="eyebrow">Integrations</span>
           <h2 className="section-title">
-            The orchestration layer above your data security stack
+            Procela complements your data stack
           </h2>
           <p className="section-body">
-            Procela works alongside your existing tools — adding governance
-            orchestration without replacing what&apos;s already working.
+            Procela sits alongside your existing databases, warehouses, and tools —
+            connecting to your sources for metadata-only governance without replacing
+            what&apos;s already working.
           </p>
           <div className="stack-row">
             {STACK.map((item) => (
