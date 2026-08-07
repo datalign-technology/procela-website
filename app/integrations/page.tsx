@@ -6,44 +6,59 @@ import CtaBand from "@/components/CtaBand";
 export const metadata: Metadata = {
   title: "Integrations — Procela",
   description:
-    "Procela orchestrates the data governance stack you already run — BigID, Immuta, Databricks, Snowflake, AWS, Microsoft Purview, Collibra, and more.",
+    "Metadata-only connectors for the data sources you already run — PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Snowflake, BigQuery, Redshift, Databricks, and dbt.",
 };
 
 const INTEGRATIONS = [
   {
-    role: "Discovery & classification",
-    name: "BigID",
-    desc: "Designed to pull BigID's classified assets in as governed objects in your program.",
-  },
-  {
-    role: "Access policy enforcement",
-    name: "Immuta",
-    desc: "Designed to drive Immuta's attribute-based access controls from policies Procela propagates downstream.",
-  },
-  {
-    role: "Data platform",
-    name: "Databricks",
-    desc: "Designed to map ownership and policy to Unity Catalog objects, governing lakehouse assets in place.",
-  },
-  {
-    role: "Data platform",
+    role: "Warehouse",
     name: "Snowflake",
-    desc: "Designed to apply stewardship and policy to Snowflake databases, schemas, and tables without moving data.",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
   },
   {
-    role: "Cloud",
-    name: "AWS",
-    desc: "Edge Agents designed to run inside your VPC for push-down profiling of S3, RDS, Redshift, and more.",
+    role: "Lakehouse",
+    name: "Databricks",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
   },
   {
-    role: "Catalog & governance",
-    name: "Microsoft Purview",
-    desc: "Designed to complement Purview's catalog with Procela's orchestration for stewardship and policy execution.",
+    role: "Warehouse",
+    name: "BigQuery",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
   },
   {
-    role: "Catalog",
-    name: "Collibra",
-    desc: "Designed to run alongside an existing catalog — coordinating the program rather than replacing your metadata store.",
+    role: "Warehouse",
+    name: "Redshift",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+  },
+  {
+    role: "Database",
+    name: "PostgreSQL",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+  },
+  {
+    role: "Database",
+    name: "MySQL",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+  },
+  {
+    role: "Database",
+    name: "SQL Server",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+  },
+  {
+    role: "Database",
+    name: "Oracle",
+    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+  },
+  {
+    role: "Database",
+    name: "MongoDB",
+    desc: "Scans collection and field metadata to build a governed catalog — audit-only, no data moved.",
+  },
+  {
+    role: "Transformation",
+    name: "dbt",
+    desc: "Reads model, source, and lineage metadata from dbt and dbt Cloud to enrich the governed catalog — audit-only, no data moved.",
   },
 ];
 
@@ -55,22 +70,23 @@ export default function IntegrationsPage() {
       <div className="page-hero">
         <div className="page-hero-inner">
           <span className="hero-eyebrow">Integrations</span>
-          <h1>The orchestration layer above your stack</h1>
+          <h1>Metadata-only connectors for the data sources you run</h1>
           <p>
-            Procela is designed to integrate with the tools you already run — adding
-            governance orchestration without ripping and replacing what&apos;s working.
+            Procela connects to the databases, warehouses, and transformation tools you
+            already run — building a governed catalog from metadata alone, without ripping
+            and replacing what&apos;s working.
           </p>
         </div>
       </div>
 
       <section className="section">
         <div className="section-inner">
-          <span className="eyebrow">Designed to integrate with</span>
-          <h2 className="section-title">Procela coordinates, your stack executes</h2>
+          <span className="eyebrow">Connects to</span>
+          <h2 className="section-title">Your data stays put. Only metadata flows to Procela.</h2>
           <p className="section-body">
-            Discovery, classification, access control, and cataloging stay where they
-            are. Procela is designed to connect them into one coordinated governance
-            program.
+            Your databases, warehouses, and transformation tools stay where they are.
+            Procela sits alongside them — reading schema, table, and column metadata to
+            build a single governed catalog, and complementing the sources you already run.
           </p>
           <div className="card-grid">
             {INTEGRATIONS.map((i) => (
@@ -88,19 +104,21 @@ export default function IntegrationsPage() {
 
       <section className="section">
         <div className="section-inner">
-          <span className="eyebrow">Don&apos;t see yours?</span>
-          <h2 className="section-title">Built to connect to what you run</h2>
+          <span className="eyebrow">How it connects</span>
+          <h2 className="section-title">An edge connector inside your perimeter</h2>
           <p className="section-body">
-            Procela&apos;s Edge Agent framework and open connectors are designed to reach
-            the sources and tools specific to regulated environments. Tell us your
-            stack and we&apos;ll map the integration path.
+            The on-prem edge connector runs inside your VPC or data center. It reads
+            schema, table, and column metadata plus row counts — never values — and sends
+            only that metadata to Procela over outbound HTTPS with a bearer token. No column
+            values, no records, no file contents ever leave your perimeter. Procela runs on
+            AWS (ECS/RDS) or fully on-prem via Helm and Kubernetes.
           </p>
         </div>
       </section>
 
       <CtaBand
         title="Connect Procela to your environment"
-        body="Bring your stack — we'll show you how the orchestration layer fits on top."
+        body="Bring your sources — we'll show you how the edge connector builds a governed catalog from metadata alone."
         secondaryLabel="How it works"
         secondaryHref="/how-it-works"
       />

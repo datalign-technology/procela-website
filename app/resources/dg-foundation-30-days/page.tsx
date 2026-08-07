@@ -27,13 +27,13 @@ export default function Article() {
       <h2>What a &ldquo;baseline&rdquo; actually means</h2>
       <p>
         A governance baseline isn&apos;t a finished program; it&apos;s the smallest
-        version that runs on its own. Concretely, at the end of the first phase you
+        version that stands on its own. Concretely, at the end of the first phase you
         should have:
       </p>
       <ul>
         <li>Your highest-priority data domains modeled and connected;</li>
         <li>Owners and stewards assigned, with explicit authority;</li>
-        <li>A working policy layer that propagates to your enforcement tools; and</li>
+        <li>Policies and controls recorded against the assets they govern; and</li>
         <li>Audit-ready lineage on every governed asset.</li>
       </ul>
       <p>
@@ -43,8 +43,9 @@ export default function Article() {
 
       <h2>Week 1 — Connect and scope</h2>
       <p>
-        Deploy Procela Edge Agents inside your environment and connect your existing
-        discovery, catalog, and access-control tools. Only metadata leaves your
+        Deploy Procela&apos;s edge connector inside your environment and connect your
+        databases, warehouses, and dbt — sources like PostgreSQL, SQL Server, Oracle,
+        Snowflake, BigQuery, Redshift, and Databricks. Only metadata leaves your
         perimeter. In parallel, pick the domains for Phase 1 — usually the ones under
         the most regulatory pressure, such as CUI, PII, or export-controlled
         engineering data.
@@ -52,27 +53,27 @@ export default function Article() {
 
       <h2>Week 2 — Classify and reconcile</h2>
       <p>
-        Pull classified assets in from tools like BigID and reconcile them against
-        your chosen domains. Let Procela&apos;s agents propose classifications for
-        anything unlabeled, routed for review at the autonomy tier you&apos;re
-        comfortable with. The goal here is coverage: every asset in scope has a known
+        Register your in-scope assets and let Procela&apos;s AI suggest classifications,
+        then reconcile them against your chosen domains. The AI-assisted suggestions
+        are review-gated, so a steward confirms anything unlabeled before it takes
+        effect. The goal here is coverage: every asset in scope has a known
         classification and a home domain.
       </p>
 
       <h2>Week 3 — Assign stewardship</h2>
       <p>
-        Map owners, stewards, and agents to domains and assets. Procela distributes
-        assignments automatically based on your org structure, so accountability is
+        Map owners, stewards, and agents to domains and assets. Procela derives a RACI
+        matrix from those role and process-ownership assignments, so accountability is
         explicit rather than implied. This is the step most programs skip — and the
         reason audits turn into fire drills later.
       </p>
 
       <h2>Week 4 — Govern and audit</h2>
       <p>
-        Author your first policies in plain language. Procela translates them into
-        enforceable rules and propagates them to your enforcement tools — access,
-        retention, export controls. Every change and access event lands in a
-        tamper-evident log, so audit prep becomes a query rather than a project.
+        Author your first policies in plain language and record the controls that
+        implement them — access, retention, export controls — against the assets they
+        govern. Every change lands in a tamper-evident audit trail, so audit prep
+        becomes a query rather than a project.
       </p>
 
       <h2>Common pitfalls</h2>
@@ -86,17 +87,17 @@ export default function Article() {
           does. Assign a single accountable owner per domain.
         </li>
         <li>
-          <strong>Policies without propagation.</strong> A policy that isn&apos;t
-          wired to an enforcement tool is just documentation.
+          <strong>Policies without owners or controls.</strong> A policy that
+          isn&apos;t recorded against a governed asset, with an accountable owner and
+          the control that implements it, is just documentation.
         </li>
       </ul>
 
       <h2>After Phase 1</h2>
       <p>
-        Once the baseline is live and self-maintaining, expanding is mostly a matter
-        of adding domains — the orchestration, stewardship model, and audit trail are
-        already in place. The hard part, going from zero to a running program, is
-        behind you.
+        Once the baseline is live, expanding is mostly a matter of adding domains — the
+        catalog, stewardship model, and audit trail are already in place. The hard
+        part, going from zero to a running program, is behind you.
       </p>
     </ArticleLayout>
   );

@@ -9,51 +9,51 @@ import BrowserFrame from "@/components/BrowserFrame";
 export const metadata: Metadata = {
   title: "Platform — Procela",
   description:
-    "Procela is the orchestration layer above your data governance stack: governance orchestration, stewardship, policy management, and edge-agent connectivity.",
+    "Procela is a business-process-first governance platform: business-process catalog, stewardship, recorded policies and controls, and metadata-only edge connectivity.",
 };
 
 const PILLARS: { icon: IconName; kicker: string; title: string; body: string }[] = [
   {
     icon: "orchestration",
-    kicker: "Governance orchestration",
-    title: "The layer above your discovery and access stack",
-    body: "Procela sits above tools like BigID and Immuta — pulling in classified assets, applying governance policies, and routing stewardship assignments through a single orchestration engine. One control plane instead of a dozen disconnected consoles.",
+    kicker: "Business-process-first governance",
+    title: "Start with how your business actually works",
+    body: "Procela maps value streams, processes, sub-processes, and steps — and the data and systems behind each one. It complements the databases, warehouses, and tools you already run, sitting alongside them to answer what none can on their own: what process, what data, who owns it, and is it governed.",
   },
   {
     icon: "stewardship",
     kicker: "Stewardship & ownership",
     title: "Clear accountability across every data domain",
-    body: "Assign data owners, domain stewards, and AI agents to assets automatically. Procela's principal model treats human and AI participants as first-class governance actors, each operating under explicit, auditable authority.",
+    body: "Assign data owners, domain stewards, and AI agents to assets with RACI and DAMA roles and explicit decision rights. Procela's principal model treats human and AI participants as first-class governance actors, each operating under explicit, auditable authority.",
   },
   {
     icon: "policy",
-    kicker: "Policy management",
+    kicker: "Policies & controls",
     title: "Policies that flow from business rules, not spreadsheets",
-    body: "Define governance policies in plain language. Procela translates them into enforceable rules, propagates them downstream to your enforcement tools, and maintains a full audit trail of every change and decision.",
+    body: "Define governance policies and controls in plain language. Procela records them against the assets they govern, tracks them alongside gaps and issues, and maintains a full, tamper-evident audit trail of every change and decision.",
   },
   {
     icon: "edge",
-    kicker: "Edge agent connectivity",
+    kicker: "Edge connector",
     title: "Scan your sources without moving your data",
-    body: "Procela Edge Agents deploy inside your environment via Kubernetes or Helm. Push-down profiling, mTLS identity, and tamper-evident audit logs mean only metadata ever leaves the perimeter — your data never does.",
+    body: "The on-prem edge connector deploys inside your environment via Kubernetes or Helm. It reads schema, table, and column metadata plus row counts — never values — and sends only that metadata over outbound HTTPS. Your data never leaves your perimeter.",
   },
 ];
 
 const AUTONOMY = [
   {
-    kicker: "Tier 1 — Advisory",
-    title: "Recommends, never acts",
-    body: "The agent surfaces suggestions — a classification, an owner, a policy match — and a human decides. Ideal for your highest-sensitivity domains.",
+    kicker: "Advisory",
+    title: "Recommends, a human decides",
+    body: "The agent surfaces suggestions — a classification, an owner, a policy match — and a human decides. A model for keeping authority with people in your highest-sensitivity domains.",
   },
   {
-    kicker: "Tier 2 — Propose & approve",
-    title: "Acts with a human in the loop",
-    body: "The agent prepares changes and routes them for approval. Nothing takes effect until a steward signs off, and every decision is logged.",
+    kicker: "Propose & approve",
+    title: "Prepares changes for review",
+    body: "The agent prepares changes and routes them for approval. Nothing is accepted until a steward signs off, and every decision is logged. Procela's agents today are AI-assisted, scheduled, and review-gated.",
   },
   {
-    kicker: "Tier 3 — Autonomous",
-    title: "Acts within guardrails",
-    body: "For well-understood, low-risk work, the agent operates independently inside policy boundaries you define — with a complete audit trail.",
+    kicker: "Shared authority",
+    title: "A concept for splitting human and AI roles",
+    body: "The three-tier model describes how human and AI actors can share governance authority — a way to reason about who advises, who prepares, and who approves. It frames how Procela's review-gated agents fit into your program.",
   },
 ];
 
@@ -65,10 +65,10 @@ export default function PlatformPage() {
       <div className="page-hero">
         <div className="page-hero-inner">
           <span className="hero-eyebrow">Platform</span>
-          <h1>Context and control, across every layer</h1>
+          <h1>Governance, mapped to how your business runs</h1>
           <p>
-            Procela is the connective tissue of your governance program — turning
-            the tools, people, and policies you already have into one coordinated,
+            Procela is the connective tissue of your governance program — tying the
+            processes, people, systems, and data you already have into one aligned,
             auditable system.
           </p>
         </div>
@@ -102,11 +102,11 @@ export default function PlatformPage() {
       <section className="section">
         <div className="section-inner">
           <span className="eyebrow">How it fits together</span>
-          <h2 className="section-title">One orchestration layer, between your tools and your outcomes</h2>
+          <h2 className="section-title">One governance program, alongside the tools you already run</h2>
           <p className="section-body">
-            Procela draws from the discovery, access, and platform tools you already
-            run, and drives governance outcomes back out — without becoming another
-            silo.
+            Procela connects to the databases, warehouses, and transformation tools you
+            already run for metadata-only governance, and ties what it finds to owners,
+            processes, and controls — without becoming another silo.
           </p>
           <OrchestrationDiagram />
         </div>
@@ -191,9 +191,10 @@ export default function PlatformPage() {
           <h2 className="section-title">Human and AI governance actors, under explicit authority</h2>
           <p className="section-body">
             Every steward, owner, and agent in Procela is a &ldquo;principal&rdquo; with a
-            defined scope of authority. AI agents participate in governance roles under
-            a three-tier autonomy framework, so your team controls exactly how
-            independently each one acts.
+            defined scope of authority. A three-tier model describes how human and AI
+            actors share that authority — from advising, to preparing changes, to
+            approving them. Procela&apos;s AI agents today are AI-assisted, scheduled,
+            and review-gated.
           </p>
           <div className="card-grid">
             {AUTONOMY.map((a) => (

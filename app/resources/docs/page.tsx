@@ -17,23 +17,23 @@ const AREAS = [
   },
   {
     kicker: "Deployment",
-    title: "Edge Agents",
-    body: "How agents deploy via Kubernetes or Helm, the no-egress model, mTLS identity, and push-down profiling.",
+    title: "The edge connector",
+    body: "How the connector deploys via Kubernetes or Helm, the no-egress model, outbound-HTTPS authentication, and metadata-only scanning.",
   },
   {
     kicker: "Integrations",
-    title: "Connecting your stack",
-    body: "Connecting discovery, access-control, catalog, and data-platform tools such as BigID, Immuta, Snowflake, and Databricks.",
+    title: "Connecting your data sources",
+    body: "Connecting databases and warehouses such as PostgreSQL, SQL Server, Oracle, Snowflake, BigQuery, Redshift, and Databricks, plus dbt.",
   },
   {
     kicker: "Roles",
-    title: "Principals & autonomy",
-    body: "Modeling human and AI principals, defining scope of authority, and configuring the three-tier autonomy framework.",
+    title: "Principals & authority",
+    body: "Modeling human and AI principals, defining scope of authority, and the review-gated model for how they share governance work.",
   },
   {
     kicker: "Policy",
-    title: "Authoring & propagation",
-    body: "Writing governance policies, translating them into enforceable rules, and propagating them to enforcement tools.",
+    title: "Policies & controls",
+    body: "Recording governance policies and controls against the assets they govern, and tracking them with a full audit trail.",
   },
   {
     kicker: "Compliance",

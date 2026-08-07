@@ -7,21 +7,21 @@ import CtaBand from "@/components/CtaBand";
 export const metadata: Metadata = {
   title: "Resources — Procela",
   description:
-    "Documentation, guides, and briefings on data governance orchestration, the principal model, edge agents, and standing up a DG Foundation program.",
+    "Documentation, guides, and briefings on business-process-first data governance, the principal model, the edge connector, and standing up a DG Foundation program.",
 };
 
 const CATEGORIES = [
   {
     kicker: "Documentation",
     title: "Product docs",
-    body: "Reference for deploying Edge Agents, connecting integrations, modeling principals, and authoring policies.",
+    body: "Reference for deploying the edge connector, connecting your data sources, modeling principals, and recording policies.",
     link: "Browse the docs",
     href: "/resources/docs",
   },
   {
     kicker: "Guides",
     title: "Whitepapers & guides",
-    body: "Deeper reading on governance orchestration, the principal model, and running programs in regulated environments.",
+    body: "Deeper reading on business-process-first governance, the principal model, and running programs in regulated environments.",
     link: "Read the guides",
     href: "/resources/guides",
   },
@@ -49,8 +49,8 @@ const FEATURED = [
   },
   {
     kicker: "Architecture",
-    title: "Edge Agents and the no-egress deployment model",
-    body: "How push-down profiling and mTLS identity keep source data inside your perimeter.",
+    title: "The edge connector and the no-egress deployment model",
+    body: "How metadata-only scanning over outbound HTTPS keeps source data inside your perimeter.",
     href: "/resources/edge-agents",
   },
 ];

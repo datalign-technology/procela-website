@@ -38,8 +38,8 @@ export default function Article() {
         Data owners and domain stewards are the familiar roles. Owners are
         accountable for a domain; stewards do the day-to-day work of classification,
         review, and remediation. In Procela these aren&apos;t just labels in a
-        spreadsheet — they carry enforceable scope, and their decisions are logged
-        against them.
+        spreadsheet — they carry an explicit scope of authority, and their decisions
+        are logged against them.
       </p>
 
       <h2>AI principals</h2>
@@ -62,10 +62,11 @@ export default function Article() {
         </p>
       </div>
 
-      <h2>The three-tier autonomy framework</h2>
+      <h2>A framework for autonomy: three tiers</h2>
       <p>
-        Not every domain warrants the same level of independence from an agent, so
-        Procela gives you three tiers to configure per domain:
+        Not every governance task warrants the same level of independence from an
+        agent. A useful way to reason about how humans and AI share authority is to
+        think in three tiers:
       </p>
       <ul>
         <li>
@@ -80,14 +81,16 @@ export default function Article() {
         </li>
         <li>
           <strong>Autonomous.</strong> For well-understood, low-risk work, the agent
-          acts independently inside policy boundaries you define — with a complete
-          audit trail.
+          acts inside policy boundaries you define — with a complete audit trail.
         </li>
       </ul>
       <p>
-        Because the tier is set per domain, you can let agents run autonomously over
-        low-risk catalog hygiene while keeping export-controlled data strictly
-        advisory — all in the same program.
+        Procela&apos;s AI agents today operate in the more conservative end of that
+        spectrum: they are AI-assisted, run on a schedule, and are review-gated, so a
+        human confirms their work before it takes effect. The framework is a way to
+        talk about how much authority you extend to an agent for a given kind of
+        work — from low-risk catalog hygiene to strictly advisory handling of
+        export-controlled data.
       </p>
 
       <h2>Authority, scope, and auditability</h2>
