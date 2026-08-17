@@ -44,10 +44,8 @@ export const metadata: Metadata = {
     "HIPAA",
   ],
   icons: {
-    icon: [
-      { url: "/procela-icon.svg", type: "image/svg+xml" },
-      { url: "/procela_logo_transparent.png", type: "image/png" },
-    ],
+    icon: [{ url: "/procela-icon.png", type: "image/png" }],
+    apple: [{ url: "/procela-icon.png" }],
   },
   openGraph: {
     type: "website",
@@ -85,7 +83,7 @@ export default function RootLayout({
     name: "Procela",
     legalName: "Datalign Technology LLC",
     url: siteUrl,
-    logo: `${siteUrl}/procela-icon.svg`,
+    logo: `${siteUrl}/procela-icon.png`,
     description:
       "Procela is a business-process-first governance platform that aligns people, process, systems, and data into a single, auditable data governance program.",
     sameAs: [] as string[],
