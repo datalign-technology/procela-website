@@ -44,6 +44,15 @@ export default function MobileNav() {
               {l.label}
             </Link>
           ))}
+          <Link className="mobile-subitem" href="/resources/docs" onClick={close}>
+            Documentation
+          </Link>
+          <Link className="mobile-subitem" href="/resources/guides" onClick={close}>
+            Guides
+          </Link>
+          <Link className="mobile-subitem" href="/resources/blog" onClick={close}>
+            Blog
+          </Link>
           <Link className="btn-green" href="/demo" onClick={close}>
             Request a demo
           </Link>
