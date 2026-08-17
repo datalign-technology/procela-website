@@ -107,10 +107,12 @@ export default function IntegrationsPage() {
           <span className="eyebrow">How it connects</span>
           <h2 className="section-title">An edge connector inside your perimeter</h2>
           <p className="section-body">
-            The on-prem edge connector runs inside your VPC or data center. It reads
+            For on-prem databases, the edge connector runs inside your VPC or data center
+            and pairs to Procela with a one-time code — no inbound ports. It reads
             schema, table, and column metadata plus row counts — never values — and sends
-            only that metadata to Procela over outbound HTTPS with a bearer token. No column
-            values, no records, no file contents ever leave your perimeter. Procela runs on
+            only that metadata over outbound HTTPS with a bearer token. Cloud warehouses
+            connect directly, reading the same catalog metadata. No column values, no
+            records, no file contents ever leave your perimeter. Procela runs on
             AWS (ECS/RDS) or fully on-prem via Helm and Kubernetes.
           </p>
         </div>

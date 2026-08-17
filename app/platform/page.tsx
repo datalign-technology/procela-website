@@ -48,7 +48,7 @@ const AUTONOMY = [
   {
     kicker: "Propose & approve",
     title: "Prepares changes for review",
-    body: "The agent prepares changes and routes them for approval. Nothing is accepted until a steward signs off, and every decision is logged. Procela's agents today are AI-assisted, scheduled, and review-gated.",
+    body: "The agent prepares changes and routes them for approval. Nothing is accepted until a steward signs off, and every decision is logged. Procela's AI today is assistive and review-gated.",
   },
   {
     kicker: "Shared authority",
@@ -169,15 +169,17 @@ export default function PlatformPage() {
           <div className="product-row reverse">
             <div className="product-copy">
               <span className="product-kicker">Lineage</span>
-              <h3>Data flows, derived automatically</h3>
+              <h3>See how data flows between your systems</h3>
               <p>
-                Asset-level lineage reconciled from your sources, so you can see
-                which system feeds which — and keep it audit-ready.
+                Map which system feeds which — as a table or a directed graph —
+                with flow type and frequency on every edge, or import it straight
+                from a dbt Cloud job. One picture of how data moves, kept
+                audit-ready.
               </p>
             </div>
             <BrowserFrame
               src="/screenshots/lineage.webp"
-              alt="Procela Data Lineage view showing asset-level edges between source and staging tables."
+              alt="Procela Data Lineage view showing a directed graph of flows between systems, each edge labeled with flow type and frequency."
             />
           </div>
         </div>
@@ -193,8 +195,9 @@ export default function PlatformPage() {
             Every steward, owner, and agent in Procela is a &ldquo;principal&rdquo; with a
             defined scope of authority. A three-tier model describes how human and AI
             actors share that authority — from advising, to preparing changes, to
-            approving them. Procela&apos;s AI agents today are AI-assisted, scheduled,
-            and review-gated.
+            approving them. Procela&apos;s AI today is assistive and review-gated:
+            it suggests classifications, owners, and domains, and a human approves
+            before anything is applied.
           </p>
           <div className="card-grid">
             {AUTONOMY.map((a) => (

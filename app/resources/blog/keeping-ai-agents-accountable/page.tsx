@@ -59,9 +59,9 @@ export default function Post() {
       </ul>
       <p>
         Low-risk catalog hygiene sits toward the autonomous end while export-controlled
-        data stays strictly advisory. Procela&apos;s agents today are AI-assisted,
-        scheduled, and review-gated — a human confirms their work before it takes
-        effect — which keeps them on the accountable side of that dial.
+        data stays strictly advisory. Procela&apos;s AI today is assistive and
+        review-gated — a human confirms its work before it takes
+        effect — which keeps it on the accountable side of that dial.
       </p>
 
       <h2>Accountability is what makes autonomy safe</h2>
