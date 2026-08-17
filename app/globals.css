@@ -144,6 +144,78 @@ a {
 .nav-links a:hover {
   color: var(--ink);
 }
+/* Resources dropdown (desktop) */
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--slate);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.nav-dropdown-trigger:hover {
+  color: var(--ink);
+}
+.nav-dropdown-trigger svg {
+  opacity: 0.7;
+  transition: transform 0.15s ease;
+}
+.nav-dropdown:hover .nav-dropdown-trigger svg,
+.nav-dropdown:focus-within .nav-dropdown-trigger svg {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 200;
+}
+/* Invisible bridge so the pointer can cross the gap to the menu without it closing */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown-menu a {
+  font-size: 0.875rem;
+  color: var(--slate);
+  text-decoration: none;
+  padding: 0.55rem 0.65rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.nav-dropdown-menu a:hover {
+  color: var(--ink);
+  background: var(--green-faint);
+}
 .nav-actions {
   display: flex;
   gap: 0.75rem;
@@ -827,6 +899,11 @@ a {
   text-decoration: none;
   font-size: 0.95rem;
   border-bottom: 1px solid var(--border);
+}
+.mobile-menu a.mobile-subitem {
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--slate);
 }
 .mobile-menu a.btn-green {
   border: none;
