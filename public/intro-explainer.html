@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Procela — Intro</title></head>
+<body>
+<style>
+  :root{
+    --stage-1:#0a1913; --stage-2:#08150f; --surround:#05100b;
+    --green:#4a8c6a; --green-lt:#70c090; --green-dim:#2f7052;
+    --ink:#f4f8f5; --dim:#b8ccbe; --faint:#7f9a8a;
+    --line:rgba(112,192,144,.20); --card:rgba(255,255,255,.03);
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--surround);
+    color:var(--ink);
+    font-family:var(--sans);
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    padding:24px 16px;
+  }
+  .wrap{width:100%;max-width:1000px;display:flex;flex-direction:column;gap:16px}
+
+  /* ---- STAGE (16:9 video frame) ---- */
+  .stage{
+    position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
+    border-radius:14px;
+    background:
+      radial-gradient(120% 120% at 22% 12%, rgba(74,140,106,.16), transparent 55%),
+      linear-gradient(160deg,var(--stage-1),var(--stage-2));
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(112,192,144,.10) inset;
+    isolation:isolate;
+  }
+  .motif{
+    position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='%2370c090' fill-opacity='0.05'%3E%3Crect x='7' y='9' width='9' height='6' rx='2'/%3E%3Crect x='19' y='9' width='17' height='6' rx='2'/%3E%3Crect x='7' y='22' width='9' height='6' rx='2'/%3E%3Crect x='19' y='22' width='17' height='6' rx='2'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .vignette{position:absolute;inset:0;pointer-events:none;box-shadow:0 0 160px 40px rgba(0,0,0,.35) inset}
+  /* Fullscreen fallback (native FS is blocked inside sandboxed iframes) */
+  .fs-backdrop{position:fixed;inset:0;background:#05100b;z-index:9998;display:none}
+  .fs-exit{position:fixed;top:16px;right:16px;z-index:10001;display:none;align-items:center;gap:6px;
+    background:rgba(4,14,10,.72);border:1px solid rgba(112,192,144,.4);color:#f4f8f5;
+    font-family:var(--mono);font-size:12px;letter-spacing:.03em;padding:9px 14px;border-radius:8px;cursor:pointer}
+  .fs-exit:hover{border-color:var(--green-lt)}
+  body.stage-expanded{overflow:hidden}
+  body.stage-expanded .fs-backdrop{display:block}
+  body.stage-expanded .fs-exit{display:inline-flex}
+  .stage.expanded{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:min(100vw, calc(100vh * 16 / 9));max-width:none;z-index:9999;border-radius:0}
+
+  .brand{
+    position:absolute;top:clamp(14px,2.6vw,26px);left:clamp(16px,3vw,30px);
+    display:flex;align-items:center;gap:10px;z-index:5;
+    letter-spacing:-.01em;font-weight:600;font-size:clamp(13px,1.7vw,18px);
+  }
+  .brand .mark{width:1.7em;height:1.7em;flex:0 0 auto;display:inline-flex}
+  .brand .mark svg{width:100%;height:100%;display:block}
+
+  /* ---- SCENES ---- */
+  .scene{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:clamp(28px,6vw,72px);
+    opacity:0;transform:translateY(14px) scale(.995);
+    transition:opacity .7s ease, transform .7s ease;
+    pointer-events:none;z-index:2;
+  }
+  .scene.on{opacity:1;transform:none;z-index:3}
+  .eyebrow{
+    font-family:var(--mono);font-size:clamp(9px,1.15vw,12px);
+    letter-spacing:.22em;text-transform:uppercase;color:var(--green-lt);
+    margin-bottom:clamp(12px,2vw,20px);
+  }
+  .headline{
+    font-weight:600;line-height:1.08;letter-spacing:-.025em;
+    font-size:clamp(24px,4.6vw,50px);text-wrap:balance;max-width:16ch;margin:0;
+  }
+  .headline em{font-style:normal;color:var(--green-lt)}
+  .sub{color:var(--dim);font-size:clamp(13px,1.7vw,19px);margin-top:16px;max-width:40ch;line-height:1.5}
+
+  /* scene 1 reveal words */
+  .rise>*{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .scene.on .rise>*{animation-play-state:running}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* scene 2 disconnected chips */
+  .chips{display:flex;flex-wrap:wrap;gap:clamp(10px,1.6vw,18px);justify-content:center;max-width:760px;margin-top:8px}
+  .chip{
+    font-family:var(--mono);font-size:clamp(11px,1.5vw,16px);letter-spacing:.02em;
+    padding:.8em 1.2em;border-radius:10px;border:1px dashed rgba(184,204,190,.28);
+    color:var(--dim);background:var(--card);position:relative;
+  }
+  .chip small{display:block;font-family:var(--sans);font-size:.72em;color:var(--faint);letter-spacing:0;margin-top:4px}
+  .scene.on .chip{animation:drift 4s ease-in-out infinite alternate}
+  .scene.on .chip:nth-child(2){animation-delay:-1.3s}
+  .scene.on .chip:nth-child(3){animation-delay:-2.6s}
+  @keyframes drift{to{transform:translateY(-6px) rotate(-.6deg)}}
+
+  /* scene 3 orchestration svg */
+  .diagram{width:100%;max-width:860px}
+  .diagram .lab{font-family:var(--mono);font-size:11px;letter-spacing:.03em;fill:var(--dim)}
+  .diagram .col{font-family:var(--mono);font-size:9px;letter-spacing:.16em;fill:var(--faint)}
+  .core-label{font-family:var(--sans);font-weight:600;font-size:17px;fill:var(--ink)}
+  .core-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;fill:var(--green-lt)}
+
+  /* scene 4 stats */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,26px);width:100%;max-width:720px}
+  .fact{display:flex;align-items:center;gap:16px;justify-content:center;margin-top:clamp(22px,3.4vw,38px);
+    padding:.7em 1.3em;border-radius:12px;border:1px solid var(--line);background:var(--card);max-width:620px}
+  .fact .fact-num{font-size:clamp(30px,5vw,46px);font-weight:600;color:var(--green-lt);line-height:1;font-variant-numeric:tabular-nums;flex:0 0 auto}
+  .fact .fact-txt{color:var(--dim);font-size:clamp(12px,1.5vw,16px);line-height:1.4;text-align:left}
+  .fact .fact-txt b{color:var(--ink);font-weight:600}
+  .stat .num{
+    font-weight:600;letter-spacing:-.03em;color:var(--green-lt);
+    font-size:clamp(30px,6vw,62px);font-variant-numeric:tabular-nums;line-height:1;
+  }
+  .stat .cap{color:var(--dim);font-size:clamp(11px,1.4vw,15px);margin-top:10px;line-height:1.4}
+  @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr);gap:20px}}
+
+  /* scene 5 verticals */
+  .verts{display:flex;gap:clamp(10px,1.6vw,18px);flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+  .vert{font-family:var(--mono);font-size:clamp(11px,1.4vw,15px);letter-spacing:.02em;color:var(--ink);
+    padding:.7em 1.1em;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+  .perim{display:flex;align-items:center;gap:12px;color:var(--green-lt);font-size:clamp(15px,2.3vw,26px);font-weight:600;letter-spacing:-.02em}
+  .perim svg{width:1.15em;height:1.15em;flex:0 0 auto}
+
+  /* scene 6 CTA */
+  .cta-mark{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .cta-mark .mark{width:clamp(46px,7vw,66px);height:clamp(46px,7vw,66px);flex:0 0 auto;display:inline-flex}
+  .cta-mark .mark svg{width:100%;height:100%;display:block}
+  .cta-word{font-size:clamp(34px,6vw,64px);font-weight:600;letter-spacing:-.03em}
+  .btn{margin-top:26px;display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(150deg,var(--green),var(--green-dim));color:#fff;
+    font-weight:600;font-size:clamp(14px,1.8vw,18px);padding:.85em 1.5em;border-radius:10px;
+    box-shadow:0 12px 30px -10px rgba(74,140,106,.7);text-decoration:none;cursor:pointer}
+  .btn:hover{filter:brightness(1.08)}
+  .btn:focus-visible,.url:focus-visible{outline:2px solid var(--green-lt);outline-offset:3px}
+  .url{font-family:var(--mono);color:var(--faint);letter-spacing:.08em;margin-top:18px;font-size:clamp(11px,1.4vw,14px);text-decoration:none;cursor:pointer}
+  .url:hover{color:var(--green-lt)}
+
+  /* ---- captions + progress ---- */
+  .cc{position:absolute;left:0;right:0;bottom:clamp(30px,5vw,52px);z-index:6;
+    display:flex;justify-content:center;padding:0 8%;pointer-events:none}
+  .cc span{background:rgba(4,14,10,.55);backdrop-filter:blur(4px);
+    color:#eef5f0;font-size:clamp(12px,1.6vw,17px);line-height:1.45;
+    padding:.5em .85em;border-radius:8px;max-width:60ch;text-wrap:balance;
+    box-shadow:0 0 0 1px rgba(112,192,144,.12)}
+  .progress{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.07);z-index:6}
+  .progress > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--green-lt))}
+
+  /* ---- controls ---- */
+  .controls{display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    color:var(--dim);font-family:var(--mono);font-size:12px}
+  .controls button{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    background:rgba(255,255,255,.04);border:1px solid rgba(112,192,144,.2);color:var(--ink);
+    font-family:var(--mono);font-size:12px;letter-spacing:.03em;
+    padding:9px 14px;border-radius:8px;cursor:pointer;transition:background .15s,border-color .15s}
+  .controls button:hover{background:rgba(112,192,144,.12);border-color:var(--green-lt)}
+  .controls button:focus-visible{outline:2px solid var(--green-lt);outline-offset:2px}
+  .dots{display:flex;gap:8px;margin-left:auto}
+  .dots b{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.16);cursor:pointer;transition:background .2s,transform .2s}
+  .dots b.on{background:var(--green-lt);transform:scale(1.15)}
+  .tc{font-variant-numeric:tabular-nums;color:var(--faint)}
+  .tip{margin:0;color:var(--faint);font-size:12.5px;line-height:1.5;text-align:center;font-family:var(--sans)}
+  .tip b{color:var(--dim);font-weight:600}
+
+  @media (prefers-reduced-motion:reduce){
+    .scene{transition:opacity .2s}
+    .rise>*{animation:none;opacity:1;transform:none}
+    .scene.on .chip{animation:none}
+    .dot{display:none}
+  }
+</style>
+
+<div class="wrap">
+  <div class="fs-backdrop" id="fsBackdrop"></div>
+  <button class="fs-exit" id="fsExit" aria-label="Exit fullscreen">✕ Exit</button>
+  <!-- shared brand-mark gradients -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="pcl-bg" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#14311f"/><stop offset="1" stop-color="#091810"/></linearGradient>
+    <linearGradient id="pcl-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ad4a6"/><stop offset="1" stop-color="#4a9670"/></linearGradient>
+  </defs></svg>
+  <div class="stage" id="stage">
+    <div class="motif"></div>
+
+    <!-- brand mark -->
+    <div class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="url(#pcl-bg)"/>
+          <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="9.25" fill="none" stroke="#70C090" stroke-opacity="0.28"/>
+          <g stroke="#4A8C6A" stroke-opacity="0.7" stroke-width="1.3" stroke-linecap="round"><line x1="6.6" y1="11.25" x2="9" y2="11.25"/><line x1="6.6" y1="20" x2="9" y2="20"/><line x1="6.6" y1="28.75" x2="9" y2="28.75"/></g>
+          <g fill="#70C090"><circle cx="5.4" cy="11.25" r="1.15"/><circle cx="5.4" cy="20" r="1.15"/><circle cx="5.4" cy="28.75" r="1.15"/></g>
+          <g fill="url(#pcl-tile)"><rect x="9" y="8" width="7.5" height="6.5" rx="2.2"/><rect x="9" y="16.75" width="7.5" height="6.5" rx="2.2"/><rect x="9" y="25.5" width="7.5" height="6.5" rx="2.2"/><rect x="19" y="8" width="12" height="6.5" rx="2.2"/><rect x="19" y="16.75" width="12" height="6.5" rx="2.2"/><rect x="19" y="25.5" width="12" height="6.5" rx="2.2"/></g>
+        </svg>
+      </span>
+      Procela
+    </div>
+
+    <!-- SCENE 1 : HOOK -->
+    <section class="scene" data-i="0">
+      <div class="rise">
+        <div class="eyebrow" style="animation-delay:.05s">Enterprise Data Governance</div>
+        <h1 class="headline" style="animation-delay:.18s">Governance without connection is just <em>documentation</em>.</h1>
+      </div>
+    </section>
+
+    <!-- SCENE 2 : PROBLEM -->
+    <section class="scene" data-i="1">
+      <div class="eyebrow">The gap</div>
+      <h2 class="headline" style="font-size:clamp(20px,3.4vw,36px);max-width:22ch">The tools exist. They just don't talk to each other.</h2>
+      <div class="chips">
+        <span class="chip">Discovery<small>one system</small></span>
+        <span class="chip">Access control<small>another system</small></span>
+        <span class="chip">Ownership<small>a spreadsheet nobody checks</small></span>
+      </div>
+    </section>
+
+    <!-- SCENE 3 : SOLUTION / DIAGRAM -->
+    <section class="scene" data-i="2">
+      <div class="eyebrow" style="margin-bottom:10px">Business-process-first governance</div>
+      <svg class="diagram" viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg" aria-label="Procela connects your systems, people, policies and data into governance outcomes">
+        <text class="col" x="120" y="24" text-anchor="middle">WHAT YOU CONNECT</text>
+        <text class="col" x="740" y="24" text-anchor="middle">WHAT YOU GET</text>
+        <!-- connectors -->
+        <g id="paths" fill="none" stroke="#4A8C6A" stroke-width="1.2" opacity=".32">
+          <path id="l0" d="M232 70 C330 70 330 190 400 190"/>
+          <path id="l1" d="M232 130 C338 130 338 190 400 190"/>
+          <path id="l2" d="M232 250 C338 250 338 190 400 190"/>
+          <path id="l3" d="M232 310 C330 310 330 190 400 190"/>
+          <path id="r0" d="M460 190 C534 190 534 90 628 90"/>
+          <path id="r1" d="M460 190 C534 190 534 190 628 190"/>
+          <path id="r2" d="M460 190 C534 190 534 290 628 290"/>
+        </g>
+        <!-- input nodes -->
+        <g class="innode">
+          <g><rect x="54" y="50" width="178" height="40" rx="9" fill="rgba(255,255,255,.04)" stroke="var(--line)"/><text class="lab" x="143" y="75" text-anchor="middle">Databases &amp; warehouses</text></g>
+          <g><rect x="54" y="110" width="178" height="40" rx="9" fill="rgba(255,255,255,.04)" stroke="var(--line)"/><text class="lab" x="143" y="135" text-anchor="middle">People &amp; stewards</text></g>
+          <g><rect x="54" y="230" width="178" height="40" rx="9" fill="rgba(255,255,255,.04)" stroke="var(--line)"/><text class="lab" x="143" y="255" text-anchor="middle">Business processes</text></g>
+          <g><rect x="54" y="290" width="178" height="40" rx="9" fill="rgba(255,255,255,.04)" stroke="var(--line)"/><text class="lab" x="143" y="315" text-anchor="middle">Policies &amp; controls</text></g>
+        </g>
+        <!-- center -->
+        <g>
+          <circle cx="430" cy="190" r="46" fill="none" stroke="#4A8C6A" stroke-width="1" class="pulse"/>
+          <rect x="384" y="150" width="92" height="80" rx="16" fill="rgba(74,140,106,.16)" stroke="#70C090" stroke-width="1.5"/>
+          <text class="core-label" x="430" y="188" text-anchor="middle">Procela</text>
+          <text class="core-sub" x="430" y="206" text-anchor="middle">GOVERNANCE</text>
+        </g>
+        <!-- output nodes -->
+        <g class="outnode">
+          <g><rect x="628" y="70" width="178" height="40" rx="9" fill="rgba(255,255,255,.04)" stroke="var(--line)"/><text class="lab" x="717" y="95" text-anchor="middle">Ownership assigned</text></g>
+          <g><rect x="628" y="170" width="178" height="40" rx="9" fill="rgba(255,255,255,.04)" stroke="var(--line)"/><text class="lab" x="717" y="195" text-anchor="middle">Audit-ready lineage</text></g>
+          <g><rect x="628" y="270" width="178" height="40" rx="9" fill="rgba(255,255,255,.04)" stroke="var(--line)"/><text class="lab" x="717" y="295" text-anchor="middle">Policies tracked</text></g>
+        </g>
+        <!-- flowing dots -->
+        <g id="flow"></g>
+      </svg>
+    </section>
+
+    <!-- SCENE 4 : OUTCOMES -->
+    <section class="scene" data-i="3">
+      <div class="eyebrow">What changes &middot; illustrative targets</div>
+      <div class="stats">
+        <div class="stat"><div class="num" data-target="30" data-prefix="&lt;">&lt;30</div><div class="cap">days to a governance baseline</div></div>
+        <div class="stat"><div class="num" data-target="80" data-suffix="%">80%</div><div class="cap">less time preparing for audits</div></div>
+        <div class="stat"><div class="num" data-target="100" data-suffix="%">100%</div><div class="cap">of assets with an assigned owner</div></div>
+      </div>
+      <div class="fact">
+        <span class="fact-num">0</span>
+        <span class="fact-txt"><b>data ever moves outside your perimeter.</b> Metadata only — by design, not a target.</span>
+      </div>
+    </section>
+
+    <!-- SCENE 5 : REGULATED -->
+    <section class="scene" data-i="4">
+      <div class="eyebrow">Built for the hardest environments</div>
+      <div class="verts">
+        <span class="vert">Defense &amp; Shipbuilding</span>
+        <span class="vert">Financial Services</span>
+        <span class="vert">Healthcare &amp; Life Sciences</span>
+      </div>
+      <div class="perim">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z" stroke="#70C090" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12l2.4 2.4L16 9.5" stroke="#70C090" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Your data never leaves your perimeter.
+      </div>
+    </section>
+
+    <!-- SCENE 6 : CTA -->
+    <section class="scene" data-i="5">
+      <div class="cta-mark">
+        <span class="mark"><svg viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="url(#pcl-bg)"/>
+          <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="9.25" fill="none" stroke="#70C090" stroke-opacity="0.28"/>
+          <g stroke="#4A8C6A" stroke-opacity="0.7" stroke-width="1.3" stroke-linecap="round"><line x1="6.6" y1="11.25" x2="9" y2="11.25"/><line x1="6.6" y1="20" x2="9" y2="20"/><line x1="6.6" y1="28.75" x2="9" y2="28.75"/></g>
+          <g fill="#70C090"><circle cx="5.4" cy="11.25" r="1.15"/><circle cx="5.4" cy="20" r="1.15"/><circle cx="5.4" cy="28.75" r="1.15"/></g>
+          <g fill="url(#pcl-tile)"><rect x="9" y="8" width="7.5" height="6.5" rx="2.2"/><rect x="9" y="16.75" width="7.5" height="6.5" rx="2.2"/><rect x="9" y="25.5" width="7.5" height="6.5" rx="2.2"/><rect x="19" y="8" width="12" height="6.5" rx="2.2"/><rect x="19" y="16.75" width="12" height="6.5" rx="2.2"/><rect x="19" y="25.5" width="12" height="6.5" rx="2.2"/></g>
+        </svg></span>
+        <span class="cta-word">Procela</span>
+      </div>
+      <h2 class="headline" style="font-size:clamp(22px,3.6vw,40px);max-width:20ch">Governance that actually <em>runs</em>.</h2>
+      <a class="btn" href="/demo" target="_top">Request a demo
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="url" href="/" target="_top">procela.ai</a>
+    </section>
+
+    <div class="vignette"></div>
+    <div class="cc"><span id="ccText"></span></div>
+    <div class="progress"><i id="bar"></i></div>
+  </div>
+
+  <div class="controls">
+    <button id="playBtn" aria-label="Play or pause">▶ Play</button>
+    <button id="replayBtn" aria-label="Replay from start">↺ Replay</button>
+    <button id="fsBtn" aria-label="Fullscreen">⤢ Fullscreen</button>
+    <span class="tc"><span id="tc">0:00</span> / 1:00</span>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <p class="tip"><b>To export an MP4:</b> click Fullscreen, then screen-record the stage (macOS ⇧⌘5 · Windows Win+G) while it plays. Captions are the voiceover script — pair with a narration track.</p>
+</div>
+
+<script>
+(function(){
+  var scenes = [
+    {end:8,  cc:"Your enterprise already has the tools, the policies, the people — so why does every audit still feel like a fire drill?"},
+    {end:18, cc:"The pieces don't talk. Discovery in one system, access controls in another, ownership in a spreadsheet nobody checks."},
+    {end:34, cc:"Procela is business-process-first governance — it maps how your business works to the data behind it, and ties everything to owners, policies, and one audit trail."},
+    {end:47, cc:"AI suggests classifications and owners; your team reviews. Policies and controls stay tracked, and audit readiness is always a query away."},
+    {end:55, cc:"Built for the most regulated environments on earth — without ever moving your data off-premises."},
+    {end:60, cc:"Procela. Governance that actually runs."}
+  ];
+  var TOTAL = 60;
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var stage=document.getElementById("stage");
+  var sceneEls=[].slice.call(document.querySelectorAll(".scene"));
+  var bar=document.getElementById("bar");
+  var ccText=document.getElementById("ccText");
+  var tc=document.getElementById("tc");
+  var dotsWrap=document.getElementById("dots");
+  var playBtn=document.getElementById("playBtn");
+
+  // build dots
+  var dots=scenes.map(function(_,i){
+    var b=document.createElement("b"); b.setAttribute("role","button"); b.tabIndex=0;
+    b.setAttribute("aria-label","Go to scene "+(i+1));
+    b.addEventListener("click",function(){ seek(i? scenes[i-1].end : 0); });
+    b.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault(); seek(i? scenes[i-1].end:0);} });
+    dotsWrap.appendChild(b); return b;
+  });
+
+  // build flowing dots for the diagram scene
+  var flow=document.getElementById("flow");
+  var svgns="http://www.w3.org/2000/svg";
+  [["l0",0],["l1",.5],["l2",.25],["l3",.7],["r0",.1],["r1",.5],["r2",.85]].forEach(function(p,i){
+    var c=document.createElementNS(svgns,"circle");
+    c.setAttribute("r","3"); c.setAttribute("fill", p[0][0]==="l" ? "#4A8C6A":"#70C090"); c.setAttribute("opacity",".85");
+    var m=document.createElementNS(svgns,"animateMotion");
+    m.setAttribute("dur",(1.6+ (i%3)*0.25)+"s"); m.setAttribute("repeatCount","indefinite"); m.setAttribute("begin",(p[1])+"s");
+    var mp=document.createElementNS(svgns,"mpath"); mp.setAttribute("href","#"+p[0]);
+    m.appendChild(mp); c.appendChild(m); flow.appendChild(c);
+  });
+
+  var elapsed=0, playing=false, last=null, cur=-1, counted=false, raf=null;
+
+  function fmt(s){ s=Math.floor(s); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
+  function sceneAt(t){ for(var i=0;i<scenes.length;i++){ if(t < scenes[i].end) return i; } return scenes.length-1; }
+
+  function setScene(i){
+    cur=i;
+    sceneEls.forEach(function(el,k){ el.classList.toggle("on", k===i); });
+    ccText.textContent = scenes[i].cc;
+    dots.forEach(function(d,k){ d.classList.toggle("on", k===i); });
+    // restart the rise animation on scene 1 when (re)entered
+    if(i===0){ retrigger(sceneEls[0].querySelector(".rise")); }
+    if(i===3){ countStats(); } else { counted=false; }
+  }
+
+  function retrigger(node){ if(!node) return; node.querySelectorAll("*").forEach(function(el){ el.style.animation="none"; el.offsetHeight; el.style.animation=""; }); }
+
+  function countStats(){
+    if(counted) return; counted=true;
+    document.querySelectorAll("#stage .stat .num").forEach(function(el){
+      var target=+el.getAttribute("data-target");
+      var pre=el.getAttribute("data-prefix")? el.getAttribute("data-prefix").replace("&lt;","<"):"";
+      var suf=el.getAttribute("data-suffix")||"";
+      if(reduce || target===0){ el.textContent=pre+target+suf; return; }
+      var t0=null, dur=1100;
+      function step(ts){ if(t0===null)t0=ts; var p=Math.min((ts-t0)/dur,1); var e=1-Math.pow(1-p,3);
+        el.textContent=pre+Math.round(target*e)+suf; if(p<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    });
+  }
+
+  function render(){
+    bar.style.width=(elapsed/TOTAL*100)+"%";
+    tc.textContent=fmt(elapsed);
+    var i=sceneAt(elapsed);
+    if(i!==cur) setScene(i);
+  }
+
+  function tick(ts){
+    if(!playing) return;
+    if(last===null) last=ts;
+    var dt=(ts-last)/1000; last=ts;
+    elapsed=Math.min(elapsed+dt, TOTAL);
+    render();
+    if(elapsed>=TOTAL){ playing=false; playBtn.textContent="↺ Replay"; return; }
+    raf=requestAnimationFrame(tick);
+  }
+
+  function play(){
+    if(elapsed>=TOTAL){ elapsed=0; counted=false; }
+    if(playing) return;
+    playing=true; last=null; playBtn.textContent="❚❚ Pause";
+    raf=requestAnimationFrame(tick);
+  }
+  function pause(){ playing=false; playBtn.textContent="▶ Play"; }
+  function seek(t){ elapsed=Math.max(0,Math.min(t,TOTAL-0.01)); counted=false; cur=-1; render(); if(!playing){ playBtn.textContent="▶ Play"; } }
+
+  playBtn.addEventListener("click", function(){ playing? pause() : play(); });
+  document.getElementById("replayBtn").addEventListener("click", function(){ elapsed=0; counted=false; cur=-1; render(); play(); });
+  function enterExpand(){ document.body.classList.add("stage-expanded"); stage.classList.add("expanded"); }
+  function exitExpand(){ document.body.classList.remove("stage-expanded"); stage.classList.remove("expanded"); }
+  document.getElementById("fsBtn").addEventListener("click", function(){
+    if(document.fullscreenElement){ document.exitFullscreen().catch(function(){}); return; }
+    if(document.body.classList.contains("stage-expanded")){ exitExpand(); return; }
+    // Try native fullscreen; fall back to CSS expand when the iframe blocks it.
+    var req = stage.requestFullscreen ? stage.requestFullscreen() : null;
+    if(req && typeof req.catch === "function"){ req.catch(function(){ enterExpand(); }); }
+    else if(!req){ enterExpand(); }
+  });
+  document.getElementById("fsExit").addEventListener("click", exitExpand);
+  document.getElementById("fsBackdrop").addEventListener("click", exitExpand);
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && document.body.classList.contains("stage-expanded")) exitExpand();
+  });
+
+  render();
+  // autoplay (silent) shortly after load
+  setTimeout(play, 500);
+})();
+</script>
+</body>
+</html>

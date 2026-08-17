@@ -14,7 +14,7 @@ const STEPS = [
   {
     n: "01",
     title: "Connect",
-    body: "Deploy the Procela edge connector inside your environment and point it at your databases, warehouses, and dbt — PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Snowflake, BigQuery, Redshift, Databricks. It reads schema, table, and column metadata where the data lives. No data leaves your perimeter — only metadata flows to the platform.",
+    body: "Deploy the Procela edge connector inside your environment for on-prem databases — PostgreSQL, MySQL, SQL Server, Oracle — and dbt; connect cloud warehouses like Snowflake, BigQuery, Redshift, and Databricks directly. Either way, Procela reads only schema, table, and column metadata where the data lives. No data leaves your perimeter — only metadata flows to the platform.",
   },
   {
     n: "02",
@@ -81,8 +81,8 @@ export default function HowItWorksPage() {
           <p className="section-body">
             Once the baseline is live, Procela keeps the loop moving: new assets are
             discovered and proposed for classification, stewardship is assigned, policies
-            and controls are recorded, and the audit trail updates. Scheduled, AI-assisted
-            agents surface the work; your team reviews and approves it instead of doing
+            and controls are recorded, and the audit trail updates. AI-assisted suggestions
+            surface the work; your team reviews and approves it instead of doing
             the busywork.
           </p>
         </div>

@@ -8,7 +8,7 @@ import BrowserFrame from "@/components/BrowserFrame";
 export const metadata: Metadata = {
   title: "Security — Procela",
   description:
-    "Procela is built for regulated environments: no data egress, an edge connector over outbound HTTPS, tamper-evident audit logs, and designed to support programs operating under frameworks like ITAR, CMMC, CUI, HIPAA, and SOC 2.",
+    "Procela is built for regulated environments: no data egress, an edge connector over outbound HTTPS, tamper-evident audit logs, enterprise SSO (OIDC/SAML), SCIM and MFA, and designed to support programs operating under frameworks like ITAR, CMMC, CUI, HIPAA, and SOC 2.",
 };
 
 const PRINCIPLES: { icon: IconName; kicker: string; title: string; body: string }[] = [
@@ -35,6 +35,12 @@ const PRINCIPLES: { icon: IconName; kicker: string; title: string; body: string 
     kicker: "Least privilege",
     title: "Explicit authority for every principal",
     body: "The principal model scopes exactly what each steward, owner, and agent may do. AI agents operate under review-gated controls, so proposed changes are approved before they take effect.",
+  },
+  {
+    icon: "security",
+    kicker: "Enterprise identity",
+    title: "Your directory, your access controls",
+    body: "Single sign-on via OIDC or SAML, SCIM provisioning, multi-factor authentication with passkeys (WebAuthn), and role-based access across five tiers. Connector credentials and other secrets are encrypted at rest.",
   },
 ];
 
