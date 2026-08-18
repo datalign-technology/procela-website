@@ -7,6 +7,7 @@ const LINKS = [
   { href: "/platform", label: "Platform" },
   { href: "/how-it-works", label: "How it works" },
   { href: "/integrations", label: "Integrations" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
 ];
 
