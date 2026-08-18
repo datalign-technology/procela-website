@@ -21,6 +21,7 @@ export default function SiteHeader() {
           <Link href="/platform">Platform</Link>
           <Link href="/how-it-works">How it works</Link>
           <Link href="/integrations">Integrations</Link>
+          <Link href="/pricing">Pricing</Link>
           <div className="nav-dropdown">
             <Link className="nav-dropdown-trigger" href="/resources" aria-haspopup="true">
               Resources
