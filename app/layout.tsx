@@ -48,6 +48,10 @@ export const metadata: Metadata = {
     icon: [{ url: "/procela-icon.png", type: "image/png" }],
     apple: [{ url: "/procela-icon.png" }],
   },
+  verification: {
+    // Bing Webmaster Tools site verification (renders <meta name="msvalidate.01" …>).
+    other: { "msvalidate.01": "29DFC37F76D1A0484E2E58A08290EE7D" },
+  },
   openGraph: {
     type: "website",
     url: siteUrl,
