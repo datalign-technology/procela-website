@@ -6,6 +6,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import BrowserFrame from "@/components/BrowserFrame";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/security" },
   title: "Security — Procela",
   description:
     "Procela is built for regulated environments: no data egress, an edge connector over outbound HTTPS, tamper-evident audit logs, enterprise SSO (OIDC/SAML), SCIM and MFA, and designed to support programs operating under frameworks like ITAR, CMMC, CUI, HIPAA, and SOC 2.",

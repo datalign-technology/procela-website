@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/guides" },
   title: "Guides & whitepapers — Procela",
   description:
     "In-depth guides and whitepapers on business-process-first data governance, the principal model, the edge connector, and standing up a governance program.",

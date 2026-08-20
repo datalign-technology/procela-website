@@ -4,6 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/integrations" },
   title: "Integrations — Procela",
   description:
     "Metadata-only connectors for the data sources you already run — PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Snowflake, BigQuery, Redshift, Databricks, and dbt.",

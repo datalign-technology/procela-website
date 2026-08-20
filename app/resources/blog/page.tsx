@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/blog" },
   title: "Blog — Procela",
   description:
     "Perspectives from the Procela team on data governance, AI participants in stewardship, and running programs in regulated environments.",

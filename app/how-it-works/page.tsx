@@ -5,6 +5,7 @@ import CtaBand from "@/components/CtaBand";
 import BrowserFrame from "@/components/BrowserFrame";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/how-it-works" },
   title: "How it works — Procela",
   description:
     "Procela's phased DG Foundation track stands up an audit-ready governance baseline in under 30 days: connect, classify, assign, govern, and audit.",

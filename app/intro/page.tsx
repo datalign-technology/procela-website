@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/intro" },
   title: "Procela — Intro",
   description:
     "A 60-second look at Procela: business-process-first data governance for regulated enterprises. Your data never leaves your perimeter.",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     title: "Procela — Intro",
     description:
       "A 60-second look at Procela: business-process-first data governance for regulated enterprises.",
-    url: "https://procela.ai/intro",
+    url: "https://www.procela.ai/intro",
     type: "video.other",
   },
 };

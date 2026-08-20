@@ -3,6 +3,7 @@ import ArticleLayout from "@/components/ArticleLayout";
 import BrowserFrame from "@/components/BrowserFrame";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/principal-model" },
   title: "The principal model: human and AI governance actors — Procela",
   description:
     "How Procela models authority for stewards, owners, and agents — and the three-tier autonomy framework that lets AI participate in governance safely.",

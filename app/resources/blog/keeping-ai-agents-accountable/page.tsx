@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/blog/keeping-ai-agents-accountable" },
   title: "Keeping AI agents accountable in governance — Procela",
   description:
     "Letting AI classify data or propose owners is only safe if every action is attributable. A look at accountable autonomy in data governance.",

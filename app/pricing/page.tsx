@@ -6,6 +6,7 @@ import CtaBand from "@/components/CtaBand";
 import Icon, { type IconName } from "@/components/Icon";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pricing" },
   title: "Pricing — Procela",
   description:
     "Procela is licensed by the scope of your governed estate and how you deploy — cloud, on-premise, or air-gapped — not per seat. Tell us about your environment for a tailored quote.",
