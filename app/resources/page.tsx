@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resources" },
   title: "Resources — Procela",
   description:
-    "Documentation, guides, and briefings on business-process-first data governance, the principal model, the edge connector, and standing up a DG Foundation program.",
+    "Documentation, guides, and briefings on business-process-first governance: the principal model, the edge connector, and the DG Foundation program.",
 };
 
 const CATEGORIES = [
