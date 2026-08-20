@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/platform" },
   title: "Platform — Procela",
   description:
-    "Procela is a business-process-first governance platform: business-process catalog, stewardship, recorded policies and controls, and metadata-only edge connectivity.",
+    "Business-process-first governance: a process catalog, stewardship and RACI, recorded policies and controls, and a metadata-only edge connector.",
 };
 
 const PILLARS: { icon: IconName; kicker: string; title: string; body: string }[] = [

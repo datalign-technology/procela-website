@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resources/edge-agents" },
   title: "The edge connector and the no-egress deployment model — Procela",
   description:
-    "How Procela's edge connector reads source metadata over outbound HTTPS and records a tamper-evident audit trail — governing data without ever moving it out of your perimeter.",
+    "How Procela's edge connector reads metadata over outbound HTTPS and keeps a tamper-evident audit trail — governing data without moving it off your perimeter.",
 };
 
 export default function Article() {

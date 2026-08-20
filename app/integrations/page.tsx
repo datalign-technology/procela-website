@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/integrations" },
   title: "Integrations — Procela",
   description:
-    "Metadata-only connectors for the data sources you already run — PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Snowflake, BigQuery, Redshift, Databricks, and dbt.",
+    "Metadata-only connectors for the sources you run — PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, Snowflake, BigQuery, Redshift, Databricks, and dbt.",
 };
 
 const INTEGRATIONS = [
