@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/dg-foundation-30-days" },
   title: "Standing up a DG Foundation program in 30 days — Procela",
   description:
     "A phased playbook for reaching an audit-ready data governance baseline in under 30 days, starting with your highest-priority domains.",

@@ -7,6 +7,7 @@ import OrchestrationDiagram from "@/components/OrchestrationDiagram";
 import BrowserFrame from "@/components/BrowserFrame";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/platform" },
   title: "Platform — Procela",
   description:
     "Procela is a business-process-first governance platform: business-process catalog, stewardship, recorded policies and controls, and metadata-only edge connectivity.",

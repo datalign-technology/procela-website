@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/blog/continuous-compliance" },
   title: "Making compliance continuous — Procela",
   description:
     "If audit prep is a project, you're already behind. How a closed governance loop turns audits from a fire drill into a query.",

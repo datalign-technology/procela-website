@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/edge-agents" },
   title: "The edge connector and the no-egress deployment model — Procela",
   description:
     "How Procela's edge connector reads source metadata over outbound HTTPS and records a tamper-evident audit trail — governing data without ever moving it out of your perimeter.",

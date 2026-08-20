@@ -4,6 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/docs" },
   title: "Documentation — Procela",
   description:
     "An overview of Procela's product documentation: deployment, integrations, principals and roles, policies, and auditing. Full docs available on request.",

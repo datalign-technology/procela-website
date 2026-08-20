@@ -4,6 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import DemoForm from "@/components/DemoForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/demo" },
   title: "Request a demo — Procela",
   description:
     "See Procela against your environment. Request a walkthrough of the business-process-first data governance platform.",

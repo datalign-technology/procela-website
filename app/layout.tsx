@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://procela.ai";
+const siteUrl = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -89,6 +90,30 @@ export default function RootLayout({
     sameAs: [] as string[],
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Procela",
+    url: siteUrl,
+    publisher: { "@type": "Organization", name: "Procela" },
+  };
+
+  const softwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Procela",
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Data Governance Platform",
+    operatingSystem: "Web, on-premise (Kubernetes / Helm), AWS",
+    url: siteUrl,
+    description:
+      "Business-process-first data governance for regulated enterprises: a metadata-only edge connector, stewardship and RACI, recorded policies and controls, gap detection, lineage, and a tamper-evident audit trail — deployable on-premise or air-gapped.",
+    offers: { "@type": "Offer", availability: "https://schema.org/InStock" },
+    publisher: { "@type": "Organization", name: "Procela" },
+  };
+
+  const jsonLd = [orgJsonLd, websiteJsonLd, softwareJsonLd];
+
   return (
     <html
       lang="en"
@@ -99,10 +124,13 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
+        {jsonLd.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources/blog/why-governance-programs-stall" },
   title: "Why governance programs stall — and what gets them running — Procela",
   description:
     "Most data governance programs don't fail for lack of tools — they fail because the program never becomes operational. The pattern, and the fix.",

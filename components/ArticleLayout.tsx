@@ -18,8 +18,28 @@ export default function ArticleLayout({
   meta,
   children,
 }: ArticleLayoutProps) {
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description: deck,
+    articleSection: category,
+    author: { "@type": "Organization", name: "Procela" },
+    publisher: {
+      "@type": "Organization",
+      name: "Procela",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.procela.ai/procela-icon.png",
+      },
+    },
+  };
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <SiteHeader />
 
       <div className="page-hero">

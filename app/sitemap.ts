@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://procela.ai";
+import { SITE_URL } from "@/lib/site";
 
 const ROUTES = [
   "",
@@ -26,8 +25,10 @@ const ROUTES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
   return ROUTES.map((path) => ({
-    url: `${siteUrl}${path}`,
+    url: `${SITE_URL}${path}`,
+    lastModified,
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1 : path.startsWith("/resources/") ? 0.6 : 0.8,
   }));

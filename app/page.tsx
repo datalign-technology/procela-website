@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import BrowserFrame from "@/components/BrowserFrame";
@@ -6,6 +7,21 @@ import SiteFooter from "@/components/SiteFooter";
 import PlatformTabs from "@/components/PlatformTabs";
 import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
+import { FAQ_ITEMS } from "@/lib/faq";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
 
 const INTEGRATIONS = [
   "Snowflake",
@@ -255,6 +271,10 @@ export default function Home() {
       />
 
       <SiteFooter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
     </>
   );
 }

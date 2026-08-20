@@ -3,6 +3,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy — Procela",
   description:
     "How Datalign Technology LLC (DBA Procela.ai) collects, uses, shares, and protects information collected through the Procela.ai website.",
