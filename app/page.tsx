@@ -109,7 +109,7 @@ export default function Home() {
         <div className="hero-shot">
           <BrowserFrame
             src="/screenshots/hero.webp"
-            alt="The Procela dashboard showing governance posture — coverage, data health, and tier mix — with trend charts across value streams, processes, data assets, and systems."
+            alt="The Procela dashboard, personalized for a data governance leader — a My Dashboard view surfacing an overdue approval and a critical data-quality issue needing attention, an upcoming governance committee meeting, owned data domains, and an organization-wide overview of data assets, systems, and coverage."
             priority
           />
         </div>
