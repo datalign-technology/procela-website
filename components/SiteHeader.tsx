@@ -19,6 +19,7 @@ export default function SiteHeader() {
         </Link>
         <div className="nav-links">
           <Link href="/platform">Platform</Link>
+          <Link href="/industries">Industries</Link>
           <Link href="/how-it-works">How it works</Link>
           <Link href="/integrations">Integrations</Link>
           <Link href="/pricing">Pricing</Link>

@@ -9,6 +9,7 @@ export default function SiteFooter() {
       </div>
       <div className="footer-links">
         <Link href="/platform">Platform</Link>
+        <Link href="/industries">Industries</Link>
         <Link href="/integrations">Integrations</Link>
         <Link href="/pricing">Pricing</Link>
         <Link href="/security">Security</Link>

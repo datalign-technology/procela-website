@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
+import { INDUSTRIES } from "@/lib/industries";
 
 const ROUTES = [
   "",
   "/platform",
+  "/industries",
+  ...INDUSTRIES.map((i) => `/industries/${i.slug}`),
   "/how-it-works",
   "/integrations",
   "/pricing",
