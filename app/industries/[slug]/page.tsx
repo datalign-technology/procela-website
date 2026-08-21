@@ -5,7 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
 import Icon, { type IconName } from "@/components/Icon";
-import IndustryIcon from "@/components/IndustryIcon";
+import IndustryScene from "@/components/IndustryScene";
 import { INDUSTRIES, getIndustry } from "@/lib/industries";
 
 type Params = { params: { slug: string } };
@@ -61,9 +61,7 @@ export default function IndustryPage({ params }: Params) {
             </div>
           </div>
           <div className="ind-hero-vis">
-            <span className="big">
-              <IndustryIcon slug={ind.slug} size={52} />
-            </span>
+            <IndustryScene slug={ind.slug} className="ind-scene" />
           </div>
         </div>
       </div>
