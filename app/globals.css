@@ -1366,14 +1366,61 @@ a.card:hover {
   margin-top: 0.85rem;
 }
 
-/* Hero product screenshot */
+/* Hero — two-column layout (homepage only, scoped to .hero-band) */
+.hero-band-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 4.25rem 2.5rem 4.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 3.25rem;
+  align-items: center;
+}
 .hero-band .hero {
-  padding-bottom: 1.5rem;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.hero-band .hero h1 {
+  font-size: clamp(2.2rem, 3.6vw, 3.05rem);
+}
+.hero-band .hero-sub {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 520px;
+}
+.hero-band .hero-actions,
+.hero-band .hero-badges {
+  justify-content: flex-start;
 }
 .hero-shot {
-  max-width: 1000px;
-  margin: 0.5rem auto 4rem;
-  padding: 0 2rem;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 880px) {
+  .hero-band-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3.5rem 1.5rem 3rem;
+    text-align: center;
+  }
+  .hero-band .hero {
+    text-align: center;
+  }
+  .hero-band .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-band .hero-actions,
+  .hero-band .hero-badges {
+    justify-content: center;
+  }
+  .hero-shot {
+    max-width: 640px;
+    margin: 0 auto;
+  }
 }
 
 /* Alternating product-tour rows */

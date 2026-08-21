@@ -94,41 +94,41 @@ export default function Home() {
 
       {/* HERO */}
       <div className="hero-band">
-        <header className="hero">
-          <span className="hero-eyebrow">Enterprise data governance</span>
-          <h1>
-            The system of record for
-            <br />
-            who <em>owns</em> your data
-          </h1>
-          <p className="hero-sub">
-            Procela unifies systems, assets, owners and domains into one governed
-            catalog — with the program, quality and lineage regulated enterprises
-            are held to. Deployed entirely within your environment.
-          </p>
-          <div className="hero-actions">
-            <Link className="btn-primary-lg" href="/demo">
-              Request a demo
-            </Link>
-            <Link className="btn-outline-lg" href="/platform">
-              Explore the platform
-            </Link>
+        <div className="hero-band-inner">
+          <header className="hero">
+            <span className="hero-eyebrow">Enterprise data governance</span>
+            <h1>
+              The system of record for who <em>owns</em> your data
+            </h1>
+            <p className="hero-sub">
+              Procela unifies systems, assets, owners and domains into one
+              governed catalog — with the program, quality and lineage regulated
+              enterprises are held to. Deployed entirely within your environment.
+            </p>
+            <div className="hero-actions">
+              <Link className="btn-primary-lg" href="/demo">
+                Request a demo
+              </Link>
+              <Link className="btn-outline-lg" href="/platform">
+                Explore the platform
+              </Link>
+            </div>
+            <div className="hero-badges">
+              {HERO_BADGES.map((b) => (
+                <span className="hero-badge" key={b}>
+                  <Icon name="shield" size={15} />
+                  {b}
+                </span>
+              ))}
+            </div>
+          </header>
+          <div className="hero-shot">
+            <BrowserFrame
+              src="/screenshots/hero.webp"
+              alt="The Procela dashboard, personalized for a data governance leader — a My Dashboard view surfacing an overdue approval and a critical data-quality issue needing attention, an upcoming governance committee meeting, owned data domains, and an organization-wide overview of data assets, systems, and coverage."
+              priority
+            />
           </div>
-          <div className="hero-badges">
-            {HERO_BADGES.map((b) => (
-              <span className="hero-badge" key={b}>
-                <Icon name="shield" size={15} />
-                {b}
-              </span>
-            ))}
-          </div>
-        </header>
-        <div className="hero-shot">
-          <BrowserFrame
-            src="/screenshots/hero.webp"
-            alt="The Procela dashboard, personalized for a data governance leader — a My Dashboard view surfacing an overdue approval and a critical data-quality issue needing attention, an upcoming governance committee meeting, owned data domains, and an organization-wide overview of data assets, systems, and coverage."
-            priority
-          />
         </div>
       </div>
 
