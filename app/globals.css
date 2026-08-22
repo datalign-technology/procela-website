@@ -1839,27 +1839,26 @@ a.card:hover {
 .ind-card:hover {
   border-color: var(--border-green);
 }
-.ind-card-top {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.9rem;
-}
-.ind-ico {
-  width: 42px;
-  height: 42px;
+.ind-card-vis {
+  background: var(--tile-motif), var(--hero-grad);
+  border: 1px solid var(--border-green);
   border-radius: 10px;
-  background: var(--green-faint);
+  height: 128px;
+  margin-bottom: 1.1rem;
+  overflow: hidden;
   display: grid;
   place-items: center;
-  color: var(--green-text);
-  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+}
+.ind-card-vis .ind-scene {
+  padding: 0;
 }
 .ind-card h3 {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--ink);
   line-height: 1.2;
+  margin-bottom: 0.6rem;
 }
 .ind-card p {
   font-size: 0.85rem;
