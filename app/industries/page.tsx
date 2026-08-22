@@ -3,7 +3,7 @@ import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
-import IndustryIcon from "@/components/IndustryIcon";
+import IndustryScene from "@/components/IndustryScene";
 import { INDUSTRIES } from "@/lib/industries";
 
 export const metadata: Metadata = {
@@ -39,12 +39,10 @@ export default function IndustriesPage() {
                 href={`/industries/${ind.slug}`}
                 key={ind.slug}
               >
-                <div className="ind-card-top">
-                  <span className="ind-ico">
-                    <IndustryIcon slug={ind.slug} size={24} />
-                  </span>
-                  <h3>{ind.name}</h3>
+                <div className="ind-card-vis">
+                  <IndustryScene slug={ind.slug} className="ind-scene" />
                 </div>
+                <h3>{ind.name}</h3>
                 <p>{ind.blurb}</p>
                 <div className="ind-regs">
                   {ind.regs.map((r) => (
