@@ -1538,8 +1538,59 @@ a.card:hover {
   animation-delay: 0.25s;
 }
 
+/* Hero ambient motion (homepage) — subtle, compositor-only, reduced-motion safe */
+.hero-band {
+  position: relative;
+  overflow: hidden;
+}
+.hero-band::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 52%;
+  width: 62%;
+  height: 150%;
+  background: radial-gradient(
+    closest-side,
+    rgba(112, 192, 144, 0.18),
+    rgba(112, 192, 144, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity;
+  animation: heroGlow 15s ease-in-out infinite alternate;
+}
+.hero-band-inner {
+  position: relative;
+  z-index: 1;
+}
+.hero-shot {
+  animation: heroFloat 8s ease-in-out infinite;
+}
+@keyframes heroGlow {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.65;
+  }
+  to {
+    transform: translate(-9%, 7%) scale(1.18);
+    opacity: 1;
+  }
+}
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero > * {
+  .hero > *,
+  .hero-band::before,
+  .hero-shot {
     animation: none;
   }
   html {
