@@ -1598,6 +1598,29 @@ a.card:hover {
   }
 }
 
+/* Homepage industries link strip */
+.ind-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+.ind-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.ind-link:hover {
+  border-color: var(--border-green);
+  color: var(--green-text);
+}
+
 /* Product showcase (tabbed screenshots below the hero) */
 .showcase {
   margin-top: 2.5rem;
