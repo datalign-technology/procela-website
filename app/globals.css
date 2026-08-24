@@ -1598,6 +1598,59 @@ a.card:hover {
   }
 }
 
+/* Product showcase (tabbed screenshots below the hero) */
+.showcase {
+  margin-top: 2.5rem;
+}
+.showcase .product-kicker {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-text);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.showcase-panel {
+  align-items: center;
+}
+.showcase-copy {
+  animation: showcaseFade 0.35s ease both;
+}
+.showcase-frames {
+  position: relative;
+}
+.sc-frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.sc-frame.active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}
+@keyframes showcaseFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showcase-copy {
+    animation: none;
+  }
+  .sc-frame {
+    transition: none;
+  }
+}
+
 /* ============================================================
    HOMEPAGE v2 + INDUSTRIES
    ============================================================ */
