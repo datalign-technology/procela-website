@@ -8,6 +8,7 @@ import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
 import ProductShowcase from "@/components/ProductShowcase";
 import { FAQ_ITEMS } from "@/lib/faq";
+import { INDUSTRIES } from "@/lib/industries";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -274,6 +275,34 @@ export default function Home() {
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      {/* INDUSTRIES */}
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">Industries</span>
+          <h2 className="section-title">
+            Built for regulated, data-intensive industries
+          </h2>
+          <p className="section-body">
+            Procela runs where your data lives — on-premises or air-gapped — for
+            the sectors that can&apos;t afford to get data wrong.
+          </p>
+          <div className="ind-links">
+            {INDUSTRIES.map((i) => (
+              <Link key={i.slug} href={`/industries/${i.slug}`} className="ind-link">
+                {i.name}
+              </Link>
+            ))}
+          </div>
+          <div style={{ marginTop: "1.75rem" }}>
+            <Link href="/industries" className="tab-link">
+              See all industries →
+            </Link>
           </div>
         </div>
       </section>
