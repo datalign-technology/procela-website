@@ -6,6 +6,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
+import ProductShowcase from "@/components/ProductShowcase";
 import { FAQ_ITEMS } from "@/lib/faq";
 
 export const metadata: Metadata = {
@@ -151,6 +152,17 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      {/* PRODUCT SHOWCASE — tabbed screenshots */}
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">See it in action</span>
+          <h2 className="section-title">One place to run your governance program</h2>
+          <ProductShowcase />
+        </div>
+      </section>
+
+      <hr className="divider" />
 
       {/* PLATFORM — bento */}
       <section className="section" id="platform">
