@@ -16,12 +16,12 @@ const EDITIONS: { kicker: string; title: string; body: string }[] = [
   {
     kicker: "Foundation",
     title: "Stand up your first program",
-    body: "Everything to reach an audit-ready baseline on your highest-priority domain — the business-process catalog, process-to-data mapping, data domains, ownership and RACI, the maturity scorecard, and gap detection. Runs in the cloud with single sign-on.",
+    body: "Everything to reach an audit-ready baseline on your highest-priority domain — the business-process catalog, process-to-data mapping, data domains, ownership and RACI, the governance council scorecard, and gap detection. Runs in the cloud with single sign-on.",
   },
   {
     kicker: "Professional",
     title: "Run governance across the enterprise",
-    body: "Adds AI-assisted classification and stewardship suggestions, the full governance program and decision rights, executive reporting and the scorecard over time, business glossary and lineage — across multiple domains and organizations, with SAML SSO and SCIM provisioning.",
+    body: "Adds AI-assisted classification and stewardship suggestions, the full governance program and decision rights, executive reporting and the council scorecard over time, business glossary and lineage — across multiple domains and organizations, with SAML SSO and SCIM provisioning.",
   },
   {
     kicker: "Enterprise · Regulated",
