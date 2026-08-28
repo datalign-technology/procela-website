@@ -98,16 +98,17 @@ export default function HowItWorksPage() {
 
           <div className="product-row">
             <div className="product-copy">
-              <span className="product-kicker">Program phases</span>
-              <h3>Track the DG Foundation program by phase</h3>
+              <span className="product-kicker">Set up &amp; launch</span>
+              <h3>One journey from empty org to running program</h3>
               <p>
-                From foundation to operationalization, Procela shows exactly where the
-                program stands and the next steps to advance it.
+                Procela walks the whole program through four stages — Capture, Assign,
+                Govern, Operate — showing exactly what&apos;s done, what&apos;s derived
+                automatically from your catalog, and the next actions to advance it.
               </p>
             </div>
             <BrowserFrame
-              src="/screenshots/program.webp"
-              alt="Procela governance program view showing phased progress across foundation, structure, ownership, and operations."
+              src="/screenshots/setup.webp"
+              alt="Procela's Set up Procela journey showing four stages — Capture, Assign, Govern, and Operate — with per-stage progress and a prioritized list of next actions."
             />
           </div>
 
@@ -144,17 +145,17 @@ export default function HowItWorksPage() {
 
           <div className="product-row reverse">
             <div className="product-copy">
-              <span className="product-kicker">Maturity scorecard</span>
-              <h3>Measure the program as it matures</h3>
+              <span className="product-kicker">Council scorecard</span>
+              <h3>Give the council one board to run on</h3>
               <p>
-                Track governance maturity across process documentation, data
-                governance, domain coverage, and structure — so progress is visible,
-                not anecdotal.
+                Four measures — tier-1 coverage, classification, open issues, and
+                exceptions — auto-derived from live data and rolled up from every
+                division to the enterprise, so progress is visible, not anecdotal.
               </p>
             </div>
             <BrowserFrame
-              src="/screenshots/scorecard.webp"
-              alt="Procela governance maturity scorecard showing an overall score and per-dimension progress bars."
+              src="/screenshots/council-scorecard.webp"
+              alt="The Procela Governance Council Scorecard rolling four measures up from each division to the enterprise, with status badges and an auto-derived narrative."
             />
           </div>
         </div>
