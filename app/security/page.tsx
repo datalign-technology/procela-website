@@ -148,7 +148,7 @@ export default function SecurityPage() {
             </div>
             <BrowserFrame
               src="/screenshots/gaps.webp"
-              alt="Procela gap detection view showing total, critical, and warning governance gaps with an ownership-gap breakdown."
+              alt="Procela gap detection view showing total, critical, warning, and informational governance gaps broken down by category — ungoverned assets, unowned domains, orphaned assets, and unassigned people."
             />
           </div>
         </div>
