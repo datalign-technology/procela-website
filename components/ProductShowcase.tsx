@@ -40,6 +40,17 @@ const VIEWS: View[] = [
     url: "app.procela.ai/enterprise-view",
   },
   {
+    id: "processes",
+    tab: "Processes",
+    kicker: "Operating model",
+    heading: "The business processes your data runs on",
+    body: "Map value streams to processes, sub-processes and activities — each with a named owner, responsible role and the systems and data assets it touches. Governance anchored to how the business actually works, not an abstract diagram.",
+    href: "/platform",
+    src: "/screenshots/processes.webp",
+    alt: "Procela process catalog showing a Value Stream, Process, Sub-Process and Activity hierarchy, each with an owner, responsible role, and the systems and data assets it touches.",
+    url: "app.procela.ai/processes",
+  },
+  {
     id: "data-assets",
     tab: "Data assets",
     kicker: "Catalog",
