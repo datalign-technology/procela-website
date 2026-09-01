@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Icon from "@/components/Icon";
-import BrowserFrame from "@/components/BrowserFrame";
+import HeroSlideshow from "@/components/HeroSlideshow";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Faq from "@/components/Faq";
@@ -125,11 +125,7 @@ export default function Home() {
             </div>
           </header>
           <div className="hero-shot">
-            <BrowserFrame
-              src="/screenshots/hero.webp"
-              alt="The Procela Governance Council Scorecard — an executive view rolling four measures (tier-1 coverage, classification, open issues, and exceptions) up from each division to the enterprise, with auto-derived status badges, a 'what moved' and 'for the council' narrative, and a record of saved monthly snapshots."
-              priority
-            />
+            <HeroSlideshow />
           </div>
         </div>
       </div>

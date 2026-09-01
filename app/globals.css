@@ -1598,6 +1598,70 @@ a.card:hover {
   }
 }
 
+/* Hero slideshow — auto-advancing screenshots inside the browser frame */
+.hero-slideshow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.hero-slides {
+  position: relative;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.hero-slide.active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}
+.hero-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+.hero-dot {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 248, 245, 0.72);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 100px;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.hero-dot:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.34);
+}
+.hero-dot.active {
+  color: #ffffff;
+  background: var(--green);
+  border-color: var(--green);
+}
+.hero-dot:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 2px;
+}
+@media (max-width: 880px) {
+  .hero-dots {
+    justify-content: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none;
+  }
+}
+
 /* Homepage industries link strip */
 .ind-links {
   display: flex;
