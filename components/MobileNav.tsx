@@ -56,6 +56,9 @@ export default function MobileNav() {
           <Link className="mobile-subitem" href="/resources/blog" onClick={close}>
             Blog
           </Link>
+          <Link href="/pilot" onClick={close}>
+            Start a pilot
+          </Link>
           <Link className="btn-green" href="/demo" onClick={close}>
             Request a demo
           </Link>
