@@ -5,14 +5,6 @@ import MobileNav from "./MobileNav";
 export default function SiteHeader() {
   return (
     <>
-      <div className="announcement">
-        <span className="ann-badge">New</span>
-        Introducing Procela — business-process-first governance for regulated enterprises.{" "}
-        <Link className="ann-link" href="/demo">
-          Request a demo →
-        </Link>
-      </div>
-
       <nav className="nav">
         <Link className="nav-brand" href="/" aria-label="Procela home">
           <Logo height={32} />
