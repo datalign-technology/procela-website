@@ -69,18 +69,54 @@ export default function DemoForm({ intent = "demo" }: DemoFormProps) {
           <label htmlFor="company">Company</label>
           <input id="company" name="company" type="text" autoComplete="organization" required />
         </div>
+        <div className="field-row">
+          <div className="field">
+            <label htmlFor="role">Job title / role</label>
+            <input id="role" name="role" type="text" autoComplete="organization-title" />
+          </div>
+          <div className="field">
+            <label htmlFor="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" autoComplete="tel" />
+          </div>
+        </div>
+        <div className="field-row">
+          <div className="field">
+            <label htmlFor="industry">Industry</label>
+            <select id="industry" name="industry" defaultValue="">
+              <option value="" disabled>
+                Select an industry
+              </option>
+              <option>Defense &amp; Aerospace</option>
+              <option>Financial Services</option>
+              <option>Healthcare &amp; Life Sciences</option>
+              <option>Government &amp; Public Sector</option>
+              <option>Energy &amp; Utilities</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div className="field">
+            <label htmlFor="companySize">Company size</label>
+            <select id="companySize" name="companySize" defaultValue="">
+              <option value="" disabled>
+                Select a size
+              </option>
+              <option>1–200</option>
+              <option>201–1,000</option>
+              <option>1,001–5,000</option>
+              <option>5,000+</option>
+            </select>
+          </div>
+        </div>
         <div className="field">
-          <label htmlFor="industry">Industry</label>
-          <select id="industry" name="industry" defaultValue="">
+          <label htmlFor="deployment">Preferred deployment</label>
+          <select id="deployment" name="deployment" defaultValue="">
             <option value="" disabled>
-              Select an industry
+              Select a deployment model
             </option>
-            <option>Defense &amp; Aerospace</option>
-            <option>Financial Services</option>
-            <option>Healthcare &amp; Life Sciences</option>
-            <option>Government &amp; Public Sector</option>
-            <option>Energy &amp; Utilities</option>
-            <option>Other</option>
+            <option>Cloud</option>
+            <option>On-premise</option>
+            <option>Air-gapped</option>
+            <option>Not sure yet</option>
           </select>
         </div>
         <div className="field">
