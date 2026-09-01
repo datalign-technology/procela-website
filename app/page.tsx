@@ -156,6 +156,11 @@ export default function Home() {
           <span className="eyebrow">See it in action</span>
           <h2 className="section-title">One place to run your governance program</h2>
           <ProductShowcase />
+          <div style={{ marginTop: "2rem", textAlign: "center" }}>
+            <Link href="/tour" className="btn-outline-lg">
+              Take the interactive tour
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -8,6 +8,7 @@ const ROUTES = [
   "/industries",
   ...INDUSTRIES.map((i) => `/industries/${i.slug}`),
   "/how-it-works",
+  "/tour",
   "/integrations",
   "/pricing",
   "/security",

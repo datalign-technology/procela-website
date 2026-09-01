@@ -2246,3 +2246,299 @@ a.card:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   INTERACTIVE PRODUCT TOUR (/tour)
+   ============================================================ */
+.tour-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.tour {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Step rail */
+.tour-rail {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+  scrollbar-width: thin;
+}
+.tour-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--slate);
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.5rem 0.95rem 0.5rem 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.tour-chip:hover {
+  border-color: var(--border-green);
+  color: var(--ink);
+}
+.tour-chip.active {
+  color: var(--ink);
+  border-color: var(--border-green);
+  box-shadow: 0 1px 0 var(--green-text) inset, 0 0 0 1px var(--border-green);
+}
+.tour-chip-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  background: rgba(74, 140, 106, 0.12);
+  color: var(--green-text);
+  flex-shrink: 0;
+}
+.tour-chip.active .tour-chip-num {
+  background: var(--green);
+  color: #fff;
+}
+
+/* Main: stage + caption */
+.tour-main {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.tour-stage {
+  min-width: 0;
+}
+.tour-shot {
+  position: relative;
+  animation: showcaseFade 0.4s ease both;
+}
+.tour-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.tour-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.tour-pin-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(74, 140, 106, 0.28), 0 4px 12px rgba(13, 31, 23, 0.3);
+  animation: tourPulse 2.4s ease-in-out infinite;
+}
+.tour-pin.active .tour-pin-dot,
+.tour-pin:hover .tour-pin-dot {
+  animation: none;
+  background: var(--green-dim);
+  box-shadow: 0 0 0 5px rgba(74, 140, 106, 0.35), 0 4px 12px rgba(13, 31, 23, 0.35);
+}
+.tour-callout {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 230px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--on-dark);
+  background: #12271c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 12px 30px rgba(13, 31, 23, 0.4);
+  z-index: 3;
+}
+.tour-pin.active .tour-callout,
+.tour-pin:hover .tour-callout {
+  opacity: 1;
+  visibility: visible;
+}
+@keyframes tourPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(74, 140, 106, 0.28), 0 4px 12px rgba(13, 31, 23, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(74, 140, 106, 0.06), 0 4px 12px rgba(13, 31, 23, 0.3);
+  }
+}
+
+/* Caption */
+.tour-caption {
+  animation: showcaseFade 0.4s ease both;
+}
+.tour-progress-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.tour-title {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0.35rem 0 0.75rem;
+}
+.tour-body {
+  color: var(--slate);
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+}
+.tour-points {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tour-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  width: 100%;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.tour-point:hover,
+.tour-point.active {
+  border-color: var(--border-green);
+  background: rgba(74, 140, 106, 0.06);
+}
+.tour-point-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  background: var(--green);
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+.tour-deep {
+  display: inline-block;
+}
+
+/* Controls */
+.tour-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.tour-bar {
+  height: 4px;
+  border-radius: 100px;
+  background: var(--border);
+  overflow: hidden;
+}
+.tour-bar span {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  border-radius: 100px;
+  transition: width 0.35s ease;
+}
+.tour-buttons {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tour-btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.6rem 1.15rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.tour-btn:hover:not(:disabled) {
+  border-color: var(--border-green);
+  color: var(--green-text);
+}
+.tour-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.tour-play {
+  font-variant-numeric: tabular-nums;
+}
+.tour-btn-primary {
+  color: #fff;
+  background: var(--green);
+  border-color: var(--green);
+}
+.tour-btn-primary:hover {
+  background: var(--green-dim);
+  border-color: var(--green-dim);
+  color: #fff;
+}
+
+@media (max-width: 820px) {
+  .tour-main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-shot,
+  .tour-caption {
+    animation: none;
+  }
+  .tour-pin-dot {
+    animation: none;
+  }
+}
