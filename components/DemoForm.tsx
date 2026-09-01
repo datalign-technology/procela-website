@@ -3,7 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function DemoForm() {
+type DemoFormProps = {
+  /** "pilot" tailors the copy and tags the submission as a pilot request. */
+  intent?: "demo" | "pilot";
+};
+
+export default function DemoForm({ intent = "demo" }: DemoFormProps) {
+  const isPilot = intent === "pilot";
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -14,7 +20,7 @@ export default function DemoForm() {
 
     const form = e.currentTarget;
     const fd = new FormData(form);
-    const payload = Object.fromEntries(fd.entries());
+    const payload = { ...Object.fromEntries(fd.entries()), intent };
 
     try {
       const res = await fetch("/api/demo", {
@@ -40,8 +46,9 @@ export default function DemoForm() {
       <div className="form-success" role="status">
         <h3>Thanks — we&apos;ll be in touch.</h3>
         <p>
-          A member of the Procela team will reach out shortly to schedule your
-          walkthrough.
+          {isPilot
+            ? "A member of the Procela team will reach out shortly to scope your pilot and map it to your environment."
+            : "A member of the Procela team will reach out shortly to schedule your walkthrough."}
         </p>
       </div>
     );
@@ -77,8 +84,20 @@ export default function DemoForm() {
           </select>
         </div>
         <div className="field">
-          <label htmlFor="message">What are you trying to govern?</label>
-          <textarea id="message" name="message" placeholder="Tell us about your environment and stack." />
+          <label htmlFor="message">
+            {isPilot
+              ? "What domain would you pilot first?"
+              : "What are you trying to govern?"}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder={
+              isPilot
+                ? "Tell us about the domain you'd start with, your stack, and how you'd want to deploy — cloud, on-premise, or air-gapped."
+                : "Tell us about your environment and stack."
+            }
+          />
         </div>
 
         {/* Honeypot: hidden from users, catches bots. */}
@@ -104,7 +123,11 @@ export default function DemoForm() {
           className="btn-primary-lg full"
           disabled={status === "sending"}
         >
-          {status === "sending" ? "Sending…" : "Request a demo"}
+          {status === "sending"
+            ? "Sending…"
+            : isPilot
+              ? "Start a pilot"
+              : "Request a demo"}
         </button>
       </div>
       <p className="form-note">

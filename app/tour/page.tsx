@@ -36,10 +36,10 @@ export default function TourPage() {
 
       <CtaBand
         title="Want to see it against your own environment?"
-        body="A live walkthrough with our team maps Procela to your systems, domains, and deployment — cloud, on-premise, or air-gapped."
+        body="A live walkthrough maps Procela to your systems and deployment — or start a pilot and prove it on one of your own domains."
         primaryLabel="Request a demo"
-        secondaryLabel="Explore the platform"
-        secondaryHref="/platform"
+        secondaryLabel="Start a pilot"
+        secondaryHref="/pilot"
       />
 
       <SiteFooter />

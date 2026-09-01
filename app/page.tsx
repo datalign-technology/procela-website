@@ -349,7 +349,9 @@ export default function Home() {
       {/* FINAL CTA */}
       <CtaBand
         title="For leaders who need governance that actually runs"
-        body="Procela is built for regulated, complex enterprises. Let's talk about your environment."
+        body="Procela is built for regulated, complex enterprises. Prove it on one domain, or let's talk about your environment."
+        secondaryLabel="Start a pilot"
+        secondaryHref="/pilot"
       />
 
       <SiteFooter />

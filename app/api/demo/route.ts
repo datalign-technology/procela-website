@@ -34,6 +34,7 @@ export async function POST(req: Request) {
   const company = String(data.company ?? "").trim();
   const industry = String(data.industry ?? "").trim();
   const message = String(data.message ?? "").trim();
+  const isPilot = String(data.intent ?? "").trim() === "pilot";
   // Honeypot: bots fill this hidden field. Silently accept and drop.
   const honeypot = String(data.company_website ?? "").trim();
 
@@ -64,8 +65,9 @@ export async function POST(req: Request) {
     );
   }
 
-  const subject = `Demo request - ${company}`;
+  const subject = `${isPilot ? "Pilot" : "Demo"} request - ${company}`;
   const textBody = [
+    `Request type: ${isPilot ? "Pilot" : "Demo"}`,
     `Name: ${name}`,
     `Email: ${email}`,
     `Company: ${company}`,
@@ -77,7 +79,7 @@ export async function POST(req: Request) {
     .join("\n");
 
   const htmlBody =
-    `<h2>New demo request</h2>` +
+    `<h2>New ${isPilot ? "pilot" : "demo"} request</h2>` +
     `<p><strong>Name:</strong> ${escapeHtml(name)}<br>` +
     `<strong>Email:</strong> ${escapeHtml(email)}<br>` +
     `<strong>Company:</strong> ${escapeHtml(company)}` +

@@ -121,10 +121,10 @@ export default function PricingPage() {
 
       <CtaBand
         title="Let's scope Procela to your environment"
-        body="Every environment is different — deployment, scale, and compliance needs shape the plan. Tell us about yours and we'll prepare a tailored quote."
+        body="Every environment is different — deployment, scale, and compliance needs shape the plan. Start with a pilot on one domain, or tell us about yours and we'll prepare a tailored quote."
         primaryLabel="Request a quote"
-        secondaryLabel="Explore the platform"
-        secondaryHref="/platform"
+        secondaryLabel="Start a pilot"
+        secondaryHref="/pilot"
       />
 
       <SiteFooter />
