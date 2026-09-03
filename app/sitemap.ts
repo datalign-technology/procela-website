@@ -20,6 +20,7 @@ const ROUTES = [
   "/resources/dg-foundation-30-days",
   "/resources/principal-model",
   "/resources/edge-agents",
+  "/resources/blog/what-belongs-on-a-governance-scorecard",
   "/resources/blog/govern-the-process-not-just-the-data",
   "/resources/blog/why-governance-programs-stall",
   "/resources/blog/keeping-ai-agents-accountable",
