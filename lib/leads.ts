@@ -86,6 +86,18 @@ async function saveToSheet(record: Record<string, unknown>): Promise<boolean> {
     if (!res.ok) {
       throw new Error(`Sheets webhook responded ${res.status}`);
     }
+    // Apps Script Web Apps always return HTTP 200, signalling failure (e.g. a
+    // bad token) in the JSON body — so a 200 alone doesn't mean the row landed.
+    const text = await res.text().catch(() => "");
+    let data: { ok?: boolean; error?: string } | null = null;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      // Non-JSON response (e.g. a Google wrapper page): can't assert failure.
+    }
+    if (data && data.ok === false) {
+      throw new Error(`Sheets webhook rejected the row: ${data.error || "unknown error"}`);
+    }
     return true;
   } finally {
     clearTimeout(timer);
