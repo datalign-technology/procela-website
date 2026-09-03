@@ -9,8 +9,11 @@ frontend:
       commands:
         # Amplify exposes env vars at build time only; write the ones the
         # Next.js server runtime needs into .env.production so the /api/demo
-        # route can read them at request time.
-        - env | grep -E '^(RESEND_API_KEY|DEMO_FROM_EMAIL|DEMO_TO_EMAIL|LEADS_TABLE|LEADS_AWS_REGION|LEADS_SHEETS_WEBHOOK_URL|LEADS_SHEETS_TOKEN)=' >> .env.production || true
+        # route can read them at request time. Values are wrapped in double
+        # quotes because the .env parser (@next/env) treats an unquoted '#' as
+        # the start of a comment — which would silently truncate a secret like
+        # a shared token that ends in '#'. Quoting preserves it verbatim.
+        - env | grep -E '^(RESEND_API_KEY|DEMO_FROM_EMAIL|DEMO_TO_EMAIL|LEADS_TABLE|LEADS_AWS_REGION|LEADS_SHEETS_WEBHOOK_URL|LEADS_SHEETS_TOKEN)=' | awk -F= '{ k=$1; sub(/^[^=]*=/, ""); printf "%s=\"%s\"\n", k, $0 }' >> .env.production || true
         - npm run build
   artifacts:
     baseDirectory: .next
