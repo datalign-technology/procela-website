@@ -10,7 +10,7 @@ frontend:
         # Amplify exposes env vars at build time only; write the ones the
         # Next.js server runtime needs into .env.production so the /api/demo
         # route can read them at request time.
-        - env | grep -E '^(RESEND_API_KEY|DEMO_FROM_EMAIL|DEMO_TO_EMAIL|LEADS_TABLE|LEADS_AWS_REGION)=' >> .env.production || true
+        - env | grep -E '^(RESEND_API_KEY|DEMO_FROM_EMAIL|DEMO_TO_EMAIL|LEADS_TABLE|LEADS_AWS_REGION|LEADS_SHEETS_WEBHOOK_URL|LEADS_SHEETS_TOKEN)=' >> .env.production || true
         - npm run build
   artifacts:
     baseDirectory: .next
