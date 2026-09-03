@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { saveLead } from "@/lib/leads";
+import { recordLead } from "@/lib/leads";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -60,11 +60,11 @@ export async function POST(req: Request) {
     );
   }
 
-  // Persist first (best-effort, durable). A datastore hiccup must never drop
-  // the request — the email below is the other capture channel.
+  // Persist first (best-effort, durable) to every configured sink. A sink
+  // hiccup must never drop the request — the email below is another channel.
   let saved = false;
   try {
-    saved = await saveLead({
+    saved = await recordLead({
       intent: isPilot ? "pilot" : "demo",
       name,
       email,
@@ -86,7 +86,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true });
     }
     console.error(
-      "Form not configured: set RESEND_API_KEY, DEMO_FROM_EMAIL, and DEMO_TO_EMAIL (or LEADS_TABLE).",
+      "Form not configured: set RESEND_API_KEY, DEMO_FROM_EMAIL, and DEMO_TO_EMAIL " +
+        "(or a persistence sink: LEADS_TABLE / LEADS_SHEETS_WEBHOOK_URL).",
     );
     return NextResponse.json(
       { error: "The form isn't configured yet. Please email us directly." },
