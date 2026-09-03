@@ -13,6 +13,12 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    date: "September 2026",
+    title: "Govern the process, not just the data",
+    body: "A finished catalog that nobody trusts is a common place to get stuck. Why starting from your business processes makes governance easier — with practical steps to try this week.",
+    href: "/resources/blog/govern-the-process-not-just-the-data",
+  },
+  {
     date: "July 2026",
     title: "Why governance programs stall — and what actually gets them running",
     body: "Most programs don't fail for lack of tools. They fail because the program never becomes operational. Here's the pattern — and the fix.",
