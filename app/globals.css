@@ -2530,3 +2530,91 @@ a.card:hover {
     animation: none;
   }
 }
+
+/* ============================================================
+   UPDATES BANNER (rotating news strip above the header)
+   ============================================================ */
+.updbar {
+  background: var(--green-dim);
+  color: var(--on-dark);
+}
+.updbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 40px;
+}
+.updbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+  color: var(--on-dark);
+  text-decoration: none;
+  font-size: 0.82rem;
+  animation: updbarFade 0.4s ease;
+}
+.updbar-item:hover .updbar-title {
+  text-decoration: underline;
+}
+.updbar-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.updbar-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.updbar-arrow {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.updbar-dots {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.updbar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.updbar-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+.updbar-dot.active {
+  background: #ffffff;
+}
+.updbar-dot:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+@keyframes updbarFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (max-width: 680px) {
+  .updbar-arrow { display: none; }
+  .updbar-inner { padding: 0.5rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .updbar-item { animation: none; }
+  .updbar-dot { transition: none; }
+}
