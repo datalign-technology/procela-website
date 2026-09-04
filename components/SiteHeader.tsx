@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
+import UpdatesBanner from "./UpdatesBanner";
 
 export default function SiteHeader() {
   return (
     <>
+      <UpdatesBanner />
+
       <nav className="nav">
         <Link className="nav-brand" href="/" aria-label="Procela home">
           <Logo height={32} />
@@ -16,6 +19,7 @@ export default function SiteHeader() {
           <Link href="/how-it-works">How it works</Link>
           <Link href="/integrations">Integrations</Link>
           <Link href="/pricing">Pricing</Link>
+          <Link href="/updates">Updates</Link>
           <div className="nav-dropdown">
             <Link className="nav-dropdown-trigger" href="/resources" aria-haspopup="true">
               Resources
