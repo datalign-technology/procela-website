@@ -33,9 +33,6 @@ export default function SiteHeader() {
           </div>
         </div>
         <div className="nav-actions">
-          <Link className="nav-pilot" href="/pilot">
-            Start a pilot
-          </Link>
           <Link className="btn-green" href="/demo">
             Request a demo
           </Link>
