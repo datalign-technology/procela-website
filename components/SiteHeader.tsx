@@ -6,6 +6,7 @@ import UpdatesBanner from "./UpdatesBanner";
 export default function SiteHeader() {
   return (
     <>
+      <div className="site-header">
       <nav className="nav">
         <Link className="nav-brand" href="/" aria-label="Procela home">
           <Logo height={32} />
@@ -41,6 +42,7 @@ export default function SiteHeader() {
       </nav>
 
       <UpdatesBanner />
+      </div>
 
       <span id="main-content" tabIndex={-1} />
     </>
