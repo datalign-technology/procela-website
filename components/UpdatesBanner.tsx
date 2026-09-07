@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { UPDATES, type Update } from "@/lib/updates";
 
@@ -88,10 +88,12 @@ export default function UpdatesBanner() {
       <div className="updbar-inner">
         <div className="updbar-track" key={active}>
           {page.map((item, i) => (
-            <div className="updbar-cell" key={item.href}>
+            <Fragment key={item.href}>
               {i > 0 && <span className="updbar-divider" aria-hidden="true" />}
-              <ItemLink item={item} />
-            </div>
+              <div className="updbar-cell">
+                <ItemLink item={item} />
+              </div>
+            </Fragment>
           ))}
         </div>
 
