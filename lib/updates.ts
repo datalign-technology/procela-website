@@ -1,9 +1,8 @@
-// Single source for the "Updates" section: it drives both the rotating banner
-// at the top of every page and the /updates index page. To add, change, or
-// remove an item, edit this list — a commit triggers a rebuild and both places
-// update. Newest first. `href` may be an internal path ("/resources/...") or an
-// external URL (set `external: true`). `label` is the small tag shown on the
-// banner and card (e.g. "Blog", "Release", "News", "Event").
+// Content source for the rotating updates banner at the top of every page.
+// To add, change, or remove an item, edit this list — a commit triggers a
+// rebuild and the banner updates. Newest first. `href` may be an internal path
+// ("/resources/...") or an external URL (set `external: true`). `label` is the
+// small tag shown on the banner (e.g. "Blog", "Release", "News", "Event").
 export type Update = {
   date: string;
   label: string;

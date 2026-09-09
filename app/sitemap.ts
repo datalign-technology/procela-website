@@ -12,7 +12,6 @@ const ROUTES = [
   "/integrations",
   "/pricing",
   "/pilot",
-  "/updates",
   "/security",
   "/resources",
   "/resources/guides",
