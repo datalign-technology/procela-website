@@ -45,6 +45,7 @@ export async function POST(req: Request) {
     demo: "Demo",
     pilot: "Pilot",
     "starter-kit": "Starter kit",
+    scorecard: "Scorecard",
   };
   const label = INTENT_LABELS[intent] ?? "Demo";
   // Honeypot: bots fill this hidden field. Silently accept and drop.

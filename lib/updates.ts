@@ -21,7 +21,7 @@ export const UPDATES: Update[] = [
   {
     date: "September 2026",
     label: "Blog",
-    title: "Govern the process, not just the data",
-    href: "/resources/blog/govern-the-process-not-just-the-data",
+    title: "Where to begin with data governance",
+    href: "/resources/blog/where-to-begin-with-data-governance",
   },
 ];

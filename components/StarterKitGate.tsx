@@ -6,6 +6,8 @@ import Link from "next/link";
 type Props = {
   /** Path to the downloadable file, served from /public. */
   file?: string;
+  /** Lead intent tag, so downloads can be distinguished in the datastore. */
+  intent?: string;
   /** Human-readable resource name, tagged onto the captured lead. */
   resource?: string;
   /** Label for the submit button in its idle state. */
@@ -20,6 +22,7 @@ type Props = {
 
 export default function StarterKitGate({
   file = "/downloads/procela-data-governance-starter-kit.xlsx",
+  intent = "starter-kit",
   resource = "Data Governance Starter Kit",
   submitLabel = "Get the Starter Kit",
   successTitle = "Your download is ready",
@@ -37,7 +40,7 @@ export default function StarterKitGate({
     const fd = new FormData(e.currentTarget);
     const payload = {
       ...Object.fromEntries(fd.entries()),
-      intent: "starter-kit",
+      intent,
       resource,
     };
 

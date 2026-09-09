@@ -81,6 +81,7 @@ export default function ScorecardTemplatePage() {
           </p>
           <StarterKitGate
             file="/downloads/procela-governance-scorecard-template.xlsx"
+            intent="scorecard"
             resource="Governance Scorecard Template"
             submitLabel="Get the Scorecard Template"
             successBody="Thanks — your Governance Scorecard Template should download automatically. If it doesn't, use the button below."
