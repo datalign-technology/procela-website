@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
@@ -126,6 +127,20 @@ export default function Post() {
         Five numbers, each tied to a target, a source, and an owner, will tell a
         truer story than a wall of charts.
       </p>
+
+      <div className="kit-callout">
+        <div className="kit-text">
+          <span className="kit-eyebrow">Free template</span>
+          <p>
+            Get the Governance Scorecard Template — a worked sample plus a blank
+            you can fill in, with the five measures, targets, R/A/G status, and
+            an owner and source for every number.
+          </p>
+        </div>
+        <Link className="btn-green" href="/resources/scorecard-template">
+          Get the template →
+        </Link>
+      </div>
 
       <h2>The takeaway</h2>
       <p>

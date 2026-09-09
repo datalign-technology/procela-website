@@ -33,6 +33,7 @@ const POSTS: Post[] = [
     title: "What belongs on a governance scorecard",
     body: "Most governance dashboards measure activity, not outcomes. How to build a scorecard leadership actually trusts and acts on — plus a five-measure starter set.",
     href: "/resources/blog/what-belongs-on-a-governance-scorecard",
+    kit: true,
   },
   {
     date: "September 2026",

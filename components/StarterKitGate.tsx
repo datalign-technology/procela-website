@@ -3,9 +3,29 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const FILE = "/downloads/procela-data-governance-starter-kit.xlsx";
+type Props = {
+  /** Path to the downloadable file, served from /public. */
+  file?: string;
+  /** Human-readable resource name, tagged onto the captured lead. */
+  resource?: string;
+  /** Label for the submit button in its idle state. */
+  submitLabel?: string;
+  /** Heading shown once the download is ready. */
+  successTitle?: string;
+  /** Body shown once the download is ready. */
+  successBody?: string;
+  /** Label for the manual download button. */
+  downloadLabel?: string;
+};
 
-export default function StarterKitGate() {
+export default function StarterKitGate({
+  file = "/downloads/procela-data-governance-starter-kit.xlsx",
+  resource = "Data Governance Starter Kit",
+  submitLabel = "Get the Starter Kit",
+  successTitle = "Your download is ready",
+  successBody = "Thanks — your Data Governance Starter Kit should download automatically. If it doesn't, use the button below.",
+  downloadLabel = "Download the Starter Kit (.xlsx)",
+}: Props) {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -18,7 +38,7 @@ export default function StarterKitGate() {
     const payload = {
       ...Object.fromEntries(fd.entries()),
       intent: "starter-kit",
-      resource: "Data Governance Starter Kit",
+      resource,
     };
 
     try {
@@ -35,7 +55,7 @@ export default function StarterKitGate() {
       // Kick off the download automatically once we have their details.
       try {
         const a = document.createElement("a");
-        a.href = FILE;
+        a.href = file;
         a.setAttribute("download", "");
         document.body.appendChild(a);
         a.click();
@@ -52,13 +72,10 @@ export default function StarterKitGate() {
   if (status === "done") {
     return (
       <div className="form-success" role="status">
-        <h3>Your download is ready</h3>
-        <p>
-          Thanks — your Data Governance Starter Kit should download
-          automatically. If it doesn&apos;t, use the button below.
-        </p>
-        <a className="btn-primary-lg" href={FILE} download>
-          Download the Starter Kit (.xlsx)
+        <h3>{successTitle}</h3>
+        <p>{successBody}</p>
+        <a className="btn-primary-lg" href={file} download>
+          {downloadLabel}
         </a>
       </div>
     );
@@ -99,7 +116,7 @@ export default function StarterKitGate() {
         )}
 
         <button type="submit" className="btn-primary-lg full" disabled={status === "sending"}>
-          {status === "sending" ? "Preparing your download…" : "Get the Starter Kit"}
+          {status === "sending" ? "Preparing your download…" : submitLabel}
         </button>
       </div>
       <p className="form-note">
