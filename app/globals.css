@@ -2632,3 +2632,39 @@ a.card:hover {
   .updbar-track { animation: none; }
   .updbar-dot { transition: none; }
 }
+
+/* Free-template CTA callout inside blog articles */
+.kit-callout {
+  margin: 2rem 0 0;
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+.kit-callout .kit-text {
+  flex: 1 1 260px;
+}
+.kit-callout .kit-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-text);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.kit-callout p {
+  margin: 0;
+  color: var(--slate);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.kit-callout .btn-green {
+  white-space: nowrap;
+  flex-shrink: 0;
+}

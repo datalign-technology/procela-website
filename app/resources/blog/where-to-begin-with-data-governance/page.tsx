@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
@@ -139,6 +140,20 @@ export default function Post() {
         the next domain. Treat the 30-day baseline as the first milestone, not the
         finish line.
       </p>
+
+      <div className="kit-callout">
+        <div className="kit-text">
+          <span className="kit-eyebrow">Free template</span>
+          <p>
+            Get the Data Governance Starter Kit — fill-in worksheets for every
+            step above: domain scoping, ownership and policy registers, a gap
+            log, the 90-day plan, and a scorecard.
+          </p>
+        </div>
+        <Link className="btn-green" href="/resources/starter-kit">
+          Get the Starter Kit →
+        </Link>
+      </div>
 
       <h2>The takeaway</h2>
       <p>

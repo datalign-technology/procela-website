@@ -7,7 +7,8 @@ import { randomUUID } from "crypto";
  * Optional fields are omitted from the stored item when empty.
  */
 export type Lead = {
-  intent: "demo" | "pilot";
+  intent: string;
+  resource?: string;
   name: string;
   email: string;
   company: string;

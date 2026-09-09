@@ -18,6 +18,7 @@ const ROUTES = [
   "/resources/blog",
   "/resources/docs",
   "/resources/dg-foundation-30-days",
+  "/resources/starter-kit",
   "/resources/principal-model",
   "/resources/edge-agents",
   "/resources/blog/where-to-begin-with-data-governance",

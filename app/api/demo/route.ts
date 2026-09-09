@@ -39,7 +39,14 @@ export async function POST(req: Request) {
   const deployment = String(data.deployment ?? "").trim();
   const industry = String(data.industry ?? "").trim();
   const message = String(data.message ?? "").trim();
-  const isPilot = String(data.intent ?? "").trim() === "pilot";
+  const intent = String(data.intent ?? "demo").trim() || "demo";
+  const resource = String(data.resource ?? "").trim();
+  const INTENT_LABELS: Record<string, string> = {
+    demo: "Demo",
+    pilot: "Pilot",
+    "starter-kit": "Starter kit",
+  };
+  const label = INTENT_LABELS[intent] ?? "Demo";
   // Honeypot: bots fill this hidden field. Silently accept and drop.
   const honeypot = String(data.company_website ?? "").trim();
 
@@ -65,7 +72,8 @@ export async function POST(req: Request) {
   let saved = false;
   try {
     saved = await recordLead({
-      intent: isPilot ? "pilot" : "demo",
+      intent,
+      resource,
       name,
       email,
       company,
@@ -95,9 +103,10 @@ export async function POST(req: Request) {
     );
   }
 
-  const subject = `${isPilot ? "Pilot" : "Demo"} request - ${company}`;
+  const subject = `${label} request - ${company}`;
   const textBody = [
-    `Request type: ${isPilot ? "Pilot" : "Demo"}`,
+    `Request type: ${label}`,
+    resource ? `Resource: ${resource}` : null,
     `Name: ${name}`,
     role ? `Role: ${role}` : null,
     `Email: ${email}`,
@@ -115,7 +124,8 @@ export async function POST(req: Request) {
   const row = (label: string, value: string) =>
     value ? `<br><strong>${label}:</strong> ${escapeHtml(value)}` : "";
   const htmlBody =
-    `<h2>New ${isPilot ? "pilot" : "demo"} request</h2>` +
+    `<h2>New ${label.toLowerCase()} request</h2>` +
+    (resource ? `<p><strong>Resource:</strong> ${escapeHtml(resource)}</p>` : "") +
     `<p><strong>Name:</strong> ${escapeHtml(name)}` +
     row("Role", role) +
     `<br><strong>Email:</strong> ${escapeHtml(email)}` +
