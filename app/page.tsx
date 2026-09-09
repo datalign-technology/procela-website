@@ -138,6 +138,9 @@ export default function Home() {
             {name}
           </span>
         ))}
+        <Link href="/integrations" className="logo-pill logo-pill-more">
+          + more →
+        </Link>
       </div>
 
       {/* STATS */}
