@@ -12,7 +12,6 @@ export default function SiteFooter() {
         <Link href="/industries">Industries</Link>
         <Link href="/integrations">Integrations</Link>
         <Link href="/pricing">Pricing</Link>
-        <Link href="/updates">Updates</Link>
         <Link href="/security">Security</Link>
         <Link href="/privacy">Privacy</Link>
         <Link href="/terms">Terms</Link>
