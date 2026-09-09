@@ -10,7 +10,6 @@ const LINKS = [
   { href: "/how-it-works", label: "How it works" },
   { href: "/integrations", label: "Integrations" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/updates", label: "Updates" },
   { href: "/resources", label: "Resources" },
 ];
 
