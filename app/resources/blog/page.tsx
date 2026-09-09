@@ -14,6 +14,12 @@ export const metadata: Metadata = {
 const POSTS = [
   {
     date: "September 2026",
+    title: "Where to begin with data governance",
+    body: "Governance can feel too big to start. A pragmatic on-ramp for companies at the beginning — start with a problem, scope one domain, assign real owners, and show progress — plus a first-90-days shape.",
+    href: "/resources/blog/where-to-begin-with-data-governance",
+  },
+  {
+    date: "September 2026",
     title: "What belongs on a governance scorecard",
     body: "Most governance dashboards measure activity, not outcomes. How to build a scorecard leadership actually trusts and acts on — plus a five-measure starter set.",
     href: "/resources/blog/what-belongs-on-a-governance-scorecard",
