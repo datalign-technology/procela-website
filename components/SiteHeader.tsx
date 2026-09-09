@@ -18,7 +18,6 @@ export default function SiteHeader() {
           <Link href="/how-it-works">How it works</Link>
           <Link href="/integrations">Integrations</Link>
           <Link href="/pricing">Pricing</Link>
-          <Link href="/updates">Updates</Link>
           <div className="nav-dropdown">
             <Link className="nav-dropdown-trigger" href="/resources" aria-haspopup="true">
               Resources
