@@ -36,10 +36,10 @@ const INTEGRATIONS = [
 ];
 
 const STATS = [
-  { num: "4", label: "Governance pillars in one platform" },
-  { num: "5", label: "Steps in the DG Foundation track" },
-  { num: "3", label: "Bronze, Silver & Gold governance tiers" },
+  { num: "30", unit: "days", label: "To an audit-ready baseline" },
   { num: "0", label: "Data moved outside your environment" },
+  { num: "24/7", label: "Continuous compliance, not audit-day scrambles" },
+  { num: "Full", label: "Audit trail on every action" },
 ];
 
 const HERO_BADGES = [
@@ -144,7 +144,10 @@ export default function Home() {
       <div className="stats-bar">
         {STATS.map((s) => (
           <div className="stat" key={s.label}>
-            <div className="stat-num">{s.num}</div>
+            <div className="stat-num">
+              {s.num}
+              {s.unit && <span> {s.unit}</span>}
+            </div>
             <div className="stat-label">{s.label}</div>
           </div>
         ))}
