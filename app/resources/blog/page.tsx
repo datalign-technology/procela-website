@@ -11,12 +11,22 @@ export const metadata: Metadata = {
     "Perspectives from the Procela team on data governance, AI participants in stewardship, and running programs in regulated environments.",
 };
 
-const POSTS = [
+type Post = {
+  date: string;
+  title: string;
+  body: string;
+  href: string;
+  /** Set when the post has a downloadable kit/template — shows a small badge. */
+  kit?: boolean;
+};
+
+const POSTS: Post[] = [
   {
     date: "September 2026",
     title: "Where to begin with data governance",
     body: "Governance can feel too big to start. A pragmatic on-ramp for companies at the beginning — start with a problem, scope one domain, assign real owners, and show progress — plus a first-90-days shape.",
     href: "/resources/blog/where-to-begin-with-data-governance",
+    kit: true,
   },
   {
     date: "September 2026",
@@ -73,7 +83,28 @@ export default function BlogPage() {
           <div className="card-grid">
             {POSTS.map((p) => (
               <Link className="card" href={p.href} key={p.title}>
-                <span className="card-kicker">{p.date}</span>
+                <div className="card-top">
+                  <span className="card-kicker">{p.date}</span>
+                  {p.kit && (
+                    <span className="kit-badge" title="Includes a downloadable template">
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                        <path d="M3 9h18M9 4v16" />
+                      </svg>
+                      Template
+                    </span>
+                  )}
+                </div>
                 <h3>{p.title}</h3>
                 <p>{p.body}</p>
                 <span className="card-link">Read →</span>

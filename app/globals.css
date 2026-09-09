@@ -2670,3 +2670,31 @@ a.card:hover {
   /* Beat `.prose a` (which would otherwise tint the button text green on green). */
   color: var(--white);
 }
+
+/* Blog card: "has a downloadable template" badge */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.card-top .card-kicker {
+  margin-bottom: 0;
+}
+.kit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-text);
+  background: rgba(74, 140, 106, 0.1);
+  border: 1px solid var(--border-green);
+  border-radius: 100px;
+  padding: 0.22rem 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
