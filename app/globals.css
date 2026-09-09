@@ -2667,4 +2667,6 @@ a.card:hover {
 .kit-callout .btn-green {
   white-space: nowrap;
   flex-shrink: 0;
+  /* Beat `.prose a` (which would otherwise tint the button text green on green). */
+  color: var(--white);
 }
