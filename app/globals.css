@@ -2576,6 +2576,8 @@ a.card:hover {
   text-decoration: underline;
 }
 .updbar-label {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--mono);
   font-size: 0.6rem;
   letter-spacing: 0.12em;

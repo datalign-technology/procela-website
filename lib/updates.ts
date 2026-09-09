@@ -9,6 +9,9 @@ export type Update = {
   title: string;
   href: string;
   external?: boolean;
+  /** Set when the linked post has a downloadable template — shows a template
+   *  icon in place of the text label. */
+  kit?: boolean;
 };
 
 export const UPDATES: Update[] = [
@@ -17,11 +20,13 @@ export const UPDATES: Update[] = [
     label: "Blog",
     title: "What belongs on a governance scorecard",
     href: "/resources/blog/what-belongs-on-a-governance-scorecard",
+    kit: true,
   },
   {
     date: "September 2026",
     label: "Blog",
     title: "Where to begin with data governance",
     href: "/resources/blog/where-to-begin-with-data-governance",
+    kit: true,
   },
 ];

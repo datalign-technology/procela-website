@@ -10,7 +10,27 @@ const INTERVAL = 5000;
 function ItemLink({ item }: { item: Update }) {
   const inner = (
     <>
-      <span className="updbar-label">{item.label}</span>
+      <span className="updbar-label" title={item.kit ? "Includes a downloadable template" : undefined}>
+        {item.kit ? (
+          <svg
+            viewBox="0 0 24 24"
+            width="13"
+            height="13"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            role="img"
+            aria-label="Template"
+          >
+            <rect x="3" y="4" width="18" height="16" rx="2" />
+            <path d="M3 9h18M9 4v16" />
+          </svg>
+        ) : (
+          item.label
+        )}
+      </span>
       <span className="updbar-title">{item.title}</span>
       <span className="updbar-arrow" aria-hidden="true">→</span>
     </>
