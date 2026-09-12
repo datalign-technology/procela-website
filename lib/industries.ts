@@ -238,6 +238,34 @@ export const INDUSTRIES: Industry[] = [
       "One owner map across silos",
     ],
   },
+  {
+    slug: "transportation-logistics",
+    name: "Transportation & Logistics",
+    shortName: "transportation",
+    blurb:
+      "Fleet, freight and network data governed across OT and IT — traceable, owned, and kept inside your environment.",
+    metaDescription:
+      "Data governance for transportation and logistics: catalog fleet, freight, network and warehouse systems across OT and IT, trace lineage for TSA and CISA security directives and customs, and run metadata-only inside your environment.",
+    regs: ["TSA Security Directives", "Critical infrastructure (CISA)", "Supply chain & customs (C-TPAT)"],
+    h1: "Govern fleet, freight and network data across OT and IT — without moving it.",
+    lead: "From dispatch, telematics and signaling to freight, customs and warehouse systems, Procela maps your data estate and its owners, running metadata-only across the operational and IT systems that keep goods and people moving.",
+    challenges: [
+      { title: "OT and IT run on separate maps", body: "Signaling, telematics and control systems live apart from freight, customs and enterprise data, with no shared governance." },
+      { title: "Security directives demand proof", body: "TSA and CISA expectations require you to show what data exists, who owns it, and how it's controlled — often reconstructed by hand." },
+      { title: "Operations can't go offline", body: "Safety- and schedule-critical systems must stay isolated; their data can't be shipped to a SaaS catalog." },
+    ],
+    helps: [
+      { title: "Catalog OT + IT together", body: "Dispatch, telematics, signaling, freight, customs and warehouse systems in one model, each with a named owner." },
+      { title: "Trace freight & network lineage", body: "Follow shipment, schedule and network data across systems, so security and customs reviews start from fact." },
+      { title: "Runs inside your environment", body: "Metadata-only edge agents read operational and IT systems in place; nothing leaves your network." },
+    ],
+    valueHeading: "One governed map across a moving, critical-infrastructure estate.",
+    outcomes: [
+      "OT and IT under one model",
+      "Security-directive evidence on demand",
+      "Operational data stays isolated",
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

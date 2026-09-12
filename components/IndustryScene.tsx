@@ -184,4 +184,24 @@ const SCENES: Record<string, React.ReactNode> = {
       </g>
     </>
   ),
+
+  // Transportation & Logistics — delivery truck with motion + location badge
+  "transportation-logistics": (
+    <>
+      <path d="M40 190 H200" stroke={P} strokeWidth={2} strokeOpacity={0.3} strokeLinecap="round" />
+      <g {...common}>
+        <rect x="58" y="118" width="84" height="46" rx="3" />
+        <path d="M142 132 H166 L178 150 V164 H142 Z" />
+        <path d="M148 138 H162 L169 149 H148 Z" strokeOpacity={0.6} />
+        <circle cx="86" cy="174" r="11" />
+        <circle cx="160" cy="174" r="11" />
+      </g>
+      <circle cx="86" cy="174" r="4" fill={P} />
+      <circle cx="160" cy="174" r="4" fill={P} />
+      <path d="M30 128 H50 M26 142 H44 M30 156 H50" stroke={P} strokeWidth={2} strokeOpacity={0.5} strokeLinecap="round" />
+      <Badge cx={120} cy={70} r={20} />
+      <path d="M120 62 c-6 0 -11 4 -11 11 c0 8 11 17 11 17 s11 -9 11 -17 c0 -7 -5 -11 -11 -11 z" fill={A} fillOpacity={0.25} stroke={P} strokeWidth={1.6} strokeLinejoin="round" />
+      <circle cx="120" cy="73" r="3.5" fill={P} />
+    </>
+  ),
 };
