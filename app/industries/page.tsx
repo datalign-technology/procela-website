@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/industries" },
   title: "Industries — Procela",
   description:
-    "Data governance for regulated, data-intensive industries — utilities & energy, financial services, healthcare, government, and manufacturing — deployed on-premises or air-gapped.",
+    "Data governance that connects processes, systems, data and owners into one accountable model — deployed on-premises or air-gapped. Built for regulated industries like utilities & energy, financial services, healthcare, government and manufacturing, and a fit for any organization.",
 };
 
 export default function IndustriesPage() {
@@ -23,9 +23,10 @@ export default function IndustriesPage() {
           <span className="hero-eyebrow">Industries</span>
           <h1>Governance that connects your processes, systems and data &mdash; wherever you operate</h1>
           <p>
-            Procela is built for regulated, data-intensive organizations that need
-            accountability and lineage — and can&apos;t send their data to someone
-            else&apos;s cloud to get it. Pick your world:
+            Procela connects processes, systems, data and owners into one
+            accountable model &mdash; value that fits any organization. It matters
+            most in regulated, data-intensive worlds that can&apos;t send their
+            data to someone else&apos;s cloud, so those are where we go deep:
           </p>
         </div>
       </div>
@@ -61,8 +62,8 @@ export default function IndustriesPage() {
       </section>
 
       <CtaBand
-        title="Don't see your industry?"
-        body="If your data is regulated, sensitive, or simply can't leave your environment, Procela fits. Let's map it to your world."
+        title="Built for your constraints, not your category"
+        body="Regulated, air-gapped, sovereign, or just complex — Procela connects your data to the people and processes behind it, whatever industry you call home. Let's map it to yours."
         primaryLabel="Request a demo"
         secondaryLabel="Explore the platform"
         secondaryHref="/platform"
