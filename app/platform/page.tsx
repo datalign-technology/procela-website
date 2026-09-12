@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/platform" },
   title: "Platform — Procela",
   description:
-    "Business-process-first governance: a process catalog, stewardship and RACI, recorded policies and controls, and a metadata-only edge connector.",
+    "Business-process-first governance that connects processes, systems, data and owners — a process catalog, stewardship and RACI, recorded policies and controls, and a metadata-only edge connector.",
 };
 
 const PILLARS: { icon: IconName; kicker: string; title: string; body: string }[] = [
@@ -69,8 +69,8 @@ export default function PlatformPage() {
           <h1>Governance, mapped to how your business runs</h1>
           <p>
             Procela is the connective tissue of your governance program — tying the
-            processes, people, systems, and data you already have into one aligned,
-            auditable system.
+            processes, systems, data and the people accountable for them into one
+            aligned, auditable system.
           </p>
         </div>
       </div>
