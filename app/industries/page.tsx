@@ -21,7 +21,7 @@ export default function IndustriesPage() {
       <div className="page-hero">
         <div className="page-hero-inner">
           <span className="hero-eyebrow">Industries</span>
-          <h1>Governance for the industries that can&apos;t afford to get data wrong</h1>
+          <h1>Governance that connects your processes, systems and data &mdash; wherever you operate</h1>
           <p>
             Procela is built for regulated, data-intensive organizations that need
             accountability and lineage — and can&apos;t send their data to someone
