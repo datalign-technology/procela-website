@@ -100,12 +100,14 @@ export default function Home() {
           <header className="hero">
             <span className="hero-eyebrow">Enterprise data governance</span>
             <h1>
-              The system of record for who <em>owns</em> your data
+              The system of record for who <em>owns</em> your data &mdash; and
+              how it all fits together
             </h1>
             <p className="hero-sub">
-              Procela unifies systems, assets, owners and domains into one
-              governed catalog — with the program, quality and lineage regulated
-              enterprises are held to. Deployed entirely within your environment.
+              Procela links your processes, systems, data and the people
+              accountable for them into one governed model &mdash; so every asset
+              has an owner, every figure has lineage, and every process maps to
+              the data it runs on. Deployed entirely within your environment.
             </p>
             <div className="hero-actions">
               <Link className="btn-primary-lg" href="/demo">
