@@ -128,4 +128,60 @@ const SCENES: Record<string, React.ReactNode> = {
       </g>
     </>
   ),
+
+  // Insurance — protective umbrella + check badge
+  insurance: (
+    <>
+      <g {...common}>
+        <path d="M70 104 A50 50 0 0 1 170 104" />
+        <path d="M70 104 Q82.5 116 95 104 Q107.5 116 120 104 Q132.5 116 145 104 Q157.5 116 170 104" />
+        <path d="M120 54 L70 104 M120 54 L95 104 M120 54 L145 104 M120 54 L170 104" strokeOpacity={0.4} />
+        <path d="M120 54 V46" />
+        <path d="M120 104 V172 q0 12 -12 12 q-9 0 -9 -8" />
+      </g>
+      <Badge cx={168} cy={150} r={20} />
+      <path d="M159 150 l6 7 12 -14" stroke={P} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
+
+  // Telecommunications — broadcast tower with signal arcs + node badge
+  telecommunications: (
+    <>
+      <path d="M40 192 H200" stroke={P} strokeWidth={2} strokeOpacity={0.3} strokeLinecap="round" />
+      <g {...common}>
+        <path d="M112 178 L120 86 M128 178 L120 86" />
+        <path d="M114 154 H126 M116 128 H124 M118 104 H122" strokeOpacity={0.7} />
+        <path d="M112 178 L104 192 M128 178 L136 192" />
+        <path d="M120 57 V48" />
+      </g>
+      <g stroke={P} fill="none" strokeWidth={2} strokeLinecap="round">
+        <path d="M138 58 Q152 70 138 82" strokeOpacity={0.7} />
+        <path d="M147 49 Q167 70 147 91" strokeOpacity={0.45} />
+        <path d="M102 58 Q88 70 102 82" strokeOpacity={0.7} />
+        <path d="M93 49 Q73 70 93 91" strokeOpacity={0.45} />
+      </g>
+      <Badge cx={120} cy={70} r={13} />
+      <circle cx="120" cy="70" r="4" fill={P} />
+    </>
+  ),
+
+  // Higher Education & Research — mortarboard + enclave lock badge
+  "higher-education-research": (
+    <>
+      <path d="M40 200 H200" stroke={P} strokeWidth={2} strokeOpacity={0.3} strokeLinecap="round" />
+      <g {...common}>
+        <path d="M120 70 L178 94 L120 118 L62 94 Z" />
+        <path d="M98 110 V132 Q120 143 142 132 V110" />
+        <path d="M120 94 L172 104 V138" strokeOpacity={0.8} />
+      </g>
+      <circle cx="120" cy="94" r="3.5" fill={P} />
+      <circle cx="172" cy="140" r="4" fill={P} />
+      <Badge cx={120} cy={172} r={20} />
+      <g stroke={P} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+        <rect x="110" y="170" width="20" height="15" rx="2" fill={A} fillOpacity={0.25} />
+        <path d="M114 170 v-4 a6 6 0 0 1 12 0 v4" />
+        <path d="M120 176 v4" />
+      </g>
+    </>
+  ),
 };

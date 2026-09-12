@@ -154,6 +154,90 @@ export const INDUSTRIES: Industry[] = [
       "Operations remain isolated",
     ],
   },
+  {
+    slug: "insurance",
+    name: "Insurance",
+    shortName: "insurance",
+    blurb:
+      "Underwriting, claims and actuarial data governed with demonstrable lineage and model accountability — inside your perimeter.",
+    metaDescription:
+      "Data governance for insurance: lineage for reserving, pricing and capital figures, governed actuarial and pricing model records, and PII/PHI classified metadata-only — deployed inside your perimeter under NAIC and model-risk expectations.",
+    regs: ["NAIC Model Audit Rule", "Model risk governance", "GDPR / CCPA"],
+    h1: "Govern underwriting, claims and actuarial data — with model accountability built in.",
+    lead: "From policy admin and claims systems to actuarial and pricing models, Procela maps your data estate and the people accountable for it — giving every figure lineage and every model a governed record, deployed inside your perimeter.",
+    challenges: [
+      { title: "Models drive decisions, unseen", body: "Pricing, reserving and underwriting models shape the business, but their inputs, owners and versions rarely sit in one governed record." },
+      { title: "PII and PHI everywhere", body: "Policyholder and health data spans policy admin, claims and vendors, with sensitivity that lives in people's heads, not a system." },
+      { title: "Reserving must be defensible", body: "Regulators and auditors expect you to trace reserve and capital figures to their source, on demand." },
+    ],
+    helps: [
+      { title: "Lineage for every figure", body: "Trace reserving, pricing and capital numbers from policy and claims systems to the report." },
+      { title: "Governed model records", body: "Owners, inputs, versions and controls for actuarial and pricing models — accountability, not tribal knowledge." },
+      { title: "Classify PII/PHI in place", body: "Metadata-only cataloging classifies sensitive policyholder data without reading records." },
+    ],
+    valueHeading: "Defensible numbers and model accountability, inside your perimeter.",
+    outcomes: [
+      "Traceable reserving & capital figures",
+      "Every model has an owner and a record",
+      "Policyholder data classified, not assumed",
+    ],
+  },
+  {
+    slug: "telecommunications",
+    name: "Telecommunications",
+    shortName: "telecom",
+    blurb:
+      "Subscriber, network and OSS/BSS data governed across a critical-infrastructure estate — metadata-only, inside your network.",
+    metaDescription:
+      "Data governance for telecommunications: catalog OSS/BSS, network and subscriber systems, trace subscriber-data lineage for CPNI and privacy, and run metadata-only inside your network — no data leaves your environment.",
+    regs: ["CPNI", "Critical infrastructure (CISA)", "GDPR / CCPA"],
+    h1: "Govern subscriber and network data across OSS, BSS and the network — without moving it.",
+    lead: "From OSS and BSS to network inventory and subscriber systems, Procela maps your data estate and its owners, running metadata-only inside the networks where that data already lives.",
+    challenges: [
+      { title: "OSS and BSS don't share a map", body: "Network operations, billing and subscriber systems are governed by separate teams with no common model." },
+      { title: "CPNI can't be mishandled", body: "Customer proprietary network information carries strict handling rules — and steep penalties for getting it wrong." },
+      { title: "Critical infrastructure stays isolated", body: "Network and operational data can't be shipped to a SaaS catalog to be governed." },
+    ],
+    helps: [
+      { title: "Catalog OSS + BSS together", body: "Network inventory, provisioning, billing and subscriber systems in one model, each with a named owner." },
+      { title: "Trace subscriber-data lineage", body: "Follow subscriber and usage data across systems, so CPNI and privacy reviews start from fact." },
+      { title: "Runs inside your network", body: "Metadata-only edge agents read systems in place; nothing leaves your environment." },
+    ],
+    valueHeading: "One governed map of a critical-infrastructure data estate.",
+    outcomes: [
+      "OSS and BSS under one model",
+      "CPNI handling you can prove",
+      "No data leaves your network",
+    ],
+  },
+  {
+    slug: "higher-education-research",
+    name: "Higher Education & Research",
+    shortName: "research institutions",
+    blurb:
+      "Student, research and grant data governed under FERPA and export-control rules — including air-gapped enclaves for controlled research.",
+    metaDescription:
+      "Data governance for higher education and research: classify student, research and grant data under FERPA, run air-gapped inside export-controlled (ITAR/EAR/CUI) research enclaves, and give data across the institution clear ownership — metadata only.",
+    regs: ["FERPA", "Export control (ITAR / EAR / CUI)", "HIPAA (academic medical)"],
+    h1: "Govern student and research data — including the research that can't leave the enclave.",
+    lead: "From student information systems to grant-funded and export-controlled research, Procela catalogs your data estate and its owners — and deploys air-gapped where controlled research demands it.",
+    challenges: [
+      { title: "Controlled research is walled off", body: "ITAR/EAR and CUI research must stay inside accredited or air-gapped enclaves that can't call out to a SaaS service." },
+      { title: "Data owners span the institution", body: "Registrar, research computing, grants and the medical center each hold sensitive data with no shared governance." },
+      { title: "Compliance is manual and diffuse", body: "FERPA, export-control and HIPAA reviews mean reconstructing who touched what, by hand, across silos." },
+    ],
+    helps: [
+      { title: "Air-gapped for controlled research", body: "Runs inside export-controlled or CUI enclaves with no outbound dependency." },
+      { title: "Classify FERPA & controlled data", body: "Catalog and classify student, research and health data — metadata only, never the records." },
+      { title: "Ownership across silos", body: "Registrar, research computing, grants and the medical center in one model, each with a named owner." },
+    ],
+    valueHeading: "Governance across the institution — and inside the enclave.",
+    outcomes: [
+      "Controlled research stays enclosed",
+      "FERPA & sensitive data classified",
+      "One owner map across silos",
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
