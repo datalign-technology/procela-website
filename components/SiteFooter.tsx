@@ -18,7 +18,7 @@ export default function SiteFooter() {
         <Link href="/demo">Contact</Link>
       </div>
       <span className="footer-copy">
-        © {new Date().getFullYear()} Datalign Technology LLC · DBA Procela.ai
+        © {new Date().getFullYear()} Datalign Technology LLC · DBA Procela
       </span>
     </footer>
   );

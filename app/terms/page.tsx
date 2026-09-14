@@ -16,12 +16,12 @@ export default function TermsPage() {
 
       <article className="prose">
         <h1>Terms of Service</h1>
-        <p className="prose-meta">Effective date: July 19, 2026 · Last updated: July 19, 2026</p>
+        <p className="prose-meta">Effective date: July 19, 2026 · Last updated: September 14, 2026</p>
 
         <p>
           These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of
           the Procela.ai website and related web pages (the &ldquo;Site&rdquo;),
-          operated by Datalign Technology LLC, doing business as Procela.ai
+          operated by Datalign Technology LLC, doing business as Procela
           (&ldquo;Procela,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
           &ldquo;our&rdquo;). By accessing or using the Site, you agree to be bound by
           these Terms. If you do not agree, do not use the Site. These Terms govern the

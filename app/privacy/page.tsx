@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
   title: "Privacy Policy — Procela",
   description:
-    "How Datalign Technology LLC (DBA Procela.ai) collects, uses, shares, and protects information collected through the Procela.ai website.",
+    "How Datalign Technology LLC (DBA Procela) collects, uses, shares, and protects information collected through the Procela.ai website.",
 };
 
 export default function PrivacyPage() {
@@ -16,10 +16,10 @@ export default function PrivacyPage() {
 
       <article className="prose">
         <h1>Privacy Policy</h1>
-        <p className="prose-meta">Effective date: July 19, 2026 · Last updated: July 19, 2026</p>
+        <p className="prose-meta">Effective date: July 19, 2026 · Last updated: September 14, 2026</p>
 
         <p>
-          Datalign Technology LLC, doing business as Procela.ai
+          Datalign Technology LLC, doing business as Procela
           (&ldquo;Procela,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
           &ldquo;our&rdquo;), respects your privacy. This Privacy Policy explains what
           information we collect through the Procela.ai website and related web pages
@@ -30,11 +30,12 @@ export default function PrivacyPage() {
 
         <h2>1. Information we collect</h2>
         <p>
-          <strong>Information you provide.</strong> When you request a demo or
-          otherwise contact us, we collect the information you submit — typically your
-          name, work email address, company, industry, and any message you include.
-          Providing this information is voluntary, but some of it is necessary for us to
-          respond to your request.
+          <strong>Information you provide.</strong> When you request a demo, start a
+          pilot, download a resource, or otherwise contact us, we collect the
+          information you submit — typically your name, work email address, company,
+          job title or role, phone number, company size, deployment preference,
+          industry, and any message you include. Providing this information is
+          voluntary, but some of it is necessary for us to respond to your request.
         </p>
         <p>
           <strong>Information collected automatically.</strong> When you visit the

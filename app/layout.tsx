@@ -86,6 +86,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Procela",
+    alternateName: "Procela.ai",
     legalName: "Datalign Technology LLC",
     url: siteUrl,
     logo: `${siteUrl}/procela-icon.png`,
