@@ -8,34 +8,45 @@ export const metadata: Metadata = {
   alternates: { canonical: "/how-it-works" },
   title: "How it works — Procela",
   description:
-    "Procela's phased DG Foundation track stands up an audit-ready governance baseline in under 30 days: connect, classify, assign, govern, and audit.",
+    "Procela's phased DG Foundation track stands up an audit-ready governance baseline in under 30 days: connect, map, classify, assign, govern, and audit.",
 };
 
 const STEPS = [
   {
     n: "01",
+    stage: "Capture",
     title: "Connect",
     body: "Deploy the Procela edge connector inside your environment for on-prem databases — PostgreSQL, MySQL, SQL Server, Oracle — and dbt; connect cloud warehouses like Snowflake, BigQuery, Redshift, and Databricks directly. Either way, Procela reads only schema, table, and column metadata where the data lives. No data leaves your perimeter — only metadata flows to the platform.",
   },
   {
     n: "02",
+    stage: "Capture",
+    title: "Map",
+    body: "Lay your business processes over the catalog — which process depends on which data, in which system. Mapping process to data, and the systems behind it, is what turns a list of assets into governance you can reason about.",
+  },
+  {
+    n: "03",
+    stage: "Capture",
     title: "Classify",
     body: "Reconcile discovered assets against your domains, and let Procela's AI agents propose classifications for anything unlabeled — routed for review before anything is applied.",
   },
   {
-    n: "03",
+    n: "04",
+    stage: "Assign",
     title: "Assign",
     body: "Map assets to data domains and assign owners, stewards, and agents. Procela suggests stewardship based on your org structure, so accountability is explicit from day one.",
   },
   {
-    n: "04",
+    n: "05",
+    stage: "Govern",
     title: "Govern",
     body: "Define policies in plain language. Procela records them as policies and controls against the assets they govern — access, retention, export controls — and tracks them in one place.",
   },
   {
-    n: "05",
+    n: "06",
+    stage: "Operate",
     title: "Audit",
-    body: "Every classification, assignment, and policy change is captured in a tamper-evident log. Audit prep becomes a query, not a fire drill.",
+    body: "Every classification, assignment, and policy change is captured in a tamper-evident log. Audit prep becomes a query, not a fire drill — and the loop keeps running as new assets arrive.",
   },
 ];
 
@@ -58,12 +69,18 @@ export default function HowItWorksPage() {
       <section className="section">
         <div className="section-inner">
           <span className="eyebrow">The DG Foundation track</span>
-          <h2 className="section-title">Five steps to a running program</h2>
+          <h2 className="section-title">Six steps to a running program</h2>
+          <p className="section-body">
+            Each step maps to a stage of the in-product setup journey — Capture,
+            Assign, Govern, and Operate — so the track you read here is the one you
+            run in the product.
+          </p>
           <div className="steps">
             {STEPS.map((s) => (
               <div className="step" key={s.n}>
                 <div className="step-num">{s.n}</div>
                 <div>
+                  <span className="step-stage">{s.stage}</span>
                   <h3>{s.title}</h3>
                   <p>{s.body}</p>
                 </div>
