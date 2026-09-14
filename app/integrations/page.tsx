@@ -14,52 +14,52 @@ const INTEGRATIONS = [
   {
     role: "Warehouse",
     name: "Snowflake",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Catalogs databases, schemas, tables and columns — plus roles and warehouses — from account metadata. No data moved.",
   },
   {
     role: "Lakehouse",
     name: "Databricks",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Reads Unity Catalog schemas, tables and columns to map your lakehouse — metadata only, no data moved.",
   },
   {
     role: "Warehouse",
     name: "BigQuery",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Catalogs datasets, tables and column schemas across projects — metadata only, no data moved.",
   },
   {
     role: "Warehouse",
     name: "Redshift",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Reads schemas, tables and column definitions across clusters — metadata only, no data moved.",
   },
   {
     role: "Database",
     name: "PostgreSQL",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Catalogs schemas, tables, columns and views from the system catalogs — metadata only, no data moved.",
   },
   {
     role: "Database",
     name: "MySQL",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Reads databases, tables and column definitions from information_schema — metadata only, no data moved.",
   },
   {
     role: "Database",
     name: "SQL Server",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Catalogs databases, schemas, tables and columns via system views — metadata only, no data moved.",
   },
   {
     role: "Database",
     name: "Oracle",
-    desc: "Scans schema, table, and column metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Reads schemas, tables and columns from the data dictionary — metadata only, no data moved.",
   },
   {
     role: "Database",
     name: "MongoDB",
-    desc: "Scans collection and field metadata to build a governed catalog — audit-only, no data moved.",
+    desc: "Samples collections to infer fields and structure — metadata only, no documents moved.",
   },
   {
     role: "Transformation",
     name: "dbt",
-    desc: "Reads model, source, and lineage metadata from dbt and dbt Cloud to enrich the governed catalog — audit-only, no data moved.",
+    desc: "Reads model, source and lineage metadata from dbt and dbt Cloud to enrich the catalog — metadata only, no data moved.",
   },
 ];
 

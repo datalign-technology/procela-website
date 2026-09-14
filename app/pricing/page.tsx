@@ -26,7 +26,7 @@ const EDITIONS: { kicker: string; title: string; body: string }[] = [
   {
     kicker: "Enterprise · Regulated",
     title: "Built for the most restricted environments",
-    body: "Everything in Professional, plus on-premise or air-gapped deployment via Helm and Kubernetes, unlimited organizations and domains, advanced compliance evidence, premium support with an SLA, and hands-on program stand-up. For defense, financial services, healthcare, and critical infrastructure.",
+    body: "Everything in Professional, plus on-premise or air-gapped deployment via Helm and Kubernetes, unlimited organizations and domains, advanced compliance evidence, premium support with an SLA, and hands-on program stand-up. For financial services, healthcare, government, and critical infrastructure.",
   },
 ];
 
