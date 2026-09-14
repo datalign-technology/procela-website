@@ -35,6 +35,21 @@ const CATEGORIES = [
   },
 ];
 
+const TEMPLATES = [
+  {
+    kicker: "Template",
+    title: "Data Governance Starter Kit",
+    body: "Fill-in worksheets for starting a program on one domain — domain scoping, ownership and policy registers, a gap log, a 90-day plan, and a scorecard.",
+    href: "/resources/starter-kit",
+  },
+  {
+    kicker: "Template",
+    title: "Governance Scorecard Template",
+    body: "A worked sample plus a blank you can fill in — the five outcome measures leadership trusts, with targets, R/A/G status, and an owner and source per number.",
+    href: "/resources/scorecard-template",
+  },
+];
+
 const FEATURED = [
   {
     kicker: "Guide",
@@ -83,6 +98,29 @@ export default function ResourcesPage() {
                 <h3>{c.title}</h3>
                 <p>{c.body}</p>
                 <span className="card-link">{c.link} →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">Templates</span>
+          <h2 className="section-title">Free tools you can use today</h2>
+          <p className="section-body">
+            Practical, fill-in workbooks that turn the advice in our writing into
+            something your team can start using now.
+          </p>
+          <div className="card-grid">
+            {TEMPLATES.map((t) => (
+              <Link className="card" href={t.href} key={t.title}>
+                <span className="card-kicker">{t.kicker}</span>
+                <h3>{t.title}</h3>
+                <p>{t.body}</p>
+                <span className="card-link">Get the template →</span>
               </Link>
             ))}
           </div>
