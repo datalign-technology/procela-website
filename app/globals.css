@@ -1204,6 +1204,14 @@ a.card:hover {
   font-weight: 500;
   color: var(--ink);
 }
+.form-legend {
+  font-size: 0.75rem;
+  color: var(--slate);
+  margin: 0;
+}
+.req {
+  color: #c0392b;
+}
 .field input,
 .field textarea,
 .field select {

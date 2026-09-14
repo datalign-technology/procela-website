@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { INDUSTRIES } from "@/lib/industries";
 
 type DemoFormProps = {
   /** "pilot" tailors the copy and tags the submission as a pilot request. */
@@ -55,18 +56,27 @@ export default function DemoForm({ intent = "demo" }: DemoFormProps) {
   }
 
   return (
-    <form className="form-wrap" onSubmit={handleSubmit}>
+    <form className="form-wrap" aria-busy={status === "sending"} onSubmit={handleSubmit}>
       <div className="form-grid">
+        <p className="form-legend">
+          <span className="req" aria-hidden="true">*</span> Required
+        </p>
         <div className="field">
-          <label htmlFor="name">Full name</label>
+          <label htmlFor="name">
+            Full name <span className="req" aria-hidden="true">*</span>
+          </label>
           <input id="name" name="name" type="text" autoComplete="name" required />
         </div>
         <div className="field">
-          <label htmlFor="email">Work email</label>
+          <label htmlFor="email">
+            Work email <span className="req" aria-hidden="true">*</span>
+          </label>
           <input id="email" name="email" type="email" autoComplete="email" required />
         </div>
         <div className="field">
-          <label htmlFor="company">Company</label>
+          <label htmlFor="company">
+            Company <span className="req" aria-hidden="true">*</span>
+          </label>
           <input id="company" name="company" type="text" autoComplete="organization" required />
         </div>
         <div className="field-row">
@@ -75,7 +85,7 @@ export default function DemoForm({ intent = "demo" }: DemoFormProps) {
             <input id="role" name="role" type="text" autoComplete="organization-title" />
           </div>
           <div className="field">
-            <label htmlFor="phone">Phone (optional)</label>
+            <label htmlFor="phone">Phone</label>
             <input id="phone" name="phone" type="tel" autoComplete="tel" />
           </div>
         </div>
@@ -86,11 +96,9 @@ export default function DemoForm({ intent = "demo" }: DemoFormProps) {
               <option value="" disabled>
                 Select an industry
               </option>
-              <option>Defense &amp; Aerospace</option>
-              <option>Financial Services</option>
-              <option>Healthcare &amp; Life Sciences</option>
-              <option>Government &amp; Public Sector</option>
-              <option>Energy &amp; Utilities</option>
+              {INDUSTRIES.map((i) => (
+                <option key={i.slug}>{i.name}</option>
+              ))}
               <option>Other</option>
             </select>
           </div>
