@@ -102,6 +102,7 @@ function buildConfirmation(intent: string, name: string) {
 
   const html =
     `<div style="font-family:Arial,Helvetica,sans-serif;color:#0d1f17;max-width:560px;margin:0 auto;padding:8px">` +
+    `<div style="margin:0 0 20px"><img src="${SITE_URL}/procela-logo.png" alt="Procela" width="112" height="32" style="display:block;border:0;height:32px;width:auto"></div>` +
     `<h2 style="font-size:20px;margin:0 0 14px;color:#0d1f17">${escapeHtml(r.heading)}</h2>` +
     `<p style="font-size:15px;line-height:1.6;margin:0 0 10px">${greetHtml}</p>` +
     `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">${escapeHtml(r.intro)}</p>` +
