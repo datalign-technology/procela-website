@@ -224,6 +224,7 @@ export default function ProductTour() {
                 <button
                   key={i}
                   type="button"
+                  tabIndex={-1}
                   className={`tour-pin${pin === i ? " active" : ""}`}
                   style={{ left: `${h.x}%`, top: `${h.y}%` }}
                   onClick={() => setPin(pin === i ? null : i)}
