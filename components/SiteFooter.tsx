@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import CookiePreferencesButton from "./CookiePreferencesButton";
 
 export default function SiteFooter() {
   return (
@@ -16,6 +17,7 @@ export default function SiteFooter() {
         <Link href="/privacy">Privacy</Link>
         <Link href="/terms">Terms</Link>
         <Link href="/demo">Contact</Link>
+        <CookiePreferencesButton />
       </div>
       <span className="footer-copy">
         © {new Date().getFullYear()} Datalign Technology LLC · DBA Procela

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { COOKIE_PREFS_EVENT } from "./CookiePreferencesButton";
 
 const STORAGE_KEY = "procela-cookie-consent";
 
@@ -24,6 +25,13 @@ export default function CookieConsent() {
       // choice simply won't persist across sessions.
       setVisible(true);
     }
+  }, []);
+
+  // Let the footer "Cookie preferences" link re-open the banner at any time.
+  useEffect(() => {
+    const reopen = () => setVisible(true);
+    window.addEventListener(COOKIE_PREFS_EVENT, reopen);
+    return () => window.removeEventListener(COOKIE_PREFS_EVENT, reopen);
   }, []);
 
   function record(choice: "accepted" | "declined") {

@@ -788,13 +788,22 @@ a {
   gap: 1.5rem;
   flex-wrap: wrap;
 }
-.footer-links a {
+.footer-links a,
+.footer-link-btn {
   font-size: 0.8rem;
   color: var(--slate);
   text-decoration: none;
 }
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-link-btn:hover {
   color: var(--ink);
+}
+.footer-link-btn {
+  font-family: var(--sans);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 .footer-copy {
   font-size: 0.75rem;
