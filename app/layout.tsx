@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
+import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
 const inter = Inter({
@@ -129,6 +130,7 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
+        <CookieConsent />
         {jsonLd.map((schema, i) => (
           <script
             key={i}
