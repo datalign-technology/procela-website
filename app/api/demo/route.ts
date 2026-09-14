@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { recordLead } from "@/lib/leads";
+import { SITE_URL } from "@/lib/site";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,6 +21,111 @@ function escapeHtml(v: string) {
     /[<>&"]/g,
     (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" })[c] as string,
   );
+}
+
+type ReplyConfig = {
+  subject: string;
+  heading: string;
+  intro: string;
+  links: { label: string; href: string }[];
+};
+
+/** Per-intent copy and links for the automated confirmation sent to the
+ *  person who submitted the form. Links are absolute (email clients need it). */
+function replyConfig(intent: string): ReplyConfig {
+  const S = SITE_URL;
+  switch (intent) {
+    case "pilot":
+      return {
+        subject: "Thanks — let's scope your Procela pilot",
+        heading: "Thanks for your interest in a pilot",
+        intro:
+          "We've received your request and a member of our team will reach out shortly to scope a pilot and map it to your environment. In the meantime, a few things you might find useful:",
+        links: [
+          { label: "How a pilot runs", href: `${S}/pilot` },
+          { label: "Take the interactive tour", href: `${S}/tour` },
+          { label: "Security & deployment", href: `${S}/security` },
+        ],
+      };
+    case "starter-kit":
+      return {
+        subject: "Your Data Governance Starter Kit",
+        heading: "Your Starter Kit is ready",
+        intro:
+          "Thanks for downloading the Data Governance Starter Kit. If the download didn't start automatically, you can grab it below — and the companion article walks through how to use it:",
+        links: [
+          { label: "Download the Starter Kit (.xlsx)", href: `${S}/downloads/procela-data-governance-starter-kit.xlsx` },
+          { label: "Where to begin with data governance", href: `${S}/resources/blog/where-to-begin-with-data-governance` },
+          { label: "Take the interactive tour", href: `${S}/tour` },
+        ],
+      };
+    case "scorecard":
+      return {
+        subject: "Your Governance Scorecard Template",
+        heading: "Your Scorecard Template is ready",
+        intro:
+          "Thanks for downloading the Governance Scorecard Template. If the download didn't start automatically, you can grab it below — and the companion article explains what belongs on a scorecard:",
+        links: [
+          { label: "Download the Scorecard Template (.xlsx)", href: `${S}/downloads/procela-governance-scorecard-template.xlsx` },
+          { label: "What belongs on a governance scorecard", href: `${S}/resources/blog/what-belongs-on-a-governance-scorecard` },
+          { label: "Take the interactive tour", href: `${S}/tour` },
+        ],
+      };
+    default: // demo
+      return {
+        subject: "Thanks for requesting a Procela demo",
+        heading: "Thanks for requesting a demo",
+        intro:
+          "We've received your request and a member of our team will reach out shortly to schedule a walkthrough tailored to your environment. In the meantime, a few things you might find useful:",
+        links: [
+          { label: "Take the interactive tour", href: `${S}/tour` },
+          { label: "Explore the platform", href: `${S}/platform` },
+          { label: "Security & deployment", href: `${S}/security` },
+        ],
+      };
+  }
+}
+
+/** Build the confirmation email (html + text) sent back to the submitter. */
+function buildConfirmation(intent: string, name: string) {
+  const r = replyConfig(intent);
+  const firstName = name.split(/\s+/)[0] || "";
+  const greetHtml = firstName ? `Hi ${escapeHtml(firstName)},` : "Hi,";
+  const greetText = firstName ? `Hi ${firstName},` : "Hi,";
+
+  const linksHtml = r.links
+    .map(
+      (l) =>
+        `<li style="margin:0 0 10px"><a href="${l.href}" style="color:#2f7052;font-weight:600;text-decoration:underline">${escapeHtml(l.label)} &rarr;</a></li>`,
+    )
+    .join("");
+
+  const html =
+    `<div style="font-family:Arial,Helvetica,sans-serif;color:#0d1f17;max-width:560px;margin:0 auto;padding:8px">` +
+    `<h2 style="font-size:20px;margin:0 0 14px;color:#0d1f17">${escapeHtml(r.heading)}</h2>` +
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 10px">${greetHtml}</p>` +
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">${escapeHtml(r.intro)}</p>` +
+    `<ul style="font-size:15px;line-height:1.6;padding-left:18px;margin:0 0 20px">${linksHtml}</ul>` +
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">Just reply to this email if you have any questions — it reaches our team directly.</p>` +
+    `<p style="font-size:15px;line-height:1.6;margin:0">&mdash; The Procela team</p>` +
+    `<p style="font-size:12px;color:#6b7a72;margin:22px 0 0">Datalign Technology LLC (DBA Procela) &middot; procela.ai</p>` +
+    `</div>`;
+
+  const text = [
+    r.heading,
+    "",
+    greetText,
+    r.intro,
+    "",
+    ...r.links.map((l) => `- ${l.label}: ${l.href}`),
+    "",
+    "Just reply to this email if you have any questions — it reaches our team directly.",
+    "",
+    "— The Procela team",
+    "Datalign Technology LLC (DBA Procela) · procela.ai",
+  ].join("\n");
+
+  return { subject: r.subject, html, text };
 }
 
 export async function POST(req: Request) {
@@ -148,6 +254,24 @@ export async function POST(req: Request) {
       html: htmlBody,
     });
     if (error) throw error;
+
+    // Best-effort automated confirmation to the submitter. A failure here must
+    // never affect the visitor's response — the request is already captured.
+    try {
+      const confirmation = buildConfirmation(intent, name);
+      const { error: replyError } = await resend.emails.send({
+        from: FROM,
+        to: [email],
+        replyTo: TO,
+        subject: confirmation.subject,
+        text: confirmation.text,
+        html: confirmation.html,
+      });
+      if (replyError) throw replyError;
+    } catch (replyErr) {
+      console.error("Auto-reply send failed:", replyErr);
+    }
+
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Resend send failed:", err);
