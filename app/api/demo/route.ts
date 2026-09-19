@@ -111,7 +111,7 @@ function buildConfirmation(intent: string, name: string) {
     `<p style="font-size:15px;line-height:1.6;margin:0 0 10px">${greetHtml}</p>` +
     `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">${escapeHtml(r.intro)}</p>` +
     `<ul style="font-size:15px;line-height:1.6;padding-left:18px;margin:0 0 20px">${linksHtml}</ul>` +
-    `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">Have questions? Just reply to this email or reach us at <a href="mailto:${SALES_EMAIL}" style="color:#2f7052;font-weight:600;text-decoration:underline">${SALES_EMAIL}</a> — it reaches our team directly.</p>` +
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">Have questions? Contact us at <a href="mailto:${SALES_EMAIL}" style="color:#2f7052;font-weight:600;text-decoration:underline">${SALES_EMAIL}</a>.</p>` +
     `<p style="font-size:15px;line-height:1.6;margin:0">&mdash; The Procela team</p>` +
     `<p style="font-size:12px;color:#6b7a72;margin:22px 0 0">Datalign Technology LLC (DBA Procela) &middot; procela.ai</p>` +
     `</div>`;
@@ -124,7 +124,7 @@ function buildConfirmation(intent: string, name: string) {
     "",
     ...r.links.map((l) => `- ${l.label}: ${l.href}`),
     "",
-    `Have questions? Just reply to this email or reach us at ${SALES_EMAIL} — it reaches our team directly.`,
+    `Have questions? Contact us at ${SALES_EMAIL}.`,
     "",
     "— The Procela team",
     "Datalign Technology LLC (DBA Procela) · procela.ai",
