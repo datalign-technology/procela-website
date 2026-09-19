@@ -16,7 +16,7 @@ const STEPS = [
     n: "01",
     stage: "Capture",
     title: "Connect",
-    body: "Deploy the Procela edge connector inside your environment for on-prem databases — PostgreSQL, MySQL, SQL Server, Oracle — and dbt; connect cloud warehouses like Snowflake, BigQuery, Redshift, and Databricks directly. Either way, Procela reads only schema, table, and column metadata where the data lives. No data leaves your perimeter — only metadata flows to the platform.",
+    body: "Deploy the Procela edge connector inside your environment for on-prem databases — PostgreSQL, MySQL, SQL Server, Oracle — and dbt; connect cloud warehouses like Snowflake, BigQuery, Redshift, and Databricks directly. Either way, Procela reads only schema, table, and column metadata where the data lives. No data leaves your perimeter — only metadata flows to the platform. The edge connector is optional: it automates discovery, but you can also catalog sources by hand, import them (spreadsheet or dbt), or use the API — the rest of the program runs the same either way.",
   },
   {
     n: "02",

@@ -116,6 +116,11 @@ export default function IntegrationsPage() {
             records, no file contents ever leave your perimeter. Procela runs on
             AWS (ECS/RDS) or fully on-prem via Helm and Kubernetes.
           </p>
+          <p className="section-body">
+            The connector is optional — it&apos;s the automated path, not the only
+            one. You can also catalog sources by hand, import them via spreadsheet
+            or dbt, or use the API, and the rest of the program runs the same either way.
+          </p>
         </div>
       </section>
 

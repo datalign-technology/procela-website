@@ -23,7 +23,7 @@ const PRINCIPLES: { icon: IconName; kicker: string; title: string; body: string 
     icon: "edge",
     kicker: "Edge connector",
     title: "Metadata scanning, in your infrastructure",
-    body: "The connector deploys via Kubernetes or Helm and reads schema, table, and column metadata where the data lives — never row values. It authenticates with a bearer token over outbound HTTPS and carries a tamper-evident audit log of everything it does.",
+    body: "The connector deploys via Kubernetes or Helm and reads schema, table, and column metadata where the data lives — never row values. It authenticates with a bearer token over outbound HTTPS and carries a tamper-evident audit log of everything it does. It's optional — the automated path, not a requirement: sources can also be catalogued by hand or imported via spreadsheet, dbt, or the API.",
   },
   {
     icon: "audit",
