@@ -8,6 +8,10 @@ export const dynamic = "force-dynamic";
 
 const FROM = process.env.DEMO_FROM_EMAIL;
 const TO = process.env.DEMO_TO_EMAIL;
+// Where replies to the visitor's confirmation email land. DEMO_TO_EMAIL is an
+// internal notification inbox and isn't a valid reply destination, so the
+// auto-responder points at a monitored, public-facing address instead.
+const SALES_EMAIL = process.env.SALES_EMAIL || "sales@procela.ai";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
@@ -107,7 +111,7 @@ function buildConfirmation(intent: string, name: string) {
     `<p style="font-size:15px;line-height:1.6;margin:0 0 10px">${greetHtml}</p>` +
     `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">${escapeHtml(r.intro)}</p>` +
     `<ul style="font-size:15px;line-height:1.6;padding-left:18px;margin:0 0 20px">${linksHtml}</ul>` +
-    `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">Just reply to this email if you have any questions — it reaches our team directly.</p>` +
+    `<p style="font-size:15px;line-height:1.6;margin:0 0 16px">Have questions? Just reply to this email or reach us at <a href="mailto:${SALES_EMAIL}" style="color:#2f7052;font-weight:600;text-decoration:underline">${SALES_EMAIL}</a> — it reaches our team directly.</p>` +
     `<p style="font-size:15px;line-height:1.6;margin:0">&mdash; The Procela team</p>` +
     `<p style="font-size:12px;color:#6b7a72;margin:22px 0 0">Datalign Technology LLC (DBA Procela) &middot; procela.ai</p>` +
     `</div>`;
@@ -120,7 +124,7 @@ function buildConfirmation(intent: string, name: string) {
     "",
     ...r.links.map((l) => `- ${l.label}: ${l.href}`),
     "",
-    "Just reply to this email if you have any questions — it reaches our team directly.",
+    `Have questions? Just reply to this email or reach us at ${SALES_EMAIL} — it reaches our team directly.`,
     "",
     "— The Procela team",
     "Datalign Technology LLC (DBA Procela) · procela.ai",
@@ -263,7 +267,7 @@ export async function POST(req: Request) {
       const { error: replyError } = await resend.emails.send({
         from: FROM,
         to: [email],
-        replyTo: TO,
+        replyTo: SALES_EMAIL,
         subject: confirmation.subject,
         text: confirmation.text,
         html: confirmation.html,
