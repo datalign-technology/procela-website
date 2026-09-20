@@ -117,19 +117,19 @@ export default function Post() {
       <ul>
         <li>
           <strong>Weeks 1–2:</strong> name the problem and the sponsor; pick one
-          domain.
+          domain; map its systems and data.
         </li>
         <li>
-          <strong>Weeks 3–6:</strong> map the domain&apos;s systems and data;
-          assign owners and stewards.
+          <strong>Weeks 3–4:</strong> assign owners and stewards, classify the
+          domain&apos;s data, and record the two or three policies that govern it
+          &mdash; that&apos;s your audit-ready baseline.
         </li>
         <li>
-          <strong>Weeks 7–10:</strong> write and wire up two or three policies;
-          surface the obvious gaps.
+          <strong>Weeks 5–9:</strong> surface the obvious gaps and close a visible
+          one.
         </li>
         <li>
-          <strong>Weeks 11–13:</strong> close a visible gap, report the one number,
-          and plan domain two.
+          <strong>Weeks 10–13:</strong> report the one number, and plan domain two.
         </li>
       </ul>
       <p>
