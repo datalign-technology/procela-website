@@ -29,6 +29,7 @@ const ROUTES = [
   "/resources/blog/keeping-ai-agents-accountable",
   "/resources/blog/continuous-compliance",
   "/demo",
+  "/careers",
   "/intro",
   "/privacy",
   "/terms",
