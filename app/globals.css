@@ -1182,6 +1182,34 @@ a.card:hover {
   text-decoration: underline;
 }
 
+/* CAREERS / JOB LISTINGS */
+.job {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface, #fff);
+}
+.job + .job {
+  margin-top: 1.5rem;
+}
+.job-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+}
+.job .pill-row {
+  margin-bottom: 1.25rem;
+}
+.job .prose {
+  max-width: none;
+}
+.job .btn-green {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
 /* FORM */
 .form-wrap {
   max-width: 560px;

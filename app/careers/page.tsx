@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/careers" },
   title: "Careers — Procela",
   description:
-    "Help build the system of record for data governance. Procela is an early, remote-friendly team working on governance for regulated environments. See how to reach us.",
+    "Help build the system of record for data governance. Procela is an early team building governance for regulated environments — see our open roles and how to apply.",
 };
 
 const VALUES = [
   {
     kicker: "Ownership",
     title: "You own real problems",
-    body: "We're a small team, so scope is wide and impact is direct. You'll own features end to end — from the customer problem to what ships — not a narrow slice of someone else's plan.",
+    body: "We're a small team, so scope is wide and impact is direct. You'll own work end to end — from the customer problem to what ships — not a narrow slice of someone else's plan.",
   },
   {
     kicker: "Substance",
@@ -32,6 +32,52 @@ const VALUES = [
     body: "Clear goals, written communication, and the autonomy to do your best work. We keep meetings few and decisions transparent.",
   },
 ];
+
+type Job = {
+  slug: string;
+  title: string;
+  tags: string[];
+  location: string;
+  summary: string;
+  responsibilities: string[];
+  qualifications: string[];
+};
+
+const JOBS: Job[] = [
+  {
+    slug: "principal-sales-engineer",
+    title: "Principal Sales Engineer",
+    tags: ["Remote", "Contract"],
+    location:
+      "Remote (United States) — with willingness to work on-site in the Greater Orlando area and travel to customer locations as needed.",
+    summary:
+      "The Principal Sales Engineer partners closely with sales leadership and account teams to understand customer challenges, design solutions on the Procela platform, and deliver compelling technical presentations and demonstrations. You'll lead discovery sessions, translate complex data governance requirements into clear architectures, and provide pre-sales technical guidance for prospects in regulated, data-intensive industries.",
+    responsibilities: [
+      "Partner with sales leadership and account teams to understand customer challenges and design solutions on the Procela platform.",
+      "Lead discovery sessions and deliver technical presentations and product demonstrations.",
+      "Translate complex data governance requirements into clear architectures and pre-sales technical guidance.",
+      "Prepare solution proposals and respond to technical RFPs and RFIs.",
+      "Support proof-of-concept engagements for prospects in regulated, data-intensive industries.",
+      "Collaborate with product and engineering teams on feedback from the field.",
+      "Mentor other sales engineers and contribute to technical enablement materials.",
+      "Build trusted relationships with customer stakeholders — business leaders, IT, security, and data governance teams.",
+    ],
+    qualifications: [
+      "Strong sales engineering and technical support skills, with experience designing and explaining complex enterprise solutions.",
+      "Effective communication and customer-service skills, and the ability to work with both technical and non-technical stakeholders.",
+      "Proven sales skills, including opportunity qualification, solution positioning, and support for closing strategic deals.",
+      "Experience in data governance, enterprise data platforms, or AI/ML solutions in regulated industries is highly beneficial.",
+      "Ability to translate business requirements into technical architectures and clearly articulate trade-offs and implementation paths.",
+      "Demonstrated experience leading technical sales cycles, proof-of-concept projects, and executive-level presentations.",
+      "Bachelor's degree in Computer Science, Engineering, Information Systems, or a related field — or equivalent practical experience.",
+    ],
+  },
+];
+
+function applyHref(job: Job) {
+  const subject = encodeURIComponent(`Application: ${job.title}`);
+  return `mailto:careers@procela.ai?subject=${subject}`;
+}
 
 export default function CareersPage() {
   return (
@@ -77,30 +123,53 @@ export default function CareersPage() {
       <section className="section">
         <div className="section-inner">
           <span className="eyebrow">Open roles</span>
-          <h2 className="section-title">We don&apos;t have open positions posted right now</h2>
-          <p className="section-body">
-            But we&apos;re always glad to hear from strong engineers, designers,
-            and go-to-market people who care about this problem. If that&apos;s
-            you, tell us what you&apos;d want to work on and what you&apos;ve built
-            — we read every note.
-          </p>
-          <p className="section-body">
-            Email us at{" "}
-            <a
-              href="mailto:careers@procela.ai"
-              style={{ color: "var(--green-text)", fontWeight: 600, textDecoration: "underline" }}
-            >
-              careers@procela.ai
-            </a>
-            . Please include a short intro and a link to your work (GitHub,
-            portfolio, or LinkedIn).
-          </p>
+          <h2 className="section-title">Where we&apos;re hiring</h2>
+
+          {JOBS.map((job) => (
+            <article className="job" key={job.slug} id={job.slug}>
+              <h3 className="job-title">{job.title}</h3>
+              <div className="pill-row">
+                {job.tags.map((t) => (
+                  <span className="pill" key={t}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="prose">
+                <p>{job.summary}</p>
+                <h2>What you&apos;ll do</h2>
+                <ul>
+                  {job.responsibilities.map((r) => (
+                    <li key={r}>{r}</li>
+                  ))}
+                </ul>
+                <h2>What we&apos;re looking for</h2>
+                <ul>
+                  {job.qualifications.map((q) => (
+                    <li key={q}>{q}</li>
+                  ))}
+                </ul>
+                <h2>Location</h2>
+                <p>{job.location}</p>
+                <h2>How to apply</h2>
+                <p>
+                  Email{" "}
+                  <a href={applyHref(job)}>careers@procela.ai</a> with a short
+                  intro, your resume or a link to your work, and anything that
+                  shows how you think about technical selling. We read every note.
+                </p>
+              </div>
+              <a className="btn-green" href={applyHref(job)}>
+                Apply for {job.title}
+              </a>
+            </article>
+          ))}
         </div>
       </section>
 
       <CtaBand
-        title="Think you'd be a fit?"
-        body="Send us a note — a couple of paragraphs on what you'd want to build and a link to your work is plenty."
+        title="Don't see the right role?"
+        body="We're always glad to hear from strong people who care about this problem — a couple of paragraphs on what you'd want to build and a link to your work is plenty."
         primaryLabel="Email careers@procela.ai"
         primaryHref="mailto:careers@procela.ai"
         secondaryLabel="See what we're building"
