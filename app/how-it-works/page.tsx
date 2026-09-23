@@ -156,7 +156,7 @@ export default function HowItWorksPage() {
             </div>
             <BrowserFrame
               src="/screenshots/orgs.webp"
-              alt="Procela organizations view showing an expanded hierarchy of divisions and departments with people counts."
+              alt="Procela organization chart showing the company, its divisions, and departments with people counts at each level."
             />
           </div>
 
