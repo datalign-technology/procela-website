@@ -23,6 +23,12 @@ type Post = {
 const POSTS: Post[] = [
   {
     date: "September 2026",
+    title: "How to measure the value of data governance",
+    body: "Everyone agrees governance matters; leadership still asks what they're getting for it. How to measure the value with signals you can't fake — trended over time and priced with a model finance helped build, not an invented ROI number.",
+    href: "/resources/blog/measuring-the-value-of-data-governance",
+  },
+  {
+    date: "September 2026",
     title: "Where to begin with data governance",
     body: "Governance can feel too big to start. A pragmatic on-ramp for companies at the beginning — start with a problem, scope one domain, assign real owners, and show progress — plus a first-90-days shape.",
     href: "/resources/blog/where-to-begin-with-data-governance",

@@ -22,6 +22,7 @@ const ROUTES = [
   "/resources/scorecard-template",
   "/resources/principal-model",
   "/resources/edge-agents",
+  "/resources/blog/measuring-the-value-of-data-governance",
   "/resources/blog/where-to-begin-with-data-governance",
   "/resources/blog/what-belongs-on-a-governance-scorecard",
   "/resources/blog/govern-the-process-not-just-the-data",
