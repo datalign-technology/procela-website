@@ -26,6 +26,7 @@ const POSTS: Post[] = [
     title: "How to measure the value of data governance",
     body: "Everyone agrees governance matters; leadership still asks what they're getting for it. How to measure the value with signals you can't fake — trended over time and priced with a model finance helped build, not an invented ROI number.",
     href: "/resources/blog/measuring-the-value-of-data-governance",
+    kit: true,
   },
   {
     date: "September 2026",

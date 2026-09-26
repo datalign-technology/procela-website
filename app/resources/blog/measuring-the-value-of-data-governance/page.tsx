@@ -157,17 +157,15 @@ export default function Post() {
 
       <div className="kit-callout">
         <div className="kit-text">
-          <span className="kit-eyebrow">Companion template</span>
+          <span className="kit-eyebrow">Free template</span>
           <p>
-            The signals in the first layer are the same ones worth putting in
-            front of a governance council. The Governance Scorecard Template
-            gives you a worked set with targets, R/A/G status, and an owner and
-            source for every number &mdash; a good place to start capturing your
-            baseline.
+            Put this to work with the Governance Value Model Worksheet &mdash; a
+            worked example plus a blank you can fill in, with the unit economics,
+            the signals, and a live total that traces back to every input you set.
           </p>
         </div>
-        <Link className="btn-green" href="/resources/scorecard-template">
-          Get the template →
+        <Link className="btn-green" href="/resources/value-model">
+          Get the worksheet →
         </Link>
       </div>
 

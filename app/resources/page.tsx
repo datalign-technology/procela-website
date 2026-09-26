@@ -48,6 +48,12 @@ const TEMPLATES = [
     body: "A worked sample plus a blank you can fill in — the five outcome measures leadership trusts, with targets, R/A/G status, and an owner and source per number.",
     href: "/resources/scorecard-template",
   },
+  {
+    kicker: "Template",
+    title: "Governance Value Model Worksheet",
+    body: "Put a defensible number on your program — un-fakeable signals translated into risk reduced, cost and time saved, and decisions enabled, priced with a model finance helped build.",
+    href: "/resources/value-model",
+  },
 ];
 
 const FEATURED = [

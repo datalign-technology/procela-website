@@ -20,6 +20,7 @@ const ROUTES = [
   "/resources/dg-foundation-30-days",
   "/resources/starter-kit",
   "/resources/scorecard-template",
+  "/resources/value-model",
   "/resources/principal-model",
   "/resources/edge-agents",
   "/resources/blog/measuring-the-value-of-data-governance",

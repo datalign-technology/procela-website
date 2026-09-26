@@ -75,6 +75,18 @@ function replyConfig(intent: string): ReplyConfig {
           { label: "Take the interactive tour", href: `${S}/tour` },
         ],
       };
+    case "value-model":
+      return {
+        subject: "Your Governance Value Model Worksheet",
+        heading: "Your Value Model Worksheet is ready",
+        intro:
+          "Thanks for downloading the Governance Value Model Worksheet. If the download didn't start automatically, you can grab it below — and the companion article walks through how to measure the value of governance:",
+        links: [
+          { label: "Download the Value Model Worksheet (.xlsx)", href: `${S}/downloads/procela-governance-value-model.xlsx` },
+          { label: "How to measure the value of data governance", href: `${S}/resources/blog/measuring-the-value-of-data-governance` },
+          { label: "Take the interactive tour", href: `${S}/tour` },
+        ],
+      };
     default: // demo
       return {
         subject: "Thanks for requesting a Procela demo",
@@ -157,6 +169,7 @@ export async function POST(req: Request) {
     pilot: "Pilot",
     "starter-kit": "Starter kit",
     scorecard: "Scorecard",
+    "value-model": "Value model",
   };
   const label = INTENT_LABELS[intent] ?? "Demo";
   // Honeypot: bots fill this hidden field. Silently accept and drop.
