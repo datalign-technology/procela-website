@@ -136,7 +136,7 @@ const STEPS: Step[] = [
     url: "app.procela.ai/settings?tab=integrations",
     href: "/platform#agent-access",
     hotspots: [
-      { x: 22, y: 61, text: "Opt each tenant in — off by default." },
+      { x: 22, y: 66, text: "Opt each tenant in — off by default." },
       { x: 30, y: 89, text: "A revocable, role-capped token per agent." },
     ],
   },
