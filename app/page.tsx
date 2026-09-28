@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import HeroSlideshow from "@/components/HeroSlideshow";
+import BrowserFrame from "@/components/BrowserFrame";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Faq from "@/components/Faq";
@@ -259,6 +260,43 @@ export default function Home() {
                 routed to the right people — the DAMA operating model, built in.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      {/* AGENT ACCESS (MCP) HIGHLIGHT */}
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">New · Agent access (MCP)</span>
+          <h2 className="section-title">Your governed catalog, now open to your AI agents</h2>
+          <p className="section-body">
+            Procela ships a Model Context Protocol server, so the agents your
+            teams already use — Claude Desktop, IDE assistants, your own copilots
+            — can ask your governed catalog what a person would: what process
+            depends on this data, who owns it, and is it governed. Where you
+            allow it, they can make audited changes too.
+          </p>
+
+          <div className="product-row">
+            <div className="product-copy">
+              <span className="product-kicker">Model Context Protocol</span>
+              <h3>Governance context for your whole agent fleet</h3>
+              <p>
+                Turn it on per tenant, hand each agent its own revocable,
+                role-capped token, and keep every read and write in the
+                tamper-evident audit log. Metadata only — never the underlying
+                records.
+              </p>
+              <Link className="btn-outline-lg" href="/platform">
+                See how it works →
+              </Link>
+            </div>
+            <BrowserFrame
+              src="/screenshots/agent-access.webp"
+              alt="Procela's Agent access (MCP) settings panel — a per-tenant enable toggle and revocable, role-capped service tokens for AI agents."
+            />
           </div>
         </div>
       </section>

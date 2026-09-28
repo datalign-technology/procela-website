@@ -58,6 +58,39 @@ const AUTONOMY = [
   },
 ];
 
+const MCP_SAFEGUARDS = [
+  {
+    kicker: "Read-first",
+    title: "Writes are opt-in and gated",
+    body: "The read tools change nothing. A separate switch enables a small set of write tools — assign owner, set status, create task — each behind the same permission the app requires and confirmed by the client before it runs.",
+  },
+  {
+    kicker: "Metadata only",
+    title: "Context, never source data",
+    body: "Agents see the process hierarchy, ownership, gaps, health, and governance scope — the same business metadata the in-app assistant sees. No row-level source data is ever exposed.",
+  },
+  {
+    kicker: "Least privilege",
+    title: "Scoped to the caller's role",
+    body: "Each agent authenticates as its own revocable service token, capped to Viewer or Editor and scoped to one org and its divisions. It can never see or do more than that role allows — never an escalation path.",
+  },
+  {
+    kicker: "Audited",
+    title: "Every call in the record",
+    body: "Reads and writes are written to the tamper-evident, hash-chained audit log — writes with before-and-after state — before anything is returned. Non-bypassable.",
+  },
+  {
+    kicker: "Per-tenant",
+    title: "Off by default, opt-in",
+    body: "The surface is reachable only after an admin opts the tenant in, on top of deployment-level kill switches. On-prem or air-gapped deployments can keep it off entirely.",
+  },
+  {
+    kicker: "Human-in-the-loop",
+    title: "Confirm before a change",
+    body: "Write tools carry MCP annotations so the agent's client asks the operator to approve before making a change — the human stays in the decision.",
+  },
+];
+
 export default function PlatformPage() {
   return (
     <>
@@ -206,6 +239,52 @@ export default function PlatformPage() {
                 <span className="card-kicker">{a.kicker}</span>
                 <h3>{a.title}</h3>
                 <p>{a.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">Agent access (MCP)</span>
+          <h2 className="section-title">Governance context for your whole AI agent fleet</h2>
+          <p className="section-body">
+            Procela includes a Model Context Protocol (MCP) server, so the AI
+            agents your teams already use — Claude Desktop, IDE assistants, your
+            own copilots — can ask your governed catalog what a person would:
+            what process depends on this data, who owns it, and is it governed?
+            Where you allow it, an agent can also make audited changes. It&apos;s
+            governance context for your whole agent fleet, without a bespoke
+            integration — and it inherits the same identity, tenant isolation,
+            RBAC, and audit trail as the rest of Procela.
+          </p>
+
+          <div className="product-row">
+            <div className="product-copy">
+              <span className="product-kicker">In the product</span>
+              <h3>Turn it on per tenant, give each agent its own token</h3>
+              <p>
+                An org admin opts the tenant in and mints a revocable,
+                org-scoped service token for each agent — capped to Viewer
+                (read-only) or Editor (adds writes). Every token is listed, shown
+                once, and revoked in a click.
+              </p>
+            </div>
+            <BrowserFrame
+              src="/screenshots/agent-access.webp"
+              alt="Procela's Agent access (MCP) settings panel — a per-tenant enable toggle and a list of revocable, role-capped service tokens for AI agents."
+            />
+          </div>
+
+          <div className="card-grid">
+            {MCP_SAFEGUARDS.map((s) => (
+              <div className="card" key={s.kicker}>
+                <span className="card-kicker">{s.kicker}</span>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
               </div>
             ))}
           </div>
