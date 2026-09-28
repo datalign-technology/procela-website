@@ -29,9 +29,9 @@ const siteUrl = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Procela — Enterprise Data Governance Platform",
+  title: "Procela — One Governed Model for Your Data, Systems & Owners",
   description:
-    "Procela is a business-process-first governance platform that aligns people, process, systems, and data into a single, auditable governance program.",
+    "Procela is data governance that brings your processes, systems, data, and the people who own them into one governed model — every asset owned, every figure traceable, deployed entirely within your environment.",
   keywords: [
     "data governance",
     "business process governance",
@@ -56,24 +56,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Procela — Enterprise Data Governance Platform",
+    title: "Procela — One Governed Model for Your Data, Systems & Owners",
     description:
-      "Business-process-first governance that aligns people, process, systems, and data into a single, auditable governance program.",
+      "Data governance that brings your processes, systems, data, and their owners into one governed model — every asset owned, every figure traceable, deployed entirely within your environment.",
     siteName: "Procela",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Procela — Enterprise Data Governance Platform",
+        alt: "Procela — one governed model for your processes, systems, data, and owners",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Procela — Enterprise Data Governance Platform",
+    title: "Procela — One Governed Model for Your Data, Systems & Owners",
     description:
-      "Business-process-first governance that aligns people, process, systems, and data into a single, auditable governance program.",
+      "Data governance that brings your processes, systems, data, and their owners into one governed model — every asset owned, every figure traceable, deployed entirely within your environment.",
     images: ["/og.png"],
   },
 };
