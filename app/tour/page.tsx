@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tour" },
   title: "Product tour — Procela",
   description:
-    "Take a self-guided, interactive tour of Procela — the council scorecard, enterprise view, process catalog, data assets, lineage, gap detection, and audit log — no signup required.",
+    "Take a self-guided, interactive tour of Procela — the council scorecard, enterprise view, process catalog, data assets, lineage, gap detection, audit log, and agent access (MCP) — no signup required.",
 };
 
 export default function TourPage() {

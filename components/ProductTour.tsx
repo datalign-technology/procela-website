@@ -125,6 +125,21 @@ const STEPS: Step[] = [
       { x: 64, y: 50, text: "Tamper-evident and exportable — audits become a query." },
     ],
   },
+  {
+    id: "agent-access",
+    chip: "Agent access (MCP)",
+    kicker: "Governed AI access",
+    title: "Open your governed catalog to AI agents — safely",
+    body: "Turn on a Model Context Protocol server so the agents your teams use can query your governed catalog — and make audited changes where you allow it. Per-tenant opt-in, a revocable role-capped token per agent, metadata only, and every call in the audit log.",
+    src: "/screenshots/agent-access.webp",
+    alt: "Procela's Agent access (MCP) settings panel — a per-tenant enable toggle and a list of revocable, role-capped service tokens for AI agents.",
+    url: "app.procela.ai/settings?tab=integrations",
+    href: "/platform#agent-access",
+    hotspots: [
+      { x: 22, y: 61, text: "Opt each tenant in — off by default." },
+      { x: 30, y: 89, text: "A revocable, role-capped token per agent." },
+    ],
+  },
 ];
 
 const AUTOPLAY_MS = 7000;
