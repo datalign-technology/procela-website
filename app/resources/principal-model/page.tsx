@@ -121,7 +121,7 @@ export default function Article() {
 
       <h2>Why it matters for regulated environments</h2>
       <p>
-        In defense, financial services, and healthcare, &ldquo;the system did
+        In financial services, healthcare, and government, &ldquo;the system did
         it&rdquo; is not an acceptable answer. The principal model makes AI
         participation defensible by keeping it accountable — every actor named, every
         authority explicit, every action logged.

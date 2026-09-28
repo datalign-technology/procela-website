@@ -27,7 +27,7 @@ export default function Post() {
 
       <h2>&ldquo;The model did it&rdquo; is not an answer</h2>
       <p>
-        In defense, finance, and healthcare, every decision about sensitive data needs
+        In finance, healthcare, and government, every decision about sensitive data needs
         an owner. If an agent reclassifies a dataset or grants a role and no one can
         say why, that&apos;s not automation — it&apos;s an audit finding waiting to
         happen.

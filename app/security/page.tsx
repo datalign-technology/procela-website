@@ -65,8 +65,8 @@ export default function SecurityPage() {
           <h1>Built for the most regulated environments</h1>
           <p>
             Procela was designed for organizations where data can&apos;t move and every
-            action has to be accountable — defense, financial services, healthcare,
-            and critical infrastructure.
+            action has to be accountable — financial services, healthcare,
+            government, and critical infrastructure.
           </p>
         </div>
       </div>

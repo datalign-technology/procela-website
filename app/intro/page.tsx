@@ -4,11 +4,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/intro" },
   title: "Procela — Intro",
   description:
-    "A 60-second look at Procela: business-process-first data governance for regulated enterprises. Your data never leaves your perimeter.",
+    "A 60-second look at Procela: one governed model for your processes, systems, data, and the people who own them. Your data never leaves your perimeter.",
   openGraph: {
     title: "Procela — Intro",
     description:
-      "A 60-second look at Procela: business-process-first data governance for regulated enterprises.",
+      "A 60-second look at Procela: one governed model for your processes, systems, data, and owners.",
     url: "https://www.procela.ai/intro",
     type: "video.other",
   },
