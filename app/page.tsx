@@ -100,8 +100,8 @@ export default function Home() {
           <header className="hero">
             <span className="hero-eyebrow">Enterprise data governance</span>
             <h1>
-              The system of record for who <em>owns</em> your data &mdash; and
-              how it all fits together
+              One governed model for your processes, systems, data, and{" "}
+              <em>owners</em>
             </h1>
             <p className="hero-sub">
               Procela links your processes, systems, data and the people
