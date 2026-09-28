@@ -247,7 +247,7 @@ export default function PlatformPage() {
 
       <hr className="divider" />
 
-      <section className="section">
+      <section className="section" id="agent-access">
         <div className="section-inner">
           <span className="eyebrow">Agent access (MCP)</span>
           <h2 className="section-title">Governance context for your whole AI agent fleet</h2>

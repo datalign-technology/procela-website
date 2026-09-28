@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ArticleLayout from "@/components/ArticleLayout";
 
 export const metadata: Metadata = {
@@ -71,6 +72,15 @@ export default function Post() {
         sure that whatever it does, you can always answer the auditor&apos;s question:
         who did this, and were they allowed to? Get that right, and AI becomes a
         force multiplier you can actually defend.
+      </p>
+      <p>
+        It&apos;s the same principle behind{" "}
+        <Link href="/platform#agent-access">Procela&apos;s agent access (MCP)</Link>:
+        external AI agents reach your governed catalog through a Model Context
+        Protocol server, but each one authenticates as its own role-capped,
+        revocable identity, sees only metadata, and has every call written to the
+        audit trail — so an agent&apos;s work stays exactly as accountable as a
+        human steward&apos;s.
       </p>
     </ArticleLayout>
   );
