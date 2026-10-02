@@ -71,9 +71,9 @@ export default function HowItWorksPage() {
           <span className="eyebrow">The DG Foundation track</span>
           <h2 className="section-title">Six steps to a running program</h2>
           <p className="section-body">
-            Each step maps to a stage of the in-product setup journey — Capture,
-            Assign, Govern, and Operate — so the track you read here is the one you
-            run in the product.
+            The track moves through four stages — Capture, Assign, Govern, and
+            Operate — building an audit-ready baseline and then keeping it running
+            as new assets arrive.
           </p>
           <div className="steps">
             {STEPS.map((s) => (
@@ -115,17 +115,18 @@ export default function HowItWorksPage() {
 
           <div className="product-row">
             <div className="product-copy">
-              <span className="product-kicker">Set up &amp; launch</span>
-              <h3>One journey from empty org to running program</h3>
+              <span className="product-kicker">Process catalog</span>
+              <h3>Governance anchored to how the business runs</h3>
               <p>
-                Procela walks the whole program through four stages — Capture, Assign,
-                Govern, Operate — showing exactly what&apos;s done, what&apos;s derived
-                automatically from your catalog, and the next actions to advance it.
+                Map value streams to processes, sub-processes, and activities in a
+                two-pane catalog — each with a named owner, the systems and data it
+                touches, and a readiness check that shows exactly what&apos;s left to
+                activate it.
               </p>
             </div>
             <BrowserFrame
-              src="/screenshots/setup.webp"
-              alt="Procela's Set up Procela journey showing four stages — Capture, Assign, Govern, and Operate — with per-stage progress and a prioritized list of next actions."
+              src="/screenshots/processes.webp"
+              alt="Procela's two-pane Process Catalog — a value-stream / process / activity tree on the left and a detail panel on the right showing the selected process's owner and activation readiness."
             />
           </div>
 
