@@ -431,11 +431,8 @@ a {
   font-size: 0.9375rem;
   color: var(--text-dim);
   line-height: 1.8;
-  max-width: 540px;
-}
-/* Full-width variant for standalone text sections (no grid/rows beneath to
-   fill the section), so the paragraph spans the section like its neighbors. */
-.section-body.section-body--wide {
+  /* Span the full section width (section-inner caps at 900px) so section
+     intros line up with the heading and the content beneath them. */
   max-width: none;
 }
 
