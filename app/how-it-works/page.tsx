@@ -96,7 +96,7 @@ export default function HowItWorksPage() {
         <div className="section-inner">
           <span className="eyebrow">The closed loop</span>
           <h2 className="section-title">Governance that keeps pace</h2>
-          <p className="section-body">
+          <p className="section-body section-body--wide">
             Once the baseline is live, Procela keeps the loop moving: new assets are
             discovered and proposed for classification, stewardship is assigned, policies
             and controls are recorded, and the audit trail updates. AI-assisted suggestions

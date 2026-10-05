@@ -433,6 +433,11 @@ a {
   line-height: 1.8;
   max-width: 540px;
 }
+/* Full-width variant for standalone text sections (no grid/rows beneath to
+   fill the section), so the paragraph spans the section like its neighbors. */
+.section-body.section-body--wide {
+  max-width: none;
+}
 
 /* WITHOUT / WITH */
 .contrast-grid {
