@@ -47,7 +47,7 @@ const JOBS: Job[] = [
   {
     slug: "principal-sales-engineer",
     title: "Principal Sales Engineer",
-    tags: ["Remote", "Contract"],
+    tags: ["Remote", "Full-time"],
     location:
       "Remote (United States) — with willingness to work on-site in the Greater Orlando area and travel to customer locations as needed.",
     summary:
