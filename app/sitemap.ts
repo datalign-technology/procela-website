@@ -24,6 +24,7 @@ const ROUTES = [
   "/resources/value-model",
   "/resources/principal-model",
   "/resources/edge-agents",
+  "/resources/blog/procela-free-evaluation",
   "/resources/blog/measuring-the-value-of-data-governance",
   "/resources/blog/where-to-begin-with-data-governance",
   "/resources/blog/what-belongs-on-a-governance-scorecard",

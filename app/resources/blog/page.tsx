@@ -22,6 +22,12 @@ type Post = {
 
 const POSTS: Post[] = [
   {
+    date: "October 2026",
+    title: "Procela is now free to evaluate — on your own machine",
+    body: "You can now run the entire platform locally from pre-built images — no source checkout, no build step, no GitHub account, and nothing sent back to us. What's in the evaluation build, why it runs on your machine, and how to get it.",
+    href: "/resources/blog/procela-free-evaluation",
+  },
+  {
     date: "September 2026",
     title: "How to measure the value of data governance",
     body: "Everyone agrees governance matters; leadership still asks what they're getting for it. How to measure the value with signals you can't fake — trended over time and priced with a model finance helped build, not an invented ROI number.",
