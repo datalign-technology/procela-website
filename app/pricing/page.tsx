@@ -91,6 +91,19 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
+          <div className="kit-callout">
+            <div className="kit-text">
+              <span className="kit-eyebrow">Free evaluation</span>
+              <p>
+                Want to try it yourself first? Run the whole platform locally from
+                pre-built images — no quote, no sales call. Create an account and
+                download the evaluation build.
+              </p>
+            </div>
+            <Link className="btn-green" href="/download">
+              Evaluate for free →
+            </Link>
+          </div>
         </div>
       </section>
 

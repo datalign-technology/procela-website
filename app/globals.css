@@ -1323,6 +1323,46 @@ a.card:hover {
   width: 100%;
 }
 
+/* Evaluation download: agreement checkbox, inline commands, fine print */
+.eval-agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.eval-agree input {
+  margin-top: 0.15rem;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--green);
+}
+code.cmd {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  color: var(--green-text);
+  background: var(--green-faint);
+  border: 1px solid var(--border-green);
+  border-radius: 5px;
+  padding: 0.08em 0.4em;
+  white-space: nowrap;
+}
+.eval-fineprint {
+  max-width: 560px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--slate);
+  line-height: 1.6;
+}
+.eval-fineprint a {
+  color: var(--green-text);
+  text-decoration: underline;
+}
+
 @media (max-width: 680px) {
   .feature-row {
     grid-template-columns: 1fr;

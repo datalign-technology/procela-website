@@ -129,6 +129,16 @@ export default function ResourcesPage() {
                 <span className="card-link">Get the template →</span>
               </Link>
             ))}
+            <Link className="card" href="/download">
+              <span className="card-kicker">Free trial</span>
+              <h3>Procela Evaluation Build</h3>
+              <p>
+                Run the whole platform locally from pre-built images — no source
+                checkout, no build step. Create an account and download the
+                evaluation bundle.
+              </p>
+              <span className="card-link">Download the free trial →</span>
+            </Link>
           </div>
         </div>
       </section>

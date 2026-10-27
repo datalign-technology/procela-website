@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { recordLead } from "@/lib/leads";
 import { SITE_URL } from "@/lib/site";
+import { EVAL_ZIP_URL, EVAL_FILE_NAME } from "@/lib/eval";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -84,6 +85,18 @@ function replyConfig(intent: string): ReplyConfig {
         links: [
           { label: "Download the Value Model Worksheet (.xlsx)", href: `${S}/downloads/procela-governance-value-model.xlsx` },
           { label: "How to measure the value of data governance", href: `${S}/resources/blog/measuring-the-value-of-data-governance` },
+          { label: "Take the interactive tour", href: `${S}/tour` },
+        ],
+      };
+    case "eval":
+      return {
+        subject: "Your Procela evaluation download",
+        heading: "Your evaluation build is ready",
+        intro:
+          `Thanks for trying Procela. Download ${EVAL_FILE_NAME}, unzip it, set JWT_SECRET in a copied .env, then run "docker compose -f docker-compose.eval.yml up" and open http://localhost:3000. The full quick-start is on the download page:`,
+        links: [
+          { label: `Download ${EVAL_FILE_NAME}`, href: EVAL_ZIP_URL },
+          { label: "Quick-start steps", href: `${S}/download` },
           { label: "Take the interactive tour", href: `${S}/tour` },
         ],
       };
@@ -170,6 +183,7 @@ export async function POST(req: Request) {
     "starter-kit": "Starter kit",
     scorecard: "Scorecard",
     "value-model": "Value model",
+    eval: "Evaluation",
   };
   const label = INTENT_LABELS[intent] ?? "Demo";
   // Honeypot: bots fill this hidden field. Silently accept and drop.

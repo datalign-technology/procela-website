@@ -170,6 +170,19 @@ export default function Home() {
               Take the interactive tour
             </Link>
           </div>
+          <div className="kit-callout">
+            <div className="kit-text">
+              <span className="kit-eyebrow">Free evaluation</span>
+              <p>
+                Rather drive it yourself? Run the whole platform locally from
+                pre-built images — create an account and download the free
+                evaluation build.
+              </p>
+            </div>
+            <Link className="btn-green" href="/download">
+              Try it free →
+            </Link>
+          </div>
         </div>
       </section>
 

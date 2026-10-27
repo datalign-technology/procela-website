@@ -11,6 +11,7 @@ const ROUTES = [
   "/tour",
   "/integrations",
   "/pricing",
+  "/download",
   "/pilot",
   "/security",
   "/resources",

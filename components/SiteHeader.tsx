@@ -33,6 +33,9 @@ export default function SiteHeader() {
           </div>
         </div>
         <div className="nav-actions">
+          <Link className="btn-ghost-sm" href="/download">
+            Free trial
+          </Link>
           <Link className="btn-green" href="/demo">
             Request a demo
           </Link>
