@@ -16,6 +16,12 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    date: "October 2026",
+    label: "Release",
+    title: "Run Procela free on your own machine",
+    href: "/download",
+  },
+  {
     date: "September 2026",
     label: "Blog",
     title: "What belongs on a governance scorecard",
