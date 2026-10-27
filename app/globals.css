@@ -1362,6 +1362,49 @@ code.cmd {
   color: var(--green-text);
   text-decoration: underline;
 }
+.eval-accounts {
+  margin-top: 2.5rem;
+  max-width: 760px;
+  background: var(--green-faint);
+  border: 1px solid var(--border-green);
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+}
+.eval-accounts p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin: 0.45rem 0 1rem;
+}
+.eval-accounts ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+.eval-accounts li {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.eval-accounts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.eval-accounts li strong {
+  color: var(--ink);
+  font-weight: 600;
+}
 
 @media (max-width: 680px) {
   .feature-row {

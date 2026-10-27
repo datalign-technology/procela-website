@@ -178,6 +178,24 @@ export default function DownloadPage() {
               </div>
             ))}
           </div>
+          <div className="eval-accounts">
+            <span className="step-stage">Test Accounts</span>
+            <p>
+              The sign-in screen offers one-click Test Accounts — no password.
+              Start with the admin to see the whole program, then switch roles to
+              see how it looks to different owners.
+            </p>
+            <ul>
+              <li>
+                <strong>Super admin</strong> — full access to everything: catalog,
+                scorecard, lineage, audit, and settings.
+              </li>
+              <li>
+                <strong>Editor (Chief Data Officer)</strong> — a scoped,
+                role-specific view of the program.
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
