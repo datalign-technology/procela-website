@@ -101,8 +101,8 @@ export default function EvalDownloadGate() {
         <label className="eval-agree">
           <input type="checkbox" name="agree" required />
           <span>
-            I understand this build is for evaluation use only, under the
-            Evaluation License (EULA) included in the download.
+            I understand this build is for evaluation use only, under the license
+            included in the evaluation repository.
           </span>
         </label>
 

@@ -93,7 +93,7 @@ function replyConfig(intent: string): ReplyConfig {
         subject: "Your Procela evaluation download",
         heading: "Your evaluation build is ready",
         intro:
-          `Thanks for trying Procela. Download ${EVAL_FILE_NAME}, unzip it, set JWT_SECRET in a copied .env, then run "docker compose -f docker-compose.eval.yml up" and open http://localhost:3000. The full quick-start is on the download page:`,
+          `Thanks for trying Procela. Download ${EVAL_FILE_NAME}, unzip it, then run "docker compose -f docker-compose.eval.yml up" and open http://localhost:3000 — no config edits and no docker login needed. Sign in with the Test Accounts on the login screen. The full quick-start is on the download page:`,
         links: [
           { label: `Download ${EVAL_FILE_NAME}`, href: EVAL_ZIP_URL },
           { label: "Quick-start steps", href: `${S}/download` },

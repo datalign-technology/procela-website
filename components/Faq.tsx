@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { FAQ_ITEMS as ITEMS } from "@/lib/faq";
+import { FAQ_ITEMS } from "@/lib/faq";
 
-export default function Faq() {
+type FaqItem = { q: string; a: string };
+
+export default function Faq({ items = FAQ_ITEMS }: { items?: FaqItem[] }) {
   const [open, setOpen] = useState(0);
 
   return (
     <div className="faq-list">
-      {ITEMS.map((item, i) => {
+      {items.map((item, i) => {
         const isOpen = open === i;
         return (
           <div key={item.q} className={`faq-item${isOpen ? " open" : ""}`}>
