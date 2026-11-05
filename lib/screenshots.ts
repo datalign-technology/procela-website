@@ -7,7 +7,7 @@
 // so the current capture shows up everywhere with no hard-refresh needed.
 //
 // BUMP THIS whenever the screenshots are refreshed (use the capture date).
-export const SHOTS_VERSION = "20261031";
+export const SHOTS_VERSION = "20261105";
 
 /** Append the capture version to a /screenshots/ path for cache-busting.
  *  Leaves non-screenshot paths untouched. */
