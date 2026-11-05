@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { recordLead } from "@/lib/leads";
 import { SITE_URL } from "@/lib/site";
-import { EVAL_ZIP_URL, EVAL_FILE_NAME } from "@/lib/eval";
+import { EVAL_FILE_NAME } from "@/lib/eval";
+import { issueDownloadToken } from "@/lib/eval-token";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,7 +38,7 @@ type ReplyConfig = {
 
 /** Per-intent copy and links for the automated confirmation sent to the
  *  person who submitted the form. Links are absolute (email clients need it). */
-function replyConfig(intent: string): ReplyConfig {
+function replyConfig(intent: string, downloadToken?: string): ReplyConfig {
   const S = SITE_URL;
   switch (intent) {
     case "pilot":
@@ -95,7 +96,12 @@ function replyConfig(intent: string): ReplyConfig {
         intro:
           `Thanks for trying Procela. Download ${EVAL_FILE_NAME}, unzip it, then run "docker compose -f docker-compose.eval.yml up" and open http://localhost:3000 — no config edits and no docker login needed. Sign in with the Test Accounts on the login screen. The full quick-start is on the download page:`,
         links: [
-          { label: `Download ${EVAL_FILE_NAME}`, href: EVAL_ZIP_URL },
+          {
+            label: `Download ${EVAL_FILE_NAME}`,
+            href: downloadToken
+              ? `${S}/api/download/eval?t=${encodeURIComponent(downloadToken)}`
+              : `${S}/api/download/eval`,
+          },
           { label: "Quick-start steps", href: `${S}/download` },
           { label: "Take the interactive tour", href: `${S}/tour` },
         ],
@@ -116,8 +122,8 @@ function replyConfig(intent: string): ReplyConfig {
 }
 
 /** Build the confirmation email (html + text) sent back to the submitter. */
-function buildConfirmation(intent: string, name: string) {
-  const r = replyConfig(intent);
+function buildConfirmation(intent: string, name: string, downloadToken?: string) {
+  const r = replyConfig(intent, downloadToken);
   const firstName = name.split(/\s+/)[0] || "";
   const greetHtml = firstName ? `Hi ${escapeHtml(firstName)},` : "Hi,";
   const greetText = firstName ? `Hi ${firstName},` : "Hi,";
@@ -206,6 +212,13 @@ export async function POST(req: Request) {
     );
   }
 
+  // For the eval intent, mint a short-lived token so the actual file download
+  // can be attributed back to this registration when it's redeemed at
+  // /api/download/eval. The success response carries it to the client.
+  const downloadToken =
+    intent === "eval" ? issueDownloadToken({ name, email, company, role }) : undefined;
+  const okBody = downloadToken ? { ok: true, downloadToken } : { ok: true };
+
   // Persist first (best-effort, durable) to every configured sink. A sink
   // hiccup must never drop the request — the email below is another channel.
   let saved = false;
@@ -230,7 +243,7 @@ export async function POST(req: Request) {
   if (!resend || !FROM || !TO) {
     if (saved) {
       // The lead is safely in the datastore even though email isn't set up.
-      return NextResponse.json({ ok: true });
+      return NextResponse.json(okBody);
     }
     console.error(
       "Form not configured: set RESEND_API_KEY, DEMO_FROM_EMAIL, and DEMO_TO_EMAIL " +
@@ -290,7 +303,7 @@ export async function POST(req: Request) {
     // Best-effort automated confirmation to the submitter. A failure here must
     // never affect the visitor's response — the request is already captured.
     try {
-      const confirmation = buildConfirmation(intent, name);
+      const confirmation = buildConfirmation(intent, name, downloadToken);
       const { error: replyError } = await resend.emails.send({
         from: FROM,
         to: [email],
@@ -304,13 +317,13 @@ export async function POST(req: Request) {
       console.error("Auto-reply send failed:", replyErr);
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json(okBody);
   } catch (err) {
     console.error("Resend send failed:", err);
     // The lead is still captured in the datastore, so don't make the visitor
     // resubmit — only surface an error when we have no record at all.
     if (saved) {
-      return NextResponse.json({ ok: true });
+      return NextResponse.json(okBody);
     }
     return NextResponse.json(
       {

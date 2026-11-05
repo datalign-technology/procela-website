@@ -2,31 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { EVAL_ZIP_URL, EVAL_FILE_NAME, EVAL_VERSION } from "@/lib/eval";
+import { EVAL_FILE_NAME, EVAL_VERSION } from "@/lib/eval";
 
 /**
  * Registration gate for the downloadable evaluation build. Captures the lead
- * (name / work email / company) through the same /api/demo pipeline as the
- * other gated resources, then reveals and auto-starts the download of the
- * GitHub-hosted eval bundle. GitHub serves the asset with an attachment
- * disposition, so a same-tab click downloads without navigating away.
+ * through the /api/demo pipeline, then reveals a download button that routes
+ * through /api/download/eval — a tracked endpoint that logs the actual file
+ * fetch (attributed to this registration via the returned token) before
+ * redirecting to the public bundle. The download is a deliberate click, not
+ * automatic, so "registered" and "downloaded" stay distinct signals.
  */
 export default function EvalDownloadGate() {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
-  function startDownload() {
-    try {
-      const a = document.createElement("a");
-      a.href = EVAL_ZIP_URL;
-      a.rel = "noopener";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    } catch {
-      /* the visible button in the success panel is the fallback */
-    }
-  }
+  const downloadHref = `/api/download/eval${token ? `?t=${encodeURIComponent(token)}` : ""}`;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -46,12 +37,12 @@ export default function EvalDownloadGate() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
         throw new Error(data.error || "Something went wrong. Please try again.");
       }
+      setToken(typeof data.downloadToken === "string" ? data.downloadToken : null);
       setStatus("done");
-      startDownload();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
       setStatus("idle");
@@ -61,14 +52,13 @@ export default function EvalDownloadGate() {
   if (status === "done") {
     return (
       <div className="form-success" role="status">
-        <h3>Your download is ready</h3>
+        <h3>You&apos;re all set</h3>
         <p>
-          Thanks — <strong>{EVAL_FILE_NAME}</strong> should download
-          automatically. If it doesn&apos;t, use the button below. We&apos;ve
+          Click below to download <strong>{EVAL_FILE_NAME}</strong>. We&apos;ve
           also emailed you the link and the quick-start steps.
         </p>
         <p style={{ marginTop: "1.25rem" }}>
-          <a className="btn-primary-lg" href={EVAL_ZIP_URL} rel="noopener">
+          <a className="btn-primary-lg" href={downloadHref} rel="noopener">
             Download {EVAL_FILE_NAME}
           </a>
         </p>
@@ -119,7 +109,7 @@ export default function EvalDownloadGate() {
         )}
 
         <button type="submit" className="btn-primary-lg full" disabled={status === "sending"}>
-          {status === "sending" ? "Preparing your download…" : "Create account & download"}
+          {status === "sending" ? "Creating your account…" : "Create account & continue"}
         </button>
       </div>
       <p className="form-note">
