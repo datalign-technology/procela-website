@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { versionedShot } from "@/lib/screenshots";
 
 type BrowserFrameProps = {
   src: string;
@@ -37,7 +38,7 @@ export default function BrowserFrame({
         <span className="browser-url">{url}</span>
       </div>
       <Image
-        src={src}
+        src={versionedShot(src)}
         alt={alt}
         width={width}
         height={height}
