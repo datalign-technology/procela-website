@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import SocialLinks from "./SocialLinks";
 
 const LINKS = [
   { href: "/platform", label: "Platform" },
@@ -62,6 +63,7 @@ export default function MobileNav() {
           <Link className="btn-green" href="/demo" onClick={close}>
             Request a demo
           </Link>
+          <SocialLinks className="social-links mobile-social" size={20} />
         </div>
       )}
     </div>

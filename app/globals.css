@@ -2920,3 +2920,50 @@ code.cmd {
     justify-content: flex-end;
   }
 }
+.footer-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* Social profile icon links (header, mobile menu, footer) */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  color: var(--slate);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.social-link:hover {
+  color: var(--ink);
+  background: var(--green-faint);
+}
+.social-link:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+.footer-social {
+  margin-left: 0.75rem;
+}
+.footer-social .social-link {
+  width: 28px;
+  height: 28px;
+}
+.mobile-menu .mobile-social {
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+.mobile-menu .mobile-social a.social-link {
+  padding: 0;
+  border-bottom: none;
+  width: 40px;
+  height: 40px;
+}

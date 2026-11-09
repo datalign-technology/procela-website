@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import CookiePreferencesButton from "./CookiePreferencesButton";
+import SocialLinks from "./SocialLinks";
 
 export default function SiteFooter() {
   return (
     <footer className="footer">
       <div className="footer-brand">
         <Logo height={22} className="opacity-60" />
+        <SocialLinks className="social-links footer-social" size={16} />
       </div>
       <div className="footer-links">
         <Link href="/platform">Platform</Link>
