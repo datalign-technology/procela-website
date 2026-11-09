@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, SOCIAL_LINKS } from "@/lib/site";
 import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
@@ -93,7 +93,7 @@ export default function RootLayout({
     logo: `${siteUrl}/procela-icon.png`,
     description:
       "Procela is a business-process-first governance platform that aligns people, process, systems, and data into a single, auditable data governance program.",
-    sameAs: [] as string[],
+    sameAs: [SOCIAL_LINKS.linkedin, SOCIAL_LINKS.youtube] as string[],
   };
 
   const websiteJsonLd = {

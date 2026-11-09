@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
+import SocialLinks from "./SocialLinks";
 import UpdatesBanner from "./UpdatesBanner";
 
 export default function SiteHeader() {
@@ -33,6 +34,7 @@ export default function SiteHeader() {
           </div>
         </div>
         <div className="nav-actions">
+          <SocialLinks />
           <Link className="btn-ghost-sm" href="/download">
             Free trial
           </Link>
