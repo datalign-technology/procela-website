@@ -10,5 +10,5 @@ export const SITE_URL = "https://www.procela.ai";
 // engines can tie these profiles to the site.
 export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/company/procela",
-  youtube: "https://www.youtube.com/@procelahq",
+  youtube: "https://www.youtube.com/channel/UCrLP6NGaOXMBEBsvHZ5u9Fw",
 } as const;
