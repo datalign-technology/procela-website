@@ -9,6 +9,7 @@ import {
   EVAL_REPO_URL,
   EVAL_CLONE_URL,
 } from "@/lib/eval";
+import { TRAINING_PLAYLIST_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/download" },
@@ -195,6 +196,23 @@ export default function DownloadPage() {
                 role-specific view of the program.
               </li>
             </ul>
+          </div>
+          <div className="kit-callout">
+            <div className="kit-text">
+              <span className="kit-eyebrow">New to Procela?</span>
+              <p>
+                Prefer to watch first? The training series walks through setup
+                and the platform, step by step.
+              </p>
+            </div>
+            <a
+              className="btn-green"
+              href={TRAINING_PLAYLIST_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch the training series →
+            </a>
           </div>
         </div>
       </section>

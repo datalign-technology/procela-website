@@ -14,7 +14,16 @@ export type Update = {
   kit?: boolean;
 };
 
+import { TRAINING_PLAYLIST_URL } from "@/lib/site";
+
 export const UPDATES: Update[] = [
+  {
+    date: "November 2026",
+    label: "Video",
+    title: "Watch the new Procela training series",
+    href: TRAINING_PLAYLIST_URL,
+    external: true,
+  },
   {
     date: "October 2026",
     label: "Release",

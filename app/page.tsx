@@ -10,6 +10,7 @@ import CtaBand from "@/components/CtaBand";
 import ProductShowcase from "@/components/ProductShowcase";
 import { FAQ_ITEMS } from "@/lib/faq";
 import { INDUSTRIES } from "@/lib/industries";
+import { TRAINING_PLAYLIST_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -165,10 +166,26 @@ export default function Home() {
           <span className="eyebrow">See it in action</span>
           <h2 className="section-title">One place to run your governance program</h2>
           <ProductShowcase />
-          <div style={{ marginTop: "2rem", textAlign: "center" }}>
+          <div
+            style={{
+              marginTop: "2rem",
+              display: "flex",
+              gap: "0.75rem",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
             <Link href="/tour" className="btn-outline-lg">
               Take the interactive tour
             </Link>
+            <a
+              href={TRAINING_PLAYLIST_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-lg"
+            >
+              Watch the training series
+            </a>
           </div>
           <div className="kit-callout">
             <div className="kit-text">
