@@ -12,3 +12,8 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/company/procela",
   youtube: "https://www.youtube.com/channel/UCrLP6NGaOXMBEBsvHZ5u9Fw",
 } as const;
+
+// The Procela Training playlist on YouTube — a getting-started video series,
+// linked from the Resources menu and page.
+export const TRAINING_PLAYLIST_URL =
+  "https://www.youtube.com/playlist?list=PLYvn3NTia0b0";

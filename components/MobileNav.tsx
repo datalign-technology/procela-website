@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import SocialLinks from "./SocialLinks";
+import { TRAINING_PLAYLIST_URL } from "@/lib/site";
 
 const LINKS = [
   { href: "/platform", label: "Platform" },
@@ -57,6 +58,15 @@ export default function MobileNav() {
           <Link className="mobile-subitem" href="/resources/blog" onClick={close}>
             Blog
           </Link>
+          <a
+            className="mobile-subitem"
+            href={TRAINING_PLAYLIST_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
+          >
+            Training
+          </a>
           <Link href="/download" onClick={close}>
             Free trial
           </Link>

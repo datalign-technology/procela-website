@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
+import { TRAINING_PLAYLIST_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/resources" },
@@ -106,6 +107,12 @@ export default function ResourcesPage() {
                 <span className="card-link">{c.link} →</span>
               </Link>
             ))}
+            <a className="card" href={TRAINING_PLAYLIST_URL} target="_blank" rel="noopener noreferrer">
+              <span className="card-kicker">Training</span>
+              <h3>Video training series</h3>
+              <p>Short, practical walkthroughs of Procela — getting started, standing up a program, and using the platform day to day. New videos added over time.</p>
+              <span className="card-link">Watch on YouTube →</span>
+            </a>
           </div>
         </div>
       </section>

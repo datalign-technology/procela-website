@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 import SocialLinks from "./SocialLinks";
 import UpdatesBanner from "./UpdatesBanner";
+import { TRAINING_PLAYLIST_URL } from "@/lib/site";
 
 export default function SiteHeader() {
   return (
@@ -30,6 +31,7 @@ export default function SiteHeader() {
               <Link href="/resources/docs" role="menuitem">Documentation</Link>
               <Link href="/resources/guides" role="menuitem">Guides</Link>
               <Link href="/resources/blog" role="menuitem">Blog</Link>
+              <a href={TRAINING_PLAYLIST_URL} target="_blank" rel="noopener noreferrer" role="menuitem">Training</a>
             </div>
           </div>
         </div>
