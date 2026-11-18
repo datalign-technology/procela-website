@@ -14,6 +14,12 @@ const nextConfig = {
         destination: "https://www.procela.ai/:path*",
         permanent: true,
       },
+      {
+        // The How it works page was merged into /platform.
+        source: "/how-it-works",
+        destination: "/platform#how-it-works",
+        permanent: true,
+      },
     ];
   },
 };

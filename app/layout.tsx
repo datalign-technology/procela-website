@@ -113,7 +113,7 @@ export default function RootLayout({
     operatingSystem: "Web, on-premise (Kubernetes / Helm), AWS",
     url: siteUrl,
     description:
-      "Business-process-first data governance for regulated enterprises: a metadata-only edge connector, stewardship and RACI, recorded policies and controls, gap detection, lineage, and a tamper-evident audit trail — deployable on-premise or air-gapped.",
+      "Business-process-first data governance for regulated enterprises: metadata-only connections to your data sources, stewardship and RACI, recorded policies and controls, gap detection, lineage, and a tamper-evident audit trail — deployable on-premise or air-gapped.",
     offers: { "@type": "Offer", availability: "https://schema.org/InStock" },
     publisher: { "@type": "Organization", name: "Procela" },
   };

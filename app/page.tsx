@@ -221,8 +221,8 @@ export default function Home() {
               </div>
               <h3>A living catalog</h3>
               <p>
-                Systems, data assets, people and domains discovered by metadata-only
-                edge agents and linked into one connected model.
+                Systems, data assets, people and domains — discovered from your
+                sources without moving data — linked into one connected model.
               </p>
               <div className="bento-mini">
                 <div className="bento-row">

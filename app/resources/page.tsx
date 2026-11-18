@@ -173,7 +173,7 @@ export default function ResourcesPage() {
         title="Prefer a walkthrough?"
         body="Skip the reading — we'll show you Procela against your environment directly."
         secondaryLabel="How it works"
-        secondaryHref="/how-it-works"
+        secondaryHref="/platform#how-it-works"
       />
 
       <SiteFooter />

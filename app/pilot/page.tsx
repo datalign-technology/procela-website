@@ -43,7 +43,7 @@ const PHASES = [
   {
     n: "02",
     title: "Deploy",
-    body: "Procela goes into your environment via Helm or Kubernetes — cloud, on-premise, or air-gapped. The edge connector reads metadata where the data lives.",
+    body: "Procela goes into your environment via Helm or Kubernetes — cloud, on-premise, or air-gapped. It reads only metadata where your data lives — through direct warehouse connections or the optional edge connector.",
   },
   {
     n: "03",

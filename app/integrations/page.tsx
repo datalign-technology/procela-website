@@ -126,9 +126,9 @@ export default function IntegrationsPage() {
 
       <CtaBand
         title="Connect Procela to your environment"
-        body="Bring your sources — we'll show you how the edge connector builds a governed catalog from metadata alone."
+        body="Bring your sources — we'll show you how Procela builds a governed catalog from metadata alone, however you choose to connect."
         secondaryLabel="How it works"
-        secondaryHref="/how-it-works"
+        secondaryHref="/platform#how-it-works"
       />
 
       <SiteFooter />

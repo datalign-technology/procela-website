@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/platform" },
   title: "Platform — Procela",
   description:
-    "Business-process-first governance that connects processes, systems, data and owners — a process catalog, stewardship and RACI, recorded policies and controls, and a metadata-only edge connector.",
+    "Business-process-first governance that connects processes, systems, data and owners — a process catalog, stewardship and RACI, recorded policies and controls — and stands up an audit-ready baseline in under 30 days, connecting to your sources without moving your data.",
 };
 
 const PILLARS: { icon: IconName; kicker: string; title: string; body: string }[] = [
@@ -34,9 +34,95 @@ const PILLARS: { icon: IconName; kicker: string; title: string; body: string }[]
   },
   {
     icon: "edge",
-    kicker: "Edge connector",
-    title: "Scan your sources without moving your data",
-    body: "The on-prem edge connector deploys inside your environment via Kubernetes or Helm. It reads schema, table, and column metadata plus row counts — never values — and sends only that metadata over outbound HTTPS. Your data never leaves your perimeter.",
+    kicker: "Connect your sources",
+    title: "Connect however suits you — no agent required",
+    body: "Connect cloud warehouses — Snowflake, BigQuery, Redshift, Databricks — directly; deploy the optional on-prem edge connector for databases behind your firewall; or catalog sources by hand, import them (spreadsheet or dbt), or through the API. However you connect, Procela reads only metadata — schema, tables, columns, row counts — never values, so your data never leaves your perimeter.",
+  },
+];
+
+// The phased DG Foundation track — six steps to an audit-ready baseline.
+const STEPS = [
+  {
+    n: "01",
+    stage: "Capture",
+    title: "Connect",
+    body: "Connect cloud warehouses — Snowflake, BigQuery, Redshift, Databricks — directly, or deploy the optional edge connector for on-prem databases (PostgreSQL, MySQL, SQL Server, Oracle) and dbt. Prefer not to run a connector at all? Catalog sources by hand, import them (spreadsheet or dbt), or use the API. Either way Procela reads only metadata where the data lives — no data leaves your perimeter — and the rest of the program runs the same.",
+  },
+  {
+    n: "02",
+    stage: "Capture",
+    title: "Map",
+    body: "Lay your business processes over the catalog — which process depends on which data, in which system. Mapping process to data, and the systems behind it, is what turns a list of assets into governance you can reason about.",
+  },
+  {
+    n: "03",
+    stage: "Capture",
+    title: "Classify",
+    body: "Reconcile discovered assets against your domains, and let Procela's AI agents propose classifications for anything unlabeled — routed for review before anything is applied.",
+  },
+  {
+    n: "04",
+    stage: "Assign",
+    title: "Assign",
+    body: "Map assets to data domains and assign owners, stewards, and agents. Procela suggests stewardship based on your org structure, so accountability is explicit from day one.",
+  },
+  {
+    n: "05",
+    stage: "Govern",
+    title: "Govern",
+    body: "Define policies in plain language. Procela records them as policies and controls against the assets they govern — access, retention, export controls — and tracks them in one place.",
+  },
+  {
+    n: "06",
+    stage: "Operate",
+    title: "Audit",
+    body: "Every classification, assignment, and policy change is captured in a tamper-evident log. Audit prep becomes a query, not a fire drill — and the loop keeps running as new assets arrive.",
+  },
+];
+
+// Merged product tour — the strongest screens across the catalog and program.
+const PRODUCT = [
+  {
+    kicker: "Process catalog",
+    title: "Governance anchored to how the business runs",
+    body: "Map value streams to processes, sub-processes, and activities in a two-pane catalog — each with a named owner, the systems and data it touches, and a readiness check that shows exactly what's left to activate it.",
+    src: "/screenshots/processes.webp",
+    alt: "Procela's two-pane Process Catalog — a value-stream / process / activity tree on the left and a detail panel on the right showing the selected process's owner and activation readiness.",
+  },
+  {
+    kicker: "Enterprise view",
+    title: "One view across the entire enterprise",
+    body: "Processes, systems, data assets, and domains — and how they connect — in a single pane, so leadership can see the whole governance program at a glance.",
+    src: "/screenshots/enterprise.webp",
+    alt: "Procela enterprise view showing counts of processes, systems, data assets, and domains with their relationships.",
+  },
+  {
+    kicker: "Domains",
+    title: "Organize assets into governed domains",
+    body: "Group data assets under a single governance umbrella with assigned owners, stewards, and policies — the backbone of the classify and assign steps.",
+    src: "/screenshots/domains.webp",
+    alt: "Procela data domains view with a domain list and a detail panel showing owner, stewards, and member data assets.",
+  },
+  {
+    kicker: "Lineage",
+    title: "See how data flows between your systems",
+    body: "Map which system feeds which — as a table or a directed graph — with flow type and frequency on every edge, or import it straight from a dbt Cloud job. One picture of how data moves, kept audit-ready.",
+    src: "/screenshots/lineage.webp",
+    alt: "Procela Data Lineage view showing a directed graph of flows between systems, each edge labeled with flow type and frequency.",
+  },
+  {
+    kicker: "Stewardship & ownership",
+    title: "Every person, role, and domain in one place",
+    body: "A live directory of owners, stewards, and agents across your organization — with app and governance roles assigned and accountable.",
+    src: "/screenshots/people.webp",
+    alt: "Procela People view listing owners and stewards with their roles and titles across the organization.",
+  },
+  {
+    kicker: "Council scorecard",
+    title: "Give the council one board to run on",
+    body: "Four measures — tier-1 coverage, classification, open issues, and exceptions — auto-derived from live data and rolled up from every division to the enterprise, so progress is visible, not anecdotal.",
+    src: "/screenshots/council-scorecard.webp",
+    alt: "The Procela Governance Council Scorecard rolling four measures up from each division to the enterprise, with status badges and an auto-derived narrative.",
   },
 ];
 
@@ -103,7 +189,8 @@ export default function PlatformPage() {
           <p>
             Procela is the connective tissue of your governance program — tying the
             processes, systems, data and the people accountable for them into one
-            aligned, auditable system.
+            aligned, auditable system, and standing up an audit-ready baseline in
+            under 30 days.
           </p>
         </div>
       </div>
@@ -148,74 +235,63 @@ export default function PlatformPage() {
 
       <hr className="divider" />
 
+      <section className="section" id="how-it-works">
+        <div className="section-inner">
+          <span className="eyebrow">How it works · the DG Foundation track</span>
+          <h2 className="section-title">An audit-ready baseline in under 30 days</h2>
+          <p className="section-body">
+            The DG Foundation track is phased and pragmatic — it starts with your
+            highest-priority domains and closes the governance loop step by step,
+            moving through four stages: Capture, Assign, Govern, and Operate.
+          </p>
+          <div className="steps">
+            {STEPS.map((s) => (
+              <div className="step" key={s.n}>
+                <div className="step-num">{s.n}</div>
+                <div>
+                  <span className="step-stage">{s.stage}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">The closed loop</span>
+          <h2 className="section-title">Governance that keeps pace</h2>
+          <p className="section-body">
+            Once the baseline is live, Procela keeps the loop moving: new assets are
+            discovered or imported and proposed for classification, stewardship is
+            assigned, policies and controls are recorded, and the audit trail updates.
+            AI-assisted suggestions surface the work; your team reviews and approves it
+            instead of doing the busywork.
+          </p>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
       <section className="section">
         <div className="section-inner">
           <span className="eyebrow">In the product</span>
           <h2 className="section-title">See governance actually running</h2>
 
-          <div className="product-row">
-            <div className="product-copy">
-              <span className="product-kicker">Enterprise view</span>
-              <h3>One view across the entire enterprise</h3>
-              <p>
-                Processes, systems, data assets, and domains — and how they connect —
-                in a single pane, so leadership can see the whole governance program at
-                a glance.
-              </p>
+          {PRODUCT.map((row, i) => (
+            <div className={`product-row${i % 2 === 1 ? " reverse" : ""}`} key={row.kicker}>
+              <div className="product-copy">
+                <span className="product-kicker">{row.kicker}</span>
+                <h3>{row.title}</h3>
+                <p>{row.body}</p>
+              </div>
+              <BrowserFrame src={row.src} alt={row.alt} />
             </div>
-            <BrowserFrame
-              src="/screenshots/enterprise.webp"
-              alt="Procela enterprise view showing counts of processes, systems, data assets, and domains with their relationships."
-            />
-          </div>
-
-          <div className="product-row reverse">
-            <div className="product-copy">
-              <span className="product-kicker">Stewardship &amp; ownership</span>
-              <h3>Every person, role, and domain in one place</h3>
-              <p>
-                A live directory of owners, stewards, and agents across your
-                organization — with app and governance roles assigned and
-                accountable.
-              </p>
-            </div>
-            <BrowserFrame
-              src="/screenshots/people.webp"
-              alt="Procela People view listing owners and stewards with their roles and titles across the organization."
-            />
-          </div>
-
-          <div className="product-row">
-            <div className="product-copy">
-              <span className="product-kicker">Systems &amp; data</span>
-              <h3>A live inventory of where your data lives</h3>
-              <p>
-                Every system and data asset catalogued and typed — the foundation
-                the governance program is built on.
-              </p>
-            </div>
-            <BrowserFrame
-              src="/screenshots/systems.webp"
-              alt="Procela Systems view showing a catalogued inventory of applications and platforms by type."
-            />
-          </div>
-
-          <div className="product-row reverse">
-            <div className="product-copy">
-              <span className="product-kicker">Lineage</span>
-              <h3>See how data flows between your systems</h3>
-              <p>
-                Map which system feeds which — as a table or a directed graph —
-                with flow type and frequency on every edge, or import it straight
-                from a dbt Cloud job. One picture of how data moves, kept
-                audit-ready.
-              </p>
-            </div>
-            <BrowserFrame
-              src="/screenshots/lineage.webp"
-              alt="Procela Data Lineage view showing a directed graph of flows between systems, each edge labeled with flow type and frequency."
-            />
-          </div>
+          ))}
         </div>
       </section>
 
