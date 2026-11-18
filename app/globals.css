@@ -1432,12 +1432,90 @@ code.cmd {
 
 /* Browser frame for product screenshots */
 .browser {
+  position: relative;
   margin: 0;
   border-radius: 12px;
   overflow: hidden;
   background: #ffffff;
   border: 1px solid rgba(13, 31, 23, 0.08);
   box-shadow: 0 24px 60px rgba(13, 31, 23, 0.28), 0 6px 16px rgba(13, 31, 23, 0.12);
+}
+
+/* "Enlarge" affordance — fades in on hover, always shown on touch devices */
+.browser-zoom-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 100px;
+  background: rgba(13, 31, 23, 0.72);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+.browser:hover .browser-zoom-hint,
+.browser:focus-within .browser-zoom-hint {
+  opacity: 1;
+}
+@media (hover: none) {
+  .browser-zoom-hint {
+    opacity: 1;
+  }
+}
+
+/* Full-size screenshot lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 18, 13, 0.82);
+  cursor: zoom-out;
+  animation: lightbox-fade 0.15s ease;
+}
+@keyframes lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.lightbox-img {
+  max-width: 96vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 .browser-bar {
   display: flex;

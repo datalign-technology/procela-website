@@ -233,7 +233,7 @@ export default function ProductTour() {
         {/* Stage with hotspots */}
         <div className="tour-stage">
           <div className="tour-shot" key={current.id}>
-            <BrowserFrame src={current.src} alt={current.alt} url={current.url} priority={step === 0} />
+            <BrowserFrame src={current.src} alt={current.alt} url={current.url} priority={step === 0} zoomable={false} />
             <div className="tour-overlay" aria-hidden="true">
               {current.hotspots.map((h, i) => (
                 <button
