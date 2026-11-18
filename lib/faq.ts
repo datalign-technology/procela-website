@@ -11,7 +11,7 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "Does Procela move or store our data?",
-    a: "No. The on-prem edge connector reads schema, table, and column metadata plus row counts only — never column values, records, or file contents — and sends just that metadata to the platform over outbound HTTPS. Your data never leaves your perimeter, making Procela a fit for environments operating under frameworks like ITAR, CMMC, CUI, and HIPAA.",
+    a: "No. Procela reads only schema, table, and column metadata plus row counts — never column values, records, or file contents — whether it connects to your cloud warehouses directly or through the optional on-prem edge connector for databases behind your firewall. Only that metadata reaches the platform, over outbound HTTPS, so your data never leaves your perimeter — making Procela a fit for environments operating under frameworks like ITAR, CMMC, CUI, and HIPAA.",
   },
   {
     q: "How long does a Phase 1 governance program take to stand up?",

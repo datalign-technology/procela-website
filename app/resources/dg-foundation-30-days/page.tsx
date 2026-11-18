@@ -44,10 +44,12 @@ export default function Article() {
 
       <h2>Week 1 — Connect and scope</h2>
       <p>
-        Deploy Procela&apos;s edge connector inside your environment and connect your
-        databases, warehouses, and dbt — sources like PostgreSQL, SQL Server, Oracle,
-        Snowflake, BigQuery, Redshift, and Databricks. Only metadata leaves your
-        perimeter. In parallel, pick the domains for Phase 1 — usually the ones under
+        Connect your sources — cloud warehouses like Snowflake, BigQuery, Redshift,
+        and Databricks directly, databases behind your firewall (PostgreSQL, SQL
+        Server, Oracle) through the optional edge connector, or dbt. Prefer not to
+        run a connector at all? Catalog or import sources by hand instead. Either
+        way, only metadata leaves your perimeter. In parallel, pick the domains for
+        Phase 1 — usually the ones under
         the most regulatory pressure, such as CUI, PII, or export-controlled
         engineering data.
       </p>
