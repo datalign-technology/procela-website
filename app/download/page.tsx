@@ -100,11 +100,11 @@ const EVAL_FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Can I connect my own data sources?",
-    a: "The evaluation comes pre-loaded with a demo program so you can explore immediately. Connecting your own systems through the metadata-only edge connector is part of a pilot or deployment — tell us about your environment and we'll scope it with you.",
+    a: "The evaluation comes pre-loaded with a demo program so you can explore immediately. Connecting your own systems — directly or through the metadata-only edge connector — is part of a pilot or deployment. Tell us about your environment and we'll scope it with you.",
   },
   {
     q: "How is the evaluation different from a production deployment?",
-    a: "The evaluation uses Test Accounts and runs locally from pre-built images with demo data. A production deployment adds your single sign-on, your own data sources via the edge connector, and cloud, on-premise, or air-gapped deployment via Helm and Kubernetes — with support and a defined SLA.",
+    a: "The evaluation uses Test Accounts and runs locally from pre-built images with demo data. A production deployment adds your single sign-on, your own data sources (connected directly or via the edge connector), and cloud, on-premise, or air-gapped deployment via Helm and Kubernetes — with support and a defined SLA.",
   },
 ];
 

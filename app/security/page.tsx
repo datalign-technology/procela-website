@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/security" },
   title: "Security — Procela",
   description:
-    "Built for regulated environments: no data egress, a metadata-only edge connector, tamper-evident audit logs, SSO/SCIM/MFA, and ITAR/CMMC/CUI/HIPAA support.",
+    "Built for regulated environments: no data egress, metadata-only source connections, tamper-evident audit logs, SSO/SCIM/MFA, and ITAR/CMMC/CUI/HIPAA support.",
 };
 
 const PRINCIPLES: { icon: IconName; kicker: string; title: string; body: string }[] = [
@@ -17,7 +17,7 @@ const PRINCIPLES: { icon: IconName; kicker: string; title: string; body: string 
     icon: "shield",
     kicker: "No data egress",
     title: "Your data never leaves your perimeter",
-    body: "The Procela edge connector runs inside your environment and sends only metadata to the platform. Source data stays put — making Procela suitable for the most restricted environments.",
+    body: "Procela reads only metadata — whether through direct warehouse connections or the optional edge connector — and sends just that to the platform. Source data stays put, making Procela suitable for the most restricted environments.",
   },
   {
     icon: "edge",
@@ -101,8 +101,8 @@ export default function SecurityPage() {
           <span className="eyebrow">Compliance</span>
           <h2 className="section-title">Aligned to the frameworks you answer to</h2>
           <p className="section-body">
-            Procela&apos;s architecture — no data egress, an edge connector over outbound
-            HTTPS, and tamper-evident audit trails — is designed to support governance
+            Procela&apos;s architecture — no data egress, metadata-only connections over
+            outbound HTTPS, and tamper-evident audit trails — is designed to support governance
             programs operating under frameworks like:
           </p>
           <div className="pill-row">

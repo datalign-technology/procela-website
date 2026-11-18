@@ -33,7 +33,7 @@ export const INDUSTRIES: Industry[] = [
     helps: [
       { title: "Catalog OT + IT together", body: "SCADA, MDMS, EAM and billing in one model, each with a named owner and steward." },
       { title: "Meter-to-bill lineage", body: "Trace determinants from field reads to invoices, so rate cases and outage reviews start from fact." },
-      { title: "Runs inside the control network", body: "Metadata-only edge agents read systems in place — nothing leaves the OT environment." },
+      { title: "Runs inside the control network", body: "Procela reads systems in place, metadata only — nothing leaves the OT environment." },
     ],
     valueHeading: "Audit-ready evidence, and one source of truth for critical data.",
     outcomes: [
@@ -201,7 +201,7 @@ export const INDUSTRIES: Industry[] = [
     helps: [
       { title: "Catalog OSS + BSS together", body: "Network inventory, provisioning, billing and subscriber systems in one model, each with a named owner." },
       { title: "Trace subscriber-data lineage", body: "Follow subscriber and usage data across systems, so CPNI and privacy reviews start from fact." },
-      { title: "Runs inside your network", body: "Metadata-only edge agents read systems in place; nothing leaves your environment." },
+      { title: "Runs inside your network", body: "Procela reads systems in place, metadata only; nothing leaves your environment." },
     ],
     valueHeading: "One governed map of a critical-infrastructure data estate.",
     outcomes: [
@@ -257,7 +257,7 @@ export const INDUSTRIES: Industry[] = [
     helps: [
       { title: "Catalog OT + IT together", body: "Dispatch, telematics, signaling, freight, customs and warehouse systems in one model, each with a named owner." },
       { title: "Trace freight & network lineage", body: "Follow shipment, schedule and network data across systems, so security and customs reviews start from fact." },
-      { title: "Runs inside your environment", body: "Metadata-only edge agents read operational and IT systems in place; nothing leaves your network." },
+      { title: "Runs inside your environment", body: "Procela reads operational and IT systems in place, metadata only; nothing leaves your network." },
     ],
     valueHeading: "One governed map across a moving, critical-infrastructure estate.",
     outcomes: [

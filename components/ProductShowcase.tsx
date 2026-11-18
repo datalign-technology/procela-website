@@ -66,7 +66,7 @@ const VIEWS: View[] = [
     tab: "Systems",
     kicker: "Inventory",
     heading: "Every system, with an owner",
-    body: "Catalog the systems across your estate — each mapped to a named owner and steward, discovered by metadata-only edge agents. No more guessing who's accountable.",
+    body: "Catalog the systems across your estate — each mapped to a named owner and steward, discovered from your sources without moving data. No more guessing who's accountable.",
     href: "/platform",
     src: "/screenshots/systems.webp",
     alt: "Procela systems catalog listing enterprise systems with their type, business criticality, and assigned owner.",
