@@ -3,12 +3,13 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import CtaBand from "@/components/CtaBand";
 import ProductTour from "@/components/ProductTour";
+import { TRAINING_PLAYLIST_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/tour" },
   title: "Product tour — Procela",
   description:
-    "Take a self-guided, interactive tour of Procela — the council scorecard, enterprise view, process catalog, data assets, lineage, gap detection, audit log, and agent access (MCP) — no signup required.",
+    "Watch a short, silent product tour of Procela — from business process to trusted data: define processes, connect data, find gaps, ask questions, and certify ownership. Or step through the screens yourself.",
 };
 
 export default function TourPage() {
@@ -18,17 +19,57 @@ export default function TourPage() {
 
       <div className="page-hero">
         <div className="page-hero-inner">
-          <span className="hero-eyebrow">Interactive product tour</span>
-          <h1>See Procela, one screen at a time</h1>
+          <span className="hero-eyebrow">Product tour</span>
+          <h1>From business process to trusted data</h1>
           <p>
-            A self-guided walk through the product — from the governance council
-            scorecard to the audit log. Step through at your own pace, or press play.
-            No signup, no sales call.
+            A quick, silent walk through Procela — define processes, connect data,
+            find gaps, ask questions in plain English, and certify ownership. It
+            plays on a loop; no sound needed. Prefer to go at your own pace? Step
+            through the screens yourself below.
           </p>
         </div>
       </div>
 
       <section className="section">
+        <div className="section-inner">
+          <div className="tour-video">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/tour/Procela_Product_Tour_poster.jpg"
+              aria-label="Procela product tour: define processes, connect data, find gaps, certify data"
+            >
+              <source src="/tour/Procela_Product_Tour.webm" type="video/webm" />
+              <source src="/tour/Procela_Product_Tour.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="tour-video-actions">
+            <a
+              className="btn-outline-lg"
+              href={TRAINING_PLAYLIST_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch the full walkthrough →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">Go at your own pace</span>
+          <h2 className="section-title">Step through it yourself</h2>
+          <p className="section-body">
+            Prefer to explore screen by screen? Click through the interactive tour —
+            or press play to advance automatically.
+          </p>
+        </div>
         <div className="tour-wrap">
           <ProductTour />
         </div>

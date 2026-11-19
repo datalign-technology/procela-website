@@ -1517,6 +1517,26 @@ code.cmd {
 .lightbox-close:hover {
   background: rgba(255, 255, 255, 0.22);
 }
+
+/* Product-tour video */
+.tour-video {
+  max-width: 980px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d1f17;
+  line-height: 0;
+  box-shadow: 0 24px 60px rgba(13, 31, 23, 0.28), 0 6px 16px rgba(13, 31, 23, 0.12);
+}
+.tour-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.tour-video-actions {
+  margin-top: 1.5rem;
+  text-align: center;
+}
 .browser-bar {
   display: flex;
   align-items: center;
