@@ -38,6 +38,8 @@ export default function TourPage() {
               muted
               loop
               playsInline
+              controls
+              controlsList="nodownload"
               preload="metadata"
               poster="/tour/Procela_Product_Tour_poster.jpg"
               aria-label="Procela product tour: define processes, connect data, find gaps, certify data"
