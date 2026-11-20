@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { versionedShot } from "@/lib/screenshots";
 import Link from "next/link";
 import BrowserFrame from "./BrowserFrame";
 
@@ -149,10 +151,29 @@ export default function ProductTour() {
   const [pin, setPin] = useState<number | null>(null);
   const [playing, setPlaying] = useState(false);
   const [reduced, setReduced] = useState(false);
+  const [zoom, setZoom] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const railRef = useRef<HTMLDivElement>(null);
 
   const current = STEPS[step];
   const atEnd = step === STEPS.length - 1;
+
+  useEffect(() => setMounted(true), []);
+
+  // Enlarge lightbox: close on Escape, lock background scroll while open.
+  useEffect(() => {
+    if (!zoom) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setZoom(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [zoom]);
 
   // Reduced motion
   useEffect(() => {
@@ -251,6 +272,17 @@ export default function ProductTour() {
                 </button>
               ))}
             </div>
+            <button
+              type="button"
+              className="tour-enlarge"
+              onClick={() => setZoom(true)}
+              aria-label={`Enlarge screenshot: ${current.alt}`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+              </svg>
+              Enlarge
+            </button>
           </div>
         </div>
 
@@ -317,6 +349,33 @@ export default function ProductTour() {
           )}
         </div>
       </div>
+
+      {zoom &&
+        mounted &&
+        createPortal(
+          <div
+            className="lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label={current.alt}
+            onClick={() => setZoom(false)}
+          >
+            <button
+              type="button"
+              className="lightbox-close"
+              aria-label="Close enlarged screenshot"
+              onClick={() => setZoom(false)}
+              autoFocus
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="lightbox-img" src={versionedShot(current.src)} alt={current.alt} />
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
