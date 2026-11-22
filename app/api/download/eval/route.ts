@@ -70,14 +70,13 @@ export async function GET(req: Request) {
     console.error("Eval download logging failed:", err);
   }
 
-  // Immediate notification (best-effort).
-  if (resend && FROM && TO) {
-    const who = claims
-      ? `${claims.name} · ${claims.email} · ${claims.company}`
-      : "an unidentified visitor (no registration token)";
-    const subject = claims
-      ? `Evaluation downloaded - ${claims.company}`
-      : "Evaluation downloaded - (unattributed)";
+  // Immediate notification (best-effort) — ONLY for attributed downloads tied
+  // to a real registration. Tokenless hits are almost always crawlers, link
+  // scanners, and other bots hitting the public URL directly; they're still
+  // logged above, but we don't email about them so the inbox stays signal.
+  if (claims && resend && FROM && TO) {
+    const who = `${claims.name} · ${claims.email} · ${claims.company}`;
+    const subject = `Evaluation downloaded - ${claims.company}`;
     const text = [
       "Someone downloaded the evaluation build.",
       "",
