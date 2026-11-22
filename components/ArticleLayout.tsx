@@ -30,7 +30,7 @@ export default function ArticleLayout({
       name: "Procela",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.procela.ai/procela-icon.png",
+        url: "https://www.procela.ai/app-icon-512.png",
       },
     },
   };

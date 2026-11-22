@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type LogoProps = {
   height?: number;
   className?: string;
@@ -7,16 +5,15 @@ type LogoProps = {
   title?: string;
 };
 
-// Aspect ratios of the Procela app's brand assets, so the marketing site
-// renders the exact same logo/icon the product does. Swap the PNGs in
-// /public if the app's brand mark changes.
-const LOGO_RATIO = 836 / 240; // full logo (icon + wordmark)
-const ICON_RATIO = 195 / 192; // icon only
+// Aspect ratios of the Procela brand SVGs (from their viewBoxes), so the width
+// tracks the requested height. Swap the SVGs in /public if the mark changes.
+const LOGO_RATIO = 200.76 / 56; // horizontal logo (mark + wordmark)
+const ICON_RATIO = 200 / 224; // mark only
 
 /**
- * Procela brand mark — the same glyph and wordmark used in the product app
- * (public/procela-logo.png, public/procela-icon.png). Sized by `height`;
- * width is derived from the source aspect ratio.
+ * Procela brand mark. Renders the scalable SVG so it stays crisp at any size
+ * (public/procela-logo.svg, public/procela-icon.svg). Sized by `height`; width
+ * is derived from the source aspect ratio.
  */
 export default function Logo({
   height = 32,
@@ -24,16 +21,17 @@ export default function Logo({
   wordmark = true,
   title = "Procela",
 }: LogoProps) {
-  const src = wordmark ? "/procela-logo.png" : "/procela-icon.png";
+  const src = wordmark ? "/procela-logo.svg" : "/procela-icon.svg";
   const width = Math.round(height * (wordmark ? LOGO_RATIO : ICON_RATIO));
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src={src}
       alt={title}
       width={width}
       height={height}
       className={className}
-      priority
+      decoding="async"
     />
   );
 }

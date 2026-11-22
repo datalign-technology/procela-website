@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" role="img" aria-label="Procela">
-  <rect x="0" y="0" width="40" height="40" rx="9" fill="#0D1F17"/>
-  <rect x="0.5" y="0.5" width="39" height="39" rx="8.5" stroke="#4A8C6A" stroke-opacity="0.35"/>
-  <!-- left column: small square tiles -->
-  <rect x="8"  y="8"  width="7"  height="6" rx="1.8" fill="#70C090"/>
-  <rect x="8"  y="17" width="7"  height="6" rx="1.8" fill="#4A8C6A"/>
-  <rect x="8"  y="26" width="7"  height="6" rx="1.8" fill="#4A8C6A"/>
-  <!-- right column: wider bar tiles -->
-  <rect x="17" y="8"  width="15" height="6" rx="1.8" fill="#4A8C6A"/>
-  <rect x="17" y="17" width="15" height="6" rx="1.8" fill="#70C090"/>
-  <rect x="17" y="26" width="15" height="6" rx="1.8" fill="#3D7558"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 224" width="200" height="224" role="img" aria-label="Procela"><g transform="translate(-24 -16) scale(4)"><rect x="6" y="4" width="20" height="26" rx="4" fill="#0D1F17"/><rect x="6" y="34" width="20" height="26" rx="4" fill="#2C5A43"/><path d="M34 4H43A13 13 0 0 1 43 30H34A4 4 0 0 1 30 26V8A4 4 0 0 1 34 4Z" fill="#4A8C6A"/><circle cx="43" cy="47" r="10" fill="#70C090"/></g></svg>

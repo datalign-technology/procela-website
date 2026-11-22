@@ -46,8 +46,12 @@ export const metadata: Metadata = {
     "HIPAA",
   ],
   icons: {
-    icon: [{ url: "/procela-icon.png", type: "image/png" }],
-    apple: [{ url: "/procela-icon.png" }],
+    icon: [
+      { url: "/app-icon.svg", type: "image/svg+xml" },
+      { url: "/app-icon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/app-icon-16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [{ url: "/app-icon-180.png", sizes: "180x180" }],
   },
   verification: {
     // Bing Webmaster Tools site verification (renders <meta name="msvalidate.01" …>).
@@ -90,7 +94,7 @@ export default function RootLayout({
     alternateName: "Procela.ai",
     legalName: "Datalign Technology LLC",
     url: siteUrl,
-    logo: `${siteUrl}/procela-icon.png`,
+    logo: `${siteUrl}/app-icon-512.png`,
     description:
       "Procela is a business-process-first governance platform that aligns people, process, systems, and data into a single, auditable data governance program.",
     sameAs: [SOCIAL_LINKS.linkedin, SOCIAL_LINKS.youtube] as string[],
