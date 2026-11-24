@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -29,6 +30,87 @@ const EDITIONS: { kicker: string; title: string; body: string }[] = [
     body: "Everything in Professional, plus on-premise or air-gapped deployment via Helm and Kubernetes, unlimited organizations and domains, advanced compliance evidence, premium support with an SLA, and hands-on program stand-up. For financial services, healthcare, government, and critical infrastructure.",
   },
 ];
+
+// The three editions as comparison columns, in order.
+const COMPARE_COLUMNS: { name: string; tagline: string }[] = [
+  { name: "Foundation", tagline: "Stand up your first program" },
+  { name: "Professional", tagline: "Run governance enterprise-wide" },
+  { name: "Enterprise · Regulated", tagline: "For the most restricted environments" },
+];
+
+// A cell is a check (true), a dash (false), or a short text value.
+type Cell = boolean | string;
+const COMPARE: { group: string; rows: { label: string; hint?: string; cells: [Cell, Cell, Cell] }[] }[] = [
+  {
+    group: "Scope & scale",
+    rows: [
+      { label: "Data domains in scope", cells: ["Single priority domain", "Multiple domains", "Unlimited"] },
+      { label: "Organizations / business units", cells: ["One", "Multiple", "Unlimited"] },
+      { label: "Viewers", hint: "Read access across your team", cells: ["Unlimited", "Unlimited", "Unlimited"] },
+    ],
+  },
+  {
+    group: "Core governance",
+    rows: [
+      { label: "Business-process catalog", cells: [true, true, true] },
+      { label: "Process-to-data mapping", cells: [true, true, true] },
+      { label: "Data domains, ownership & RACI", cells: [true, true, true] },
+      { label: "Governance council scorecard", cells: [true, true, true] },
+      { label: "Gap detection", cells: [true, true, true] },
+    ],
+  },
+  {
+    group: "Program depth",
+    rows: [
+      { label: "AI-assisted classification & stewardship", cells: [false, true, true] },
+      { label: "Full governance program & decision rights", cells: [false, true, true] },
+      { label: "Business glossary", cells: [false, true, true] },
+      { label: "Data lineage", cells: [false, true, true] },
+      { label: "Executive reporting & scorecard history", cells: [false, true, true] },
+    ],
+  },
+  {
+    group: "Deployment",
+    rows: [
+      { label: "Cloud (AWS)", cells: [true, true, true] },
+      { label: "On-premise (Helm / Kubernetes)", cells: [false, false, true] },
+      { label: "Air-gapped", cells: [false, false, true] },
+    ],
+  },
+  {
+    group: "Identity & provisioning",
+    rows: [
+      { label: "Single sign-on (SSO)", cells: [true, true, true] },
+      { label: "SAML SSO & SCIM provisioning", cells: [false, true, true] },
+    ],
+  },
+  {
+    group: "Compliance & support",
+    rows: [
+      { label: "Advanced compliance evidence", cells: [false, false, true] },
+      { label: "Premium support with SLA", cells: [false, false, true] },
+      { label: "Hands-on program stand-up", cells: [false, false, true] },
+    ],
+  },
+];
+
+function CompareCell({ value }: { value: Cell }) {
+  if (value === true) {
+    return (
+      <span className="yes" role="img" aria-label="Included">
+        <Icon name="check" size={18} />
+      </span>
+    );
+  }
+  if (value === false) {
+    return (
+      <span className="no" role="img" aria-label="Not included">
+        —
+      </span>
+    );
+  }
+  return <>{value}</>;
+}
 
 const MECHANICS: { icon: IconName; kicker: string; title: string; body: string }[] = [
   {
@@ -104,6 +186,75 @@ export default function PricingPage() {
               Evaluate for free →
             </Link>
           </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="section">
+        <div className="section-inner">
+          <span className="eyebrow">Compare editions</span>
+          <h2 className="section-title">What&apos;s included at each level</h2>
+          <div className="compare-wrap">
+            <table className="compare">
+              <thead>
+                <tr>
+                  <th scope="col" className="compare-corner">
+                    Capabilities
+                  </th>
+                  {COMPARE_COLUMNS.map((c) => (
+                    <th scope="col" key={c.name}>
+                      {c.name}
+                      <span>{c.tagline}</span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARE.map((group) => (
+                  <Fragment key={group.group}>
+                    <tr className="compare-group">
+                      <th scope="colgroup" colSpan={4}>
+                        {group.group}
+                      </th>
+                    </tr>
+                    {group.rows.map((row) => (
+                      <tr key={row.label}>
+                        <th scope="row" className="feat">
+                          {row.label}
+                          {row.hint && <span className="feat-hint">{row.hint}</span>}
+                        </th>
+                        {row.cells.map((cell, i) => (
+                          <td key={COMPARE_COLUMNS[i].name}>
+                            <CompareCell value={cell} />
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </Fragment>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th scope="row" className="compare-corner" aria-hidden="true" />
+                  {COMPARE_COLUMNS.map((c) => (
+                    <td key={c.name}>
+                      <Link className="compare-cta" href="/demo">
+                        Request a quote →
+                      </Link>
+                    </td>
+                  ))}
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <p className="compare-note">
+            Each edition includes everything in the one before it. Not sure which fits?
+            Start free with the{" "}
+            <Link href="/download">evaluation build</Link> or{" "}
+            <Link href="/demo">tell us about your environment</Link> and we&apos;ll
+            recommend a scope.
+          </p>
         </div>
       </section>
 
